@@ -5,7 +5,7 @@ await connect(async (client) => {
 		.host()
 		.directory("./app", { exclude: ["node_modules/"] });
 
-	const bunFile = client
+	const file = await client
 		.container()
 		.from("oven/bun")
 		.withDirectory("/src", source)
@@ -13,7 +13,8 @@ await connect(async (client) => {
 		.withExec(["bun", "install"])
 		.withExec(["bun", "run", "build:bun"])
 		.directory("dist/")
-		.file("index.js");
+		.file("index.js")
+		.sync();
 
-	console.log(await bunFile.sync());
+	console.log(await file.contents());
 });
