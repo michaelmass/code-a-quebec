@@ -29,7 +29,7 @@ await connect(async (client) => {
 		.withExec(["pnpm", "build"], { skipEntrypoint: true })
 		.sync();
 
-	const globContainer = await client
+	const globContainer = client
 		.container()
 		.from("node:18-bullseye")
 		.withExec(["npm", "install", "-g", "glob"], { skipEntrypoint: true })
