@@ -1,17 +1,20 @@
 import { Hono } from "jsr:@hono/hono";
 import { z } from "https://esm.sh/zod@3.24.2";
-import { zValidator } from "https://esm.sh/@hono/zod-validator@0.4.3"
 
 const app = new Hono()
 
 app.get('/', (c) => c.text('Hono!'))
 
-const validator = zValidator('query', z.object({ name: z.string() }))
+const schema = z.object({
+  name: z.string().optional(),
+})
 
-app.get('/query', validator, (c) => {
-  const { name } = c.req.valid('query')
+app.post('/query', (c) => {
+  const body = c.req.parseBody()
 
-  return c.text(`Hello ${c.name}!`)
+  const { name } = schema.parse(body)
+
+  return c.text(`Hello ${name}!`)
 })
 
 Deno.serve(app.fetch)
