@@ -1,13 +1,17 @@
 import {
 	type Container,
+	type Directory,
+	type Client,
 	type File,
 	connect,
 } from "https://esm.sh/@dagger.io/dagger@0.9.6";
 import { openai } from 'npm:@ai-sdk/openai'
 import { generateText } from 'npm:ai';
 
+const REPOSITORY_PATH = Deno.env.get('REPOSITORY_PATH')
+
 await connect(async (client) => {
-	const repository = client
+	const repository = REPOSITORY_PATH ? client.host().directory(REPOSITORY_PATH, { exclude: ["node_modules/"] }) : client
 		.container()
 		.from("alpine")
 		.withExec(["apk", "add", "git"], { skipEntrypoint: true })
@@ -29,39 +33,21 @@ await connect(async (client) => {
 		.withExec(["pnpm", "build"], { skipEntrypoint: true })
 		.sync();
 
-	const globContainer = client
-		.container()
-		.from("node:18-bullseye")
-		.withExec(["npm", "install", "-g", "glob"], { skipEntrypoint: true })
-
 	const integrationPromises: Promise<Container>[] = [];
 
-	const tsFiles: string[] = []
+	const tsFilesListPromises: Promise<string[]>[] = []
 
 	for (const integration of integrations) {
 		const integrationContainer = container.withWorkdir(`/src/integrations/${integration}`)
 		const integrationDirectory = integrationContainer.directory(`/src/integrations/${integration}`)
 
-		const globOutput = await globContainer
-			.withDirectory("/src", integrationDirectory)
-			.withExec(["glob", "-i=node_modules/**", "**/*.ts"], { skipEntrypoint: true, redirectStdout: '/glob.txt' })
-			.file('/glob.txt')
-			.contents()
-
-		const files = globOutput
-			.split('\n')
-			.filter(Boolean)
-			.filter(line => !line.includes('node_modules'))
-			.filter(line => !line.includes('.botpress'))
-			.filter(line => !line.includes('bp_modules'))
-			.filter(line => !line.includes('/gen/'))
-			.map(line => `/integrations/${integration}/${line.substring(5)}`)
-
-		tsFiles.push(...files)
+		tsFilesListPromises.push(getTsFiles(client, integrationDirectory, `integrations/${integration}`))
 
 		const checkIntegrationPromises = checkIntegration(container.withWorkdir(`/src/integrations/${integration}`))
 		integrationPromises.push(checkIntegrationPromises)
 	}
+
+	const tsFiles = (await Promise.all(tsFilesListPromises)).flat()
 
 	await Promise.all(integrationPromises);
 
@@ -124,4 +110,26 @@ async function checkCode(file: File): Promise<'GOOD' | 'BAD' | 'UNKNOWN'> {
 	}
 
 	return 'UNKNOWN'
+}
+
+async function getTsFiles(client: Client, dir: Directory, prefix: string): Promise<string[]> {
+	const globOutput = await client
+			.container()
+			.from("node:18-bullseye")
+			.withExec(["npm", "install", "-g", "glob"], { skipEntrypoint: true })
+			.withDirectory("/src", dir)
+			.withExec(["glob", "-i=node_modules/**", "**/*.ts"], { skipEntrypoint: true, redirectStdout: '/glob.txt' })
+			.file('/glob.txt')
+			.contents()
+
+		const files = globOutput
+			.split('\n')
+			.filter(Boolean)
+			.filter(line => !line.includes('node_modules'))
+			.filter(line => !line.includes('.botpress'))
+			.filter(line => !line.includes('bp_modules'))
+			.filter(line => !line.includes('/gen/'))
+			.map(line => `/${prefix}/${line.substring(5)}`)
+
+		return files
 }
