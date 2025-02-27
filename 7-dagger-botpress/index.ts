@@ -29,13 +29,26 @@ await connect(async (client) => {
 	const promises: Promise<Container>[] = [];
 
 	for (const integration of integrations) {
-		const promise = container
-			.withWorkdir(`/src/integrations/${integration}`)
-			.withExec(["pnpm", "check:type"], { skipEntrypoint: true })
-			.sync();
-
-		promises.push(promise);
+		promises.push(checkIntegration(container.withWorkdir(`/src/integrations/${integration}`)))
 	}
 
 	await Promise.all(promises);
 });
+
+
+async function checkIntegration(container: Container) {
+	const packageJsonContent = await container
+		.file("package.json")
+		.contents();
+
+	const packageJson = JSON.parse(packageJsonContent);
+
+	const baseContainer = container
+		.withExec(["pnpm", "check:type"], { skipEntrypoint: true })
+
+	if (!packageJson['scripts']['check:bplint']) {
+		return baseContainer.sync()
+	}
+
+	return baseContainer.withExec(["pnpm", "check:bplint"], { skipEntrypoint: true }).sync()
+}
