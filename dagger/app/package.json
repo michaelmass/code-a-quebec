@@ -1,0 +1,17 @@
+{
+  "name": "myapp",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "build:bun": "bun build --outfile=dist/index.js src/index.ts",
+    "build:node": "esbuild --bundle --platform=node --outfile=dist/index.js src/index.ts",
+    "test": "vitest run e2e/server.test.ts"
+  },
+  "dependencies": {
+    "esbuild": "^0.25.0",
+    "hono": "^4.7.2",
+    "vitest": "^3.0.7"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}

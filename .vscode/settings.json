@@ -1,0 +1,7 @@
+{
+  "deno.enablePaths": [
+    "dagger/5-deno-example",
+    "dagger/6-dagger-deno",
+    "dagger/7-dagger-botpress"
+  ]
+}
