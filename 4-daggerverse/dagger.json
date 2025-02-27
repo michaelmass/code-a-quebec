@@ -1,0 +1,14 @@
+{
+  "name": "daggerverse",
+  "engineVersion": "v0.16.1",
+  "sdk": {
+    "source": "typescript"
+  },
+  "dependencies": [
+    {
+      "name": "node",
+      "source": "github.com/Dudesons/daggerverse/node@node/v0.4.0",
+      "pin": "506142af431e8acef646176d58cda16968e463c3"
+    }
+  ]
+}
