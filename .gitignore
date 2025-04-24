@@ -1,4 +1,5 @@
 .DS_Store
 node_modules
 dagger/4-daggerverse/sdk
-/bin
+/dagger/bin
+/dagger/app/dagger-build
