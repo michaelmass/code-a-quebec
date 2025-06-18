@@ -3,3 +3,8 @@ node_modules
 dagger/4-daggerverse/sdk
 /dagger/bin
 /dagger/app/dagger-build
+.env
+.vscode
+extension_tiltfile
+dist
+.ghf.type.ts
