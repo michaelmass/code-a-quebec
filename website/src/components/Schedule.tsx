@@ -173,10 +173,10 @@ const schedule: Array<Day> = [
 ]
 
 function ScheduleTabbed() {
-  let [tabOrientation, setTabOrientation] = useState('horizontal')
+  const [tabOrientation, setTabOrientation] = useState('horizontal')
 
   useEffect(() => {
-    let smMediaQuery = window.matchMedia('(min-width: 640px)')
+    const smMediaQuery = window.matchMedia('(min-width: 640px)')
 
     function onMediaQueryChange({ matches }: { matches: boolean }) {
       setTabOrientation(matches ? 'vertical' : 'horizontal')
@@ -252,7 +252,6 @@ function DaySummary({ day }: { day: Day }) {
 function TimeSlots({ day, className }: { day: Day; className?: string }) {
   return (
     <ol
-      role="list"
       className={clsx(
         className,
         'space-y-8 bg-white/60 px-10 py-14 text-center shadow-xl shadow-blue-900/5 backdrop-blur-sm',

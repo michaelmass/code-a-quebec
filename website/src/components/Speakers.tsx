@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useId, useState } from 'react'
-import Image from 'next/image'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import clsx from 'clsx'
+import Image from 'next/image'
+import { useEffect, useId, useState } from 'react'
 
 import { Container } from '@/components/Container'
 import { DiamondIcon } from '@/components/DiamondIcon'
@@ -162,11 +162,11 @@ function ImageClipPaths({
 }
 
 export function Speakers() {
-  let id = useId()
-  let [tabOrientation, setTabOrientation] = useState('horizontal')
+  const id = useId()
+  const [tabOrientation, setTabOrientation] = useState('horizontal')
 
   useEffect(() => {
-    let lgMediaQuery = window.matchMedia('(min-width: 1024px)')
+    const lgMediaQuery = window.matchMedia('(min-width: 1024px)')
 
     function onMediaQueryChange({ matches }: { matches: boolean }) {
       setTabOrientation(matches ? 'vertical' : 'horizontal')
