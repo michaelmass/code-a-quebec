@@ -32,7 +32,7 @@ export function Header() {
 		<header className="relative z-50 flex-none lg:pt-11">
 			<Container className="flex flex-wrap items-center justify-center sm:justify-between lg:flex-nowrap">
 				<div className="mt-10 lg:mt-0 lg:grow lg:basis-0">
-					<Logo className="h-20 w-auto text-slate-900" />
+					<Logo width={53} height={80} />
 				</div>
 				<div className="order-first relative -mx-4 flex flex-auto basis-full border-b border-blue-600/10 py-4 font-mono text-sm whitespace-nowrap text-blue-600 sm:-mx-6 lg:order-none lg:mx-0 lg:basis-auto lg:border-0 lg:py-0">
 					<div>
@@ -61,7 +61,7 @@ export function Header() {
 						href={nextEventLink}
 					>
 						<span>Réservez vos billets</span>
-						<span className="text-sm text-blue-200">(C'est Gratuit!)</span>
+						<span className="text-sm text-blue-200">(C&apos;est Gratuit!)</span>
 					</Button>
 				</div>
 			</Container>

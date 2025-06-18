@@ -1,5 +1,6 @@
 {
   "deno.enablePaths": [
+    "ci",
     "talks/2025-03-27/a-dinosaur-with-a-blade/5-deno-example",
     "talks/2025-03-27/a-dinosaur-with-a-blade/6-dagger-deno",
     "talks/2025-03-27/a-dinosaur-with-a-blade/7-dagger-botpress"
