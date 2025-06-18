@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import Link from "next/link";
 
-type ButtonProps =
+type ButtonOutlineProps =
 	| React.ComponentPropsWithoutRef<typeof Link>
 	| (React.ComponentPropsWithoutRef<"button"> & { href?: undefined });
 
-export function Button({ className, ...props }: ButtonProps) {
+export function ButtonOutline({ className, ...props }: ButtonOutlineProps) {
 	className = clsx(
-		"inline-flex justify-center rounded-2xl bg-blue-600 p-2 px-4 text-base font-semibold text-white hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:text-white/70",
+		"inline-flex justify-center rounded-2xl outline-2 outline-offset-2 outline-blue-500 bg-blue-200 text-blue-600 p-2 px-4 text-base font-semibold hover:bg-blue-300 focus-visible:outline-blue-700 active:text-blue-600/70",
 		className,
 	);
 
