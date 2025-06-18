@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import type { Metadata } from "next";
-import { DM_Sans, Inter } from "next/font/google";
+import { DM_Sans, Inter, Shantell_Sans } from "next/font/google";
 
 import "@/styles/tailwind.css";
 
@@ -17,10 +17,17 @@ const dmSans = DM_Sans({
 	variable: "--font-dm-sans",
 });
 
+const shantellSans = Shantell_Sans({
+	subsets: ["latin"],
+	weight: ["400", "500", "700"],
+	display: "swap",
+	variable: "--font-shantell-sans",
+});
+
 export const metadata: Metadata = {
 	title: {
-		template: "%s - DeceptiConf",
-		default: "DeceptiConf - A community-driven design conference",
+		template: "%s - Code @ Québec",
+		default: "Code @ Québec - Un meetup de tech à Québec",
 	},
 	description:
 		"At DeceptiConf you’ll learn about the latest dark patterns being developed to trick even the smartest visitors, and you’ll learn how to deploy them without ever being detected.",
@@ -38,6 +45,7 @@ export default function RootLayout({
 				"h-full bg-white antialiased",
 				inter.variable,
 				dmSans.variable,
+				shantellSans.variable,
 			)}
 		>
 			<body className="flex min-h-full">

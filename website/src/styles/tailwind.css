@@ -34,6 +34,7 @@
 
   --font-sans: var(--font-inter);
   --font-display: var(--font-dm-sans);
+  --font-comic: var(--font-shantell-sans);
 
   --container-2xl: 40rem;
 }
