@@ -21,25 +21,26 @@ export function Hero() {
 					<div className="mt-6 space-y-6 font-display text-2xl tracking-tight text-blue-900">
 						<p>
 							Le <b>Code @ Québec</b> est un meetup pour découvrir des
-							technologies et rencontrer d'autres devs. Chaque événement
+							technologies et rencontrer d&apos;autres devs. Chaque événement
 							comprend <b>deux talks</b>, et les présentations sont techniques{" "}
-							<i>(Pas de talks sur la culture d'entreprise au C@Q)</i>.
-							L'événement est disponible à tous les devs de Québec. Vous pouvez
-							trouver l'event sur la plateforme Eventbrite.
+							<i>(Pas de talks sur la culture d&apos;entreprise au C@Q)</i>.
+							L&apos;événement est disponible à tous les devs de Québec. Vous
+							pouvez trouver l&apos;event sur la plateforme Eventbrite.
 						</p>
 						<ButtonOutline
 							href={nextEventLink}
 							className="w-full gap-2"
 							target="_blank"
 						>
-							<span>Inscrivez-vous au prochain meetup</span>
+							<span>Inscris-toi au prochain meetup</span>
 							<span className="text-sm text-blue-500">(Ça coûte rien!)</span>
 						</ButtonOutline>
 						<p>
 							Les meetups commencent à <b>6pm</b> et se terminent aux alentours
-							de <b>9pm</b>. Les talks durent 20-30 minutes chacun, suivis d'une
-							période de questions. C'est l'occasion parfaite pour échanger avec
-							d'autres devs et de discuter des sujets qui vous intéressent.
+							de <b>9pm</b>. Les talks durent 20-30 minutes chacun, suivis
+							d&apos;une période de questions. C&apos;est l&apos;occasion
+							parfaite pour échanger avec d&apos;autres devs et de discuter des
+							sujets qui vous intéressent.
 						</p>
 					</div>
 					<dl className="mt-10 grid grid-cols-2 gap-x-10 gap-y-6 sm:mt-16 sm:gap-x-16 sm:gap-y-10 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
