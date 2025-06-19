@@ -60,7 +60,7 @@ export function Header() {
 						className="flex flex-col justify-center items-center"
 						href={nextEventLink}
 					>
-						<span>Réservez vos billets</span>
+						<span>Réserve ton billet</span>
 						<span className="text-sm text-blue-200">(C&apos;est Gratuit!)</span>
 					</Button>
 				</div>
