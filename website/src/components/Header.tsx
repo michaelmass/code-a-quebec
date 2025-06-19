@@ -4,6 +4,7 @@ import { DiamondIcon } from "@/components/DiamondIcon";
 import { Logo } from "@/components/Logo";
 import { nextEventLink } from "@/const";
 import { formatRelativeDate } from "@/util";
+import Link from "next/link";
 
 function getLastThursdayOfMonth(date = new Date()) {
 	const nextThursday = new Date(date);
@@ -32,7 +33,11 @@ export function Header() {
 		<header className="relative z-50 flex-none lg:pt-11">
 			<Container className="flex flex-wrap items-center justify-center sm:justify-between lg:flex-nowrap">
 				<div className="mt-10 lg:mt-0 lg:grow lg:basis-0">
-					<Logo width={53} height={80} />
+					<div className="flex">
+						<Link className="cursor-pointer" href="/">
+							<Logo width={53} height={80} />
+						</Link>
+					</div>
 				</div>
 				<div className="order-first relative -mx-4 flex flex-auto basis-full border-b border-blue-600/10 py-4 font-mono text-sm whitespace-nowrap text-blue-600 sm:-mx-6 lg:order-none lg:mx-0 lg:basis-auto lg:border-0 lg:py-0">
 					<div>
