@@ -9,8 +9,6 @@ await connect(async (client) => {
 
 	// TODO!
 	const cloudflareAccountId = client.setSecret("cloudflareAccountId", "");
-
-	// TODO!
 	const cloudflareToken = client.setSecret("cloudflareToken", "");
 
 	await upload({
