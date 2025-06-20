@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BackgroundImage } from "@/components/BackgroundImage";
 import { ButtonOutline } from "@/components/ButtonOutline";
 import { Container } from "@/components/Container";
@@ -7,7 +8,6 @@ import {
 	nextEventLink,
 	presentationTotal,
 } from "@/const";
-import Link from "next/link";
 
 export function Hero() {
 	return (
@@ -24,8 +24,8 @@ export function Hero() {
 							technologies et rencontrer d&apos;autres devs. Chaque événement
 							comprend <b>deux talks</b>, et les présentations sont techniques{" "}
 							<i>(Pas de talks sur la culture d&apos;entreprise au C@Q)</i>.
-							L&apos;événement est disponible à tous les devs de Québec. Vous
-							pouvez trouver l&apos;event sur la plateforme Eventbrite.
+							L&apos;événement est ouvert à tous les devs de Québec. Vous
+							pouvez trouver l&apos;événement sur la plateforme Eventbrite.
 						</p>
 						<ButtonOutline
 							href={nextEventLink}
@@ -36,10 +36,10 @@ export function Hero() {
 							<span className="text-sm text-blue-500">(Ça coûte rien!)</span>
 						</ButtonOutline>
 						<p>
-							Les meetups commencent à <b>6pm</b> et se terminent aux alentours
-							de <b>9pm</b>. Les talks durent 20-30 minutes chacun, suivis
+							Les meetups commencent à <b>18h</b> et se terminent aux alentours
+							de <b>21h</b>. Les talks durent 20-40 minutes chacun, suivis
 							d&apos;une période de questions. C&apos;est l&apos;occasion
-							parfaite pour échanger avec d&apos;autres devs et de discuter des
+							parfaite pour échanger avec d&apos;autres devs et discuter des
 							sujets qui vous intéressent.
 						</p>
 					</div>
