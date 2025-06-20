@@ -1,5 +1,5 @@
-import { Container } from "@/components/Container";
 import Link from "next/link";
+import { Container } from "@/components/Container";
 
 export const Guidelines = () => {
 	return (
@@ -25,10 +25,10 @@ export const Guidelines = () => {
 						Ça peut être sur un outil qu&apos;on aime, un bug bizarre, un projet
 						personnel, un deep dive dans une technologie.
 					</p>
-					<p className="text-lg">Des bons exemples qu&apos;on a eu:</p>
+					<p className="text-lg">De bons exemples qu&apos;on a eu:</p>
 					<ul>
 						<li className="italic">
-							- Un Deep dive sur les MySQL transactions
+							- Un deep dive sur les MySQL transactions
 						</li>
 						<li className="italic">
 							- Le showcase d&apos;une lib pour comparer des JsonSchemas
@@ -54,10 +54,10 @@ export const Guidelines = () => {
 
 				<div className="space-y-2">
 					<h2 className="font-bold text-2xl">
-						2. Limite de temps: 15-30 Minutes
+						2. Limite de temps: 20-40 Minutes
 					</h2>
 					<p>
-						Le talk doit durer entre 15 et 30 minutes. Idéalement, vise 20-25
+						Le talk doit durer entre 20 et 40 minutes. Idéalement, vise 25-35
 						minutes pour être dans le temps. Si tu dépasses, ce n&apos;est pas
 						grave, on ne va pas t&apos;interrompre.{" "}
 						<span className="font-comic">
@@ -73,7 +73,7 @@ export const Guidelines = () => {
 					<h2 className="font-bold text-2xl">3. Inclus l&apos;audience</h2>
 
 					<p>
-						Un talk, c&apos;est encore mieux avec de l&apos;interaction. Pose{" "}
+						Un talk est encore meilleur avec  un peu d&apos;interaction. Pose{" "}
 						<b>une ou deux questions</b> au public pendant ta présentation — ça
 						capte l&apos;attention et crée un petit moment vivant.
 					</p>
@@ -109,11 +109,11 @@ export const Guidelines = () => {
 						<b>pour appuyer</b> ce que tu vas dire. Donc, essaie de garder les
 						visuels <b>épurés et lisibles</b>. Un autre niveau, c&apos;est des
 						exemples à l&apos;appui. Si une image vaut mille mots, un exemple,
-						c&apos;est l&apos;infini.
+						ça vaut l&apos;infini.
 					</p>
 
 					<p>
-						Un bon exemple c&apos;est Le talk de Christophe.{" "}
+						Un bon exemple, c&apos;est Le talk de Christophe.{" "}
 						<Link
 							className="underline hover:underline-offset-2"
 							target="_blank"
@@ -178,7 +178,7 @@ export const Guidelines = () => {
 						avec toi.
 					</p>
 
-					<p>Une petite phrase de contexte ca mène loin:</p>
+					<p>Une petite phrase de contexte ça mène loin:</p>
 
 					<i>
 						Kafka c&apos;est un système qui permet de gérer et transférer en
@@ -191,7 +191,7 @@ export const Guidelines = () => {
 
 					<p>
 						Après la présentation, on se garde un <b>5 à 10 minutes</b> de plus
-						pour les questions. Si on voit que sa commence à déborder, tu peux
+						pour les questions. Si on voit que ça commence à déborder, tu peux
 						inviter les gens à venir te jaser directement après ton talk.
 					</p>
 				</div>
