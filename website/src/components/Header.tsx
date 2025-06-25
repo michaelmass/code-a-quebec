@@ -1,10 +1,12 @@
+"use client";
+
+import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { DiamondIcon } from "@/components/DiamondIcon";
 import { Logo } from "@/components/Logo";
 import { nextEventLink } from "@/const";
 import { formatRelativeDate } from "@/util";
-import Link from "next/link";
 
 function getLastThursdayOfMonth(date = new Date()) {
 	const nextThursday = new Date(date);
@@ -22,6 +24,8 @@ function getLastThursdayOfMonth(date = new Date()) {
 	while (lastThursday.getDay() !== 4) {
 		lastThursday.setDate(lastThursday.getDate() - 1);
 	}
+
+	lastThursday.setHours(18, 0, 0, 0);
 
 	return lastThursday;
 }

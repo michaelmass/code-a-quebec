@@ -61,7 +61,7 @@ export const Guidelines = () => {
 						minutes pour être dans le temps. Si tu dépasses, ce n&apos;est pas
 						grave, on ne va pas t&apos;interrompre.{" "}
 						<span className="font-comic">
-							(Sauf si t&apos;es rendu à 45 minutes)
+							(Sauf si t&apos;es rendu à 50 minutes)
 						</span>
 					</p>
 					<p className="italic">
@@ -73,7 +73,7 @@ export const Guidelines = () => {
 					<h2 className="font-bold text-2xl">3. Inclus l&apos;audience</h2>
 
 					<p>
-						Un talk est encore meilleur avec  un peu d&apos;interaction. Pose{" "}
+						Un talk est encore meilleur avec un peu d&apos;interaction. Pose{" "}
 						<b>une ou deux questions</b> au public pendant ta présentation — ça
 						capte l&apos;attention et crée un petit moment vivant.
 					</p>
@@ -101,15 +101,31 @@ export const Guidelines = () => {
 
 				<div className="space-y-2">
 					<h2 className="font-bold text-2xl">
-						4. Slides simples et des exemples
+						4. Slides simples, exemples et du code
 					</h2>
 
 					<p>
 						Les slides d&apos;une présentation, c&apos;est surtout{" "}
 						<b>pour appuyer</b> ce que tu vas dire. Donc, essaie de garder les
-						visuels <b>épurés et lisibles</b>. Un autre niveau, c&apos;est des
-						exemples à l&apos;appui. Si une image vaut mille mots, un exemple,
-						ça vaut l&apos;infini.
+						visuels <b>épurés et lisibles</b>.
+					</p>
+
+					<p>
+						Le prochain step, c&apos;est <b>des exemples</b> à l&apos;appui. Si
+						une image vaut mille mots, un exemple, ça vaut l&apos;infini.
+						C&apos;est mieux d&apos;avoir un exemple qui échoue que rien à
+						montrer.{" "}
+						<span className="font-comic">
+							(On croise les doigts pour le demo god)
+						</span>
+					</p>
+
+					<p>
+						Pour finir, il y a <b>le code</b>. Montrer du code est un couteau à
+						double tranchant. Il faut bien sélectionner ce qu'on veut montrer
+						sans surcharger le public. Si tu prévois de montrer du code,
+						assure-toi de bien l'expliquer sans passer trop vite. Une bonne
+						règle est de montrer au <b>maximum 50 lignes</b> à la fois.
 					</p>
 
 					<p>

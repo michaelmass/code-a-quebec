@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 		default: "Code @ Québec - Un meetup de tech à Québec",
 	},
 	description:
-		"At DeceptiConf you’ll learn about the latest dark patterns being developed to trick even the smartest visitors, and you’ll learn how to deploy them without ever being detected.",
+		"Le Code @ Québec est un meetup pour découvrir des technologies et rencontrer d&apos;autres devs.",
 };
 
 export default function RootLayout({
