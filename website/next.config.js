@@ -1,21 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
+  output: 'export',
   images: { unoptimized: true },
-  webpack: (config) => {
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.(".svg")
-    );
+  webpack: config => {
+    const fileLoaderRule = config.module.rules.find(rule => rule.test?.test?.('.svg'))
 
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: fileLoaderRule.issuer,
       resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] },
-      use: ["@svgr/webpack"],
-    });
+      use: ['@svgr/webpack'],
+    })
 
-    return config;
+    return config
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

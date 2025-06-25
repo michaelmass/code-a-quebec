@@ -157,7 +157,8 @@ export const events: Event[] = [
         profile: profiles.christopheSirois,
         title: 'Design for engineers',
         youtubeUrl: 'https://youtu.be/nRDiyyDIe8M',
-        summary: '',
+        summary:
+          'La présentation de Christophe est sur le design pour les devs. Il propose des approches concrètes avec des exemples clairs pour approcher le design en tant que dev. Après la présentation de Christophe, n\'importe quel dev devrait être en mesure d\'améliorer son UI pour éviter le fameux "UI de dev".',
         links: [],
       },
       {

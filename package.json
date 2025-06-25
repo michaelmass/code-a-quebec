@@ -1,5 +1,5 @@
 {
-	"devDependencies": {
-		"@svgr/webpack": "^8.1.0"
-	}
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0"
+  }
 }
