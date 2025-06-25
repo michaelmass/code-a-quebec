@@ -1,0 +1,66 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "suspicious": {
+        "noExplicitAny": "error",
+        "noArrayIndexKey": "error",
+        "noConsole": "error"
+      },
+      "nursery": {
+        "recommended": true,
+        "noFloatingPromises": "error"
+      },
+      "correctness": { "noChildrenProp": "error", "noUnusedImports": "error" },
+      "a11y": {
+        "recommended": true,
+        "useAltText": "error",
+        "useKeyWithClickEvents": "error",
+        "useValidAnchor": "error",
+        "noSvgWithoutTitle": "error"
+      },
+      "complexity": {
+        "recommended": true,
+        "useSimplifiedLogicExpression": "off",
+        "noExtraBooleanCast": "error"
+      },
+      "style": {
+        "recommended": true,
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "enabled": true,
+      "semicolons": "asNeeded",
+      "trailingCommas": "all",
+      "quoteStyle": "single",
+      "arrowParentheses": "asNeeded"
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "lineEnding": "lf",
+    "lineWidth": 200
+  }
+}
