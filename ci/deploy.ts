@@ -1,6 +1,6 @@
-import { context } from 'npm:@actions/github'
 import { upload } from 'https://raw.githubusercontent.com/michaelmass/pipelines/master/dagger/cloudflare.ts'
 import { connect } from 'https://raw.githubusercontent.com/michaelmass/pipelines/master/dagger/dagger.ts'
+import { context } from 'npm:@actions/github'
 import { build, getDirectory } from './util.ts'
 
 await connect(async client => {

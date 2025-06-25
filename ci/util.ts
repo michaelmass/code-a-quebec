@@ -2,7 +2,7 @@ import type { Client, Directory } from 'https://raw.githubusercontent.com/michae
 
 export const getDirectory = (client: Client) =>
   client.host().directory('.', {
-    exclude: ['.git', '.github', 'node_modules', 'ci'],
+    exclude: ['.git', '.github', 'node_modules', 'ci', 'website/node_modules'],
   })
 
 export const build = ({ client, directory }: { client: Client; directory: Directory }) => setupWebsite({ client, directory }).withExec(['pnpm', 'build']).directory('./out')
