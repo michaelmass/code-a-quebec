@@ -168,8 +168,14 @@ export const events: Event[] = [
         profile: profiles.pierreSnell,
         title: 'Unlocking the Power of Pre-trained Models and Open-Source Ecosystems',
         slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-04-24/huggingface-101/slides.pptx',
-        summary: '',
-        links: [],
+        summary:
+          "Pierre a fait une présentation pour introduire la plateforme Hugging Face. Il a fait un excellent aperçu des fonctionnalités disponibles sur la plateforme comme les modèles, les librairies, la documentation, l'outil Gradio, les cours en ligne et la communauté. Sa présentation s'est terminée par un aperçu des bénéfices d'utiliser une plateforme comme Hugging Face.",
+        links: [
+          {
+            text: 'Hugging Face',
+            url: 'https://huggingface.co/',
+          },
+        ],
       },
     ],
   },
@@ -180,7 +186,9 @@ export const events: Event[] = [
       {
         profile: profiles.mikaelFrancoeur,
         title: 'Mastering Transactions in MySQL',
-        summary: '',
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-03-27/mastering-mysql-transactions/slides.pdf',
+        summary:
+          "La présentation de Mikaël examine comment les bases de données maintiennent l'intégrité des données lors d'accès concurrents et explique comment MySQL utilise différents niveaux d'isolation de transactions pour équilibrer la sécurité des données et les performances, en s'appuyant sur des mécanismes comme le verrouillage, le MVCC et les lectures cohérentes sans verrouillage.",
         links: [
           {
             text: 'Same presentation at Scale 22x',
@@ -192,7 +200,8 @@ export const events: Event[] = [
         profile: profiles.francoisXavierDarveau,
         title: 'Coder en mode startup',
         slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-03-27/coder-en-mode-startup/slides.pptx',
-        summary: '',
+        summary:
+          "La présentation de François-Xavier vient redéfinir ce qu'on s'imagine quand on pense au rôle d'un dev. La réponse à la question : \"C'est quoi la job d'un dev ?\" est différente en fonction du contexte. Quand tu es un dev solo dans une startup, l'important c'est la vitesse, mais dans un contexte plus grand comme une tribu (20-100 devs) l'important c'est de scaler le code sans tuer la vélocité. La présentation amène une nouvelle perspective sur le sujet.",
         links: [],
       },
     ],
@@ -204,15 +213,31 @@ export const events: Event[] = [
       {
         profile: profiles.anthonyVallee,
         title: 'DevX Story: Un Outil pour Dompter Kafka en Local',
-        summary: '',
-        links: [],
+        summary:
+          "Au retour de son voyage, Anthony a décidé d'écrire un petit outil pour se simplifier la vie avec la gestion de clusters Kafka. Cette petite preuve de concept montre à quel point l'utilisation de shim et l'ingéniosité peut améliorer notre expérience en tant que dev.",
+        links: [
+          {
+            text: 'Kafka',
+            url: 'https://kafka.apache.org/',
+          },
+        ],
       },
       {
         profile: profiles.michaelMasson,
         title: 'A Dinosaur with a Blade: Revolutionizing CI with Deno and Dagger',
         slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-02-27/a-dinosaur-with-a-blade/slides.pptx',
-        summary: '',
-        links: [],
+        summary:
+          "Michael a présenté Dagger, un outil pour créer des workflows réutilisables en TypeScript, Python et Go. Ensuite, il a montré comment Dagger fonctionne parfaitement avec Deno, un runtime TypeScript moderne. La présentation met l'emphase sur l'utilisation de Dagger et Deno pour écrire des workflows de CI.",
+        links: [
+          {
+            text: 'Deno',
+            url: 'https://deno.land/',
+          },
+          {
+            text: 'Dagger',
+            url: 'https://dagger.io/',
+          },
+        ],
       },
     ],
   },
@@ -223,7 +248,8 @@ export const events: Event[] = [
       {
         profile: profiles.sebastienDufourBeausejour,
         title: "Primer sur l'optimisation de performance frontend",
-        summary: '',
+        summary:
+          'Sébastien a présenté divers outils pour optimiser la performance frontend. Il nous a fait part de son parcours de recherche pour optimiser la performance dans un projet où même optimiser les styles CSS était crucial. La présentation de Sébastien démontre parfaitement que chercher la performance est un puits sans fond. On peut toujours aller chercher plus loin!',
         links: [],
       },
       {
@@ -231,7 +257,7 @@ export const events: Event[] = [
         title: 'Hacking Productivity',
         slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-01-30/hacking-productivity/slides.pptx',
         summary:
-          "Christophe présenté des outils utilisés pour augmenter la productivité des devs chez Botpress. La présentation comprenait une démo sur les Vercel previews, Storybook et Chromatic. L'utilisation de tous ces outils permet aux devs d'aimer leur environnement de travail tout en augmentant leur productivité.",
+          "Christophe a présenté des outils utilisés pour augmenter la productivité des devs chez Botpress. La présentation comprenait une démo sur les Vercel previews, Storybook et Chromatic. L'utilisation de tous ces outils permet aux devs d'aimer leur environnement de travail tout en augmentant leur productivité.",
         links: [
           {
             text: 'Storybook',
