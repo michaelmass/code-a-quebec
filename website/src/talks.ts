@@ -115,6 +115,7 @@ type Event = {
     title: string
     summary: string
     youtubeUrl?: string
+    slidesUrl?: string
     links: {
       text: string
       url: string
@@ -131,6 +132,7 @@ export const events: Event[] = [
         profile: profiles.christopheSirois,
         title: '"It Just Feels Right": Unpacking Animation Magic for Devs',
         youtubeUrl: 'https://www.youtube.com/watch?v=UCr4qZMh4EU',
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-05-29/unpacking-animation-for-devs/slides.pptx',
         summary:
           "La présentation de Christophe montre les secrets d'une animation réussie. Par exemple, la durée perçue compte plus que la durée réelle, les courbes ease-out offrent le meilleur ressenti, et la gestion des interruptions est cruciale. Côté technique, il faut privilégier les transforms CSS et l'opacité pour rester sur le GPU, maintenir 60fps coûte que coûte, et utiliser les transitions plutôt que les keyframes pour les interactions. L'essentiel : ne jamais ralentir l'utilisateur, gérer les interruptions proprement, et optimiser les performances avant tout.",
         links: [],
@@ -157,6 +159,7 @@ export const events: Event[] = [
         profile: profiles.christopheSirois,
         title: 'Design for engineers',
         youtubeUrl: 'https://youtu.be/nRDiyyDIe8M',
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-04-24/design-for-engineers/slides.pptx',
         summary:
           'La présentation de Christophe est sur le design pour les devs. Il propose des approches concrètes avec des exemples clairs pour approcher le design en tant que dev. Après la présentation de Christophe, n\'importe quel dev devrait être en mesure d\'améliorer son UI pour éviter le fameux "UI de dev".',
         links: [],
@@ -164,6 +167,7 @@ export const events: Event[] = [
       {
         profile: profiles.pierreSnell,
         title: 'Unlocking the Power of Pre-trained Models and Open-Source Ecosystems',
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-04-24/huggingface-101/slides.pptx',
         summary: '',
         links: [],
       },
@@ -187,6 +191,7 @@ export const events: Event[] = [
       {
         profile: profiles.francoisXavierDarveau,
         title: 'Coder en mode startup',
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-03-27/coder-en-mode-startup/slides.pptx',
         summary: '',
         links: [],
       },
@@ -205,6 +210,7 @@ export const events: Event[] = [
       {
         profile: profiles.michaelMasson,
         title: 'A Dinosaur with a Blade: Revolutionizing CI with Deno and Dagger',
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-02-27/a-dinosaur-with-a-blade/slides.pptx',
         summary: '',
         links: [],
       },
@@ -223,6 +229,7 @@ export const events: Event[] = [
       {
         profile: profiles.christopheSirois,
         title: 'Hacking Productivity',
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-01-30/hacking-productivity/slides.pptx',
         summary:
           "Christophe présenté des outils utilisés pour augmenter la productivité des devs chez Botpress. La présentation comprenait une démo sur les Vercel previews, Storybook et Chromatic. L'utilisation de tous ces outils permet aux devs d'aimer leur environnement de travail tout en augmentant leur productivité.",
         links: [
@@ -251,6 +258,7 @@ export const events: Event[] = [
         title: "Generating Code Faster Than You Can Say 'Typescript'!",
         summary:
           "Mike a présenté une manière d'utiliser la génération de code avec \"TypeScript\". En utilisant un exemple loufoque de gestion de poulailler par API. La présentation abordait plusieurs technologies et spécifications comme OpenApi, JsonSchema, Zod et bien d'autres. C'était un survol du potentiel d'utiliser la génération de code pour se focaliser sur la valeur au client au lieu de penser en termes d'API et de verbes HTTP.",
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2024-11-29/typescript-code-gen/slides.pptx',
         links: [
           {
             url: 'https://github.com/botpress/packages/tree/master/opapi',
@@ -263,6 +271,7 @@ export const events: Event[] = [
         title: "Jex: le cas particulier d'un JSON Schema",
         summary:
           "François a présenté Jex, un librairie pour comparer des JsonSchemas. Jex permet de prendre deux JsonSchemas et de les comparer pour savoir si un JsonSchema est un sous-ensemble de l'autre. Cette librairie est utilisée par Botpress pour s'assurer d'éviter les breaking changes des points d'extension.",
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2024-11-29/jex/slides.pptx',
         links: [
           {
             url: 'https://github.com/botpress/packages/tree/master/jex',

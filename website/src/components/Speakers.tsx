@@ -8,6 +8,7 @@ import { useEffect, useId, useState } from 'react'
 import { Container } from '@/components/Container'
 import { DiamondIcon } from '@/components/DiamondIcon'
 import LinkedInLogo from '@/images/logos/linkedin.svg'
+import SlidesLogo from '@/images/logos/slides.svg'
 import YoutubeLogo from '@/images/logos/youtube.svg'
 import { events } from '@/talks'
 
@@ -140,6 +141,11 @@ export function Speakers() {
                         {talk.youtubeUrl ? (
                           <a href={talk.youtubeUrl} target="_blank" className="-mt-0.5">
                             <YoutubeLogo className="inline-block" height="24" width="24" alt="Listen on Youtube" viewBox="0 0 256 180" />
+                          </a>
+                        ) : undefined}
+                        {talk.slidesUrl ? (
+                          <a href={talk.slidesUrl} target="_blank" className="-mt-0.5">
+                            <SlidesLogo className="inline-block" height="20" width="16" alt="View slides" viewBox="0 0 48 66" />
                           </a>
                         ) : undefined}
                         <span>{talk.title}</span>
