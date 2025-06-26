@@ -1,10 +1,16 @@
+'use client'
+
 import Link from 'next/link'
 import { BackgroundImage } from '@/components/BackgroundImage'
 import { ButtonOutline } from '@/components/ButtonOutline'
 import { Container } from '@/components/Container'
-import { attendeesTotal, botpressGoogleMapsLink, nextEventLink, presentationTotal } from '@/const'
+import { attendeesTotal, botpressGoogleMapsLink, presentationTotal } from '@/const'
+import { formatCodeAQuebecLink, getLastThursdayOfMonth } from '@/util'
 
 export function Hero() {
+  const nextLastThursday = getLastThursdayOfMonth()
+  const eventLink = formatCodeAQuebecLink(nextLastThursday)
+
   return (
     <div className="relative py-20 sm:pt-36 sm:pb-24">
       <BackgroundImage className="-top-36 -bottom-14" />
@@ -19,7 +25,7 @@ export function Hero() {
               <span className="font-comic">(Pas de talks sur la culture d&apos;entreprise au C@Q)</span>. L&apos;événement est ouvert à tous les devs de Québec. Vous pouvez trouver l&apos;événement
               sur la plateforme Eventbrite.
             </p>
-            <ButtonOutline href={nextEventLink} className="w-full gap-2" target="_blank">
+            <ButtonOutline href={eventLink} className="w-full gap-2" target="_blank">
               <span>Inscris-toi au prochain meetup</span>
               <span className="text-sm text-blue-500">(Ça coûte rien!)</span>
             </ButtonOutline>

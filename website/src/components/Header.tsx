@@ -5,29 +5,11 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { DiamondIcon } from '@/components/DiamondIcon'
 import { Logo } from '@/components/Logo'
-import { nextEventLink } from '@/const'
-import { formatRelativeDate } from '@/util'
-
-function getLastThursdayOfMonth(date = new Date()) {
-  const nextThursday = new Date(date)
-
-  while (nextThursday.getDay() !== 4) {
-    nextThursday.setDate(nextThursday.getDate() + 1)
-  }
-
-  const lastThursday = new Date(nextThursday.getFullYear(), nextThursday.getMonth() + 1, 0)
-
-  while (lastThursday.getDay() !== 4) {
-    lastThursday.setDate(lastThursday.getDate() - 1)
-  }
-
-  lastThursday.setHours(18, 0, 0, 0)
-
-  return lastThursday
-}
+import { formatCodeAQuebecLink, formatRelativeDate, getLastThursdayOfMonth } from '@/util'
 
 export function Header() {
   const nextLastThursday = getLastThursdayOfMonth()
+  const eventLink = formatCodeAQuebecLink(nextLastThursday)
 
   return (
     <header className="relative z-50 flex-none lg:pt-11">
@@ -58,7 +40,7 @@ export function Header() {
           </div>
         </div>
         <div className="hidden sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 lg:justify-end">
-          <Button target="_blank" className="flex flex-col justify-center items-center" href={nextEventLink}>
+          <Button target="_blank" className="flex flex-col justify-center items-center" href={eventLink}>
             <span>Réserve ton billet</span>
             <span className="text-sm text-blue-200">(C&apos;est Gratuit!)</span>
           </Button>
