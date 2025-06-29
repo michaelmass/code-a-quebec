@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { DiamondIcon } from '@/components/DiamondIcon'
 import { Logo } from '@/components/Logo'
+import { repositoryLink } from '@/const'
+import GithubLogo from '@/images/logos/github.svg'
 
 export function Footer() {
   return (
@@ -29,6 +31,9 @@ export function Footer() {
             Michael Masson
           </Link>{' '}
           &copy; {new Date().getFullYear()}
+          <Link target="_blank" href={repositoryLink} className="text-gray-400 ml-2 hover:text-gray-500 font-light">
+            <GithubLogo className="inline-block" height="20" width="20" alt="Github logo" viewBox="0 0 24 24" />
+          </Link>
         </p>
       </Container>
     </footer>

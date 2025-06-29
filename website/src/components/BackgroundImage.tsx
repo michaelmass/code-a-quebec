@@ -1,13 +1,13 @@
-import clsx from 'clsx'
 import Image from 'next/image'
 
 import backgroundImage from '@/images/background.jpg'
+import { cn } from '@/util'
 
 export function BackgroundImage({ className, position = 'left' }: { className?: string; position?: 'left' | 'right' }) {
   return (
-    <div className={clsx('absolute inset-0 overflow-hidden bg-indigo-50', className)}>
+    <div className={cn('absolute inset-0 overflow-hidden bg-indigo-50', className)}>
       <Image
-        className={clsx(
+        className={cn(
           'absolute top-0',
           position === 'left' && 'left-0 translate-x-[-55%] translate-y-[-10%] -scale-x-100 sm:left-1/2 sm:translate-x-[-98%] sm:translate-y-[-6%] lg:translate-x-[-106%] xl:translate-x-[-122%]',
           position === 'right' &&

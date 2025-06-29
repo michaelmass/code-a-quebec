@@ -1,8 +1,9 @@
-import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { DM_Sans, Inter, Shantell_Sans } from 'next/font/google'
 
 import '@/styles/tailwind.css'
+import { BackgroundImage } from '@/components/BackgroundImage'
+import { cn } from '@/util'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -34,8 +35,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={clsx('h-full bg-white antialiased', inter.variable, dmSans.variable, shantellSans.variable)}>
-      <body className="flex min-h-full">
+    <html lang="fr" className={cn('h-full bg-white antialiased', inter.variable, dmSans.variable, shantellSans.variable)}>
+      <body className="flex min-h-full relative">
+        <div className="absolute -z-10">
+          <BackgroundImage className="-top-20 -bottom-14 absolute min-w-screen min-h-screen" />
+        </div>
         <div className="flex w-full flex-col">{children}</div>
       </body>
     </html>

@@ -1,4 +1,6 @@
+import { type ClassValue, clsx } from 'clsx'
 import { DateTime } from 'luxon'
+import { twMerge } from 'tailwind-merge'
 
 export const formatRelativeDate = (date: Date | string) => {
   const dateTime = typeof date === 'string' ? DateTime.fromISO(date) : DateTime.fromJSDate(date)
@@ -37,3 +39,5 @@ export const getLastThursdayOfMonth = (date = new Date()) => {
 export const formatCodeAQuebecLink = (date: Date) => {
   return `https://code-a-quebec-${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}.eventbrite.ca`
 }
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))

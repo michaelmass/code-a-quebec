@@ -6,6 +6,7 @@ import francoisLevasseurProfile from '@/images/profiles/francois-levasseur.png'
 import francoisXavierDarveauProfile from '@/images/profiles/francois-xavier-darveau.png'
 import jeanDenisCaronProfile from '@/images/profiles/jean-denis-caron.png'
 import laurentLeclercPoulin from '@/images/profiles/laurent-leclerc-poulin.jpeg'
+import mathysDeshaiesProfile from '@/images/profiles/mathys-deshaies.jpeg'
 import michaelMassonProfile from '@/images/profiles/michael-masson.jpg'
 import mikaelFrancoeurProfile from '@/images/profiles/mikael-francoeur.png'
 import pierreSnellProfile from '@/images/profiles/pierre-snell.png'
@@ -105,6 +106,14 @@ export const profiles = {
     profileLinkedIn: 'https://www.linkedin.com/in/laurent-leclerc-poulin-570267131/',
     companyLinkedIn: 'https://www.linkedin.com/company/nesto-ca/',
   },
+  mathysDeshaies: {
+    name: 'Mathys Deshaies',
+    position: 'Développeur',
+    profile: mathysDeshaiesProfile,
+    company: '@Desjardins',
+    profileLinkedIn: 'https://www.linkedin.com/in/mathys-deshaies/',
+    companyLinkedIn: 'https://www.linkedin.com/company/desjardins/',
+  },
 } satisfies Record<string, Profile>
 
 type Event = {
@@ -125,6 +134,28 @@ type Event = {
 
 export const events: Event[] = [
   {
+    number: '07',
+    date: '2025-06-26',
+    talks: [
+      {
+        profile: profiles.mikaelFrancoeur,
+        title: 'Programmation orientée aspect et API déclarative: un mélange expressif et puissant',
+        summary: '',
+        links: [],
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-06-26/programmation-orientee-aspect/slides.pdf',
+        youtubeUrl: '',
+      },
+      {
+        profile: profiles.mathysDeshaies,
+        title: 'Rate Limiting Deep Dive',
+        summary: '',
+        links: [],
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-06-26/ratelimiting-deep-dive/slides.pptx',
+        youtubeUrl: '',
+      },
+    ],
+  },
+  {
     number: '06',
     date: '2025-05-29',
     talks: [
@@ -140,6 +171,7 @@ export const events: Event[] = [
       {
         profile: profiles.jeanDenisCaron,
         title: "La loi d'Atwood rampe vers votre infrastructure",
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-05-29/aliajs/notes.pdf',
         summary:
           "Jean-Denis a fait une présentation sur `Aliasjs`, un outil pour gérer son infrastructure à petite échelle. Aliasjs utilise NodeJS pour faire de l'infrastructure as code avec du JavaScript. Jean-Denis a fait une démo d'un déploiement zéro downtime en live durant la présentation.",
         links: [
