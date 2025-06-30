@@ -6,6 +6,7 @@ import francoisLevasseurProfile from '@/images/profiles/francois-levasseur.png'
 import francoisXavierDarveauProfile from '@/images/profiles/francois-xavier-darveau.png'
 import jeanDenisCaronProfile from '@/images/profiles/jean-denis-caron.png'
 import laurentLeclercPoulin from '@/images/profiles/laurent-leclerc-poulin.jpeg'
+import mathysDeshaiesProfile from '@/images/profiles/mathys-deshaies.jpeg'
 import michaelMassonProfile from '@/images/profiles/michael-masson.jpg'
 import mikaelFrancoeurProfile from '@/images/profiles/mikael-francoeur.png'
 import pierreSnellProfile from '@/images/profiles/pierre-snell.png'
@@ -105,6 +106,14 @@ export const profiles = {
     profileLinkedIn: 'https://www.linkedin.com/in/laurent-leclerc-poulin-570267131/',
     companyLinkedIn: 'https://www.linkedin.com/company/nesto-ca/',
   },
+  mathysDeshaies: {
+    name: 'Mathys Deshaies',
+    position: 'Développeur',
+    profile: mathysDeshaiesProfile,
+    company: '@Desjardins',
+    profileLinkedIn: 'https://www.linkedin.com/in/mathys-deshaies/',
+    companyLinkedIn: 'https://www.linkedin.com/company/desjardins/',
+  },
 } satisfies Record<string, Profile>
 
 type Event = {
@@ -125,6 +134,44 @@ type Event = {
 
 export const events: Event[] = [
   {
+    number: '07',
+    date: '2025-06-26',
+    talks: [
+      {
+        profile: profiles.mikaelFrancoeur,
+        title: 'Programmation orientée aspect et API déclarative: un mélange expressif et puissant',
+        summary:
+          'Le talk de Mikaël explique le concept de programmation orientée aspect. Un concept de programmation pour les concerns transversaux comme le tracing, les retries, les métriques et bien d\'autres. Mikaël explique comment utiliser les annotations dans différents langages de programmation pour appliquer la programmation orientée aspect. Le talk apporte une nouvelle perspective sur comment réduire le bruit applicatif autour de la "business logic".',
+        links: [
+          {
+            text: 'Wikipedia: Programmation orientée aspect',
+            url: 'https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_aspect',
+          },
+          {
+            text: 'Github Repo avec les exemples de code',
+            url: 'https://github.com/LeMikaelF/code-a-quebec-aop',
+          },
+        ],
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-06-26/programmation-orientee-aspect/slides.pdf',
+        youtubeUrl: 'https://youtu.be/6jjxB9bO4Ps',
+      },
+      {
+        profile: profiles.mathysDeshaies,
+        title: 'Rate Limiting Deep Dive',
+        summary:
+          "La présentation de Mathys nous introduit au concept de rate limiting. Durant sa présentation, il nous expose différents algorithmes de rate limiting et des exemples concrets de leur utilisation. Mathys fait également des démonstrations visuelles des différents algorithmes pour bien expliquer les nuances entre eux. Après avoir écouté Mathys, tu seras en mesure de parfaitement choisir l'algorithme qui convient à ton problème.",
+        links: [
+          {
+            text: 'Le blog utilié pour la présentation',
+            url: 'https://smudge.ai/blog/ratelimit-algorithms',
+          },
+        ],
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-06-26/ratelimiting-deep-dive/slides.pptx',
+        youtubeUrl: 'https://www.youtube.com/watch?v=xqn1uqPQTtc',
+      },
+    ],
+  },
+  {
     number: '06',
     date: '2025-05-29',
     talks: [
@@ -140,6 +187,7 @@ export const events: Event[] = [
       {
         profile: profiles.jeanDenisCaron,
         title: "La loi d'Atwood rampe vers votre infrastructure",
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-05-29/aliajs/notes.pdf',
         summary:
           "Jean-Denis a fait une présentation sur `Aliasjs`, un outil pour gérer son infrastructure à petite échelle. Aliasjs utilise NodeJS pour faire de l'infrastructure as code avec du JavaScript. Jean-Denis a fait une démo d'un déploiement zéro downtime en live durant la présentation.",
         links: [

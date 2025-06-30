@@ -29,7 +29,20 @@ local('deno run -A jsr:@michaelmass/ghf/cli apply', quiet=True)
 local('lefthook install', quiet=True)
 
 resource(
+  name='install',
+  dir='website',
+  cmd='pnpm install'
+)
+
+resource(
   name='website',
   dir='website',
-  serve_cmd='pnpm run dev'
+  serve_cmd='pnpm run dev',
+  resource_deps=['install']
+)
+
+resource(
+  name='timer',
+  dir='timer',
+  serve_cmd='deno run --watch --unstable-kv -A src/index.ts'
 )

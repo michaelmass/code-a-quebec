@@ -1,19 +1,19 @@
 import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { NumberTitle } from '@/components/Number'
-import { tallyFormLink } from '@/const'
+import { spotifyPlaylistLink, tallyFormLink } from '@/const'
 import ArrowRight from '@/images/logos/arrow-right.svg'
 
 export const Contact = () => {
   return (
     <Container className="relative">
       <div className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
-        <h1 className="mb-4 font-display text-5xl font-bold tracking-tighter text-blue-600 sm:text-7xl">Contact & Feedback</h1>
+        <h1 className="mb-8 font-display text-5xl font-bold tracking-tighter text-blue-600 sm:text-7xl">Contact & Feedback</h1>
 
         <div className="mb-8">
-          <p className="font-display mb-2 text-2xl gap-2 flex align-center tracking-tight text-blue-900">
+          <h2 className="font-display mb-2 text-2xl gap-2 flex align-center tracking-tight text-blue-900">
             <NumberTitle number="1" /> Tu veux contacter l'organisateur ?
-          </p>
+          </h2>
           <p className="font-display tracking-tight text-blue-900">
             Écris un mail à{' '}
             <a className="text-blue-500 underline hover:underline-offset-2" href="mailto:michaelmasson55@gmail.com">
@@ -24,9 +24,9 @@ export const Contact = () => {
         </div>
 
         <div className="mb-8">
-          <p className="font-display mb-2 text-2xl gap-2 flex align-center tracking-tight text-blue-900">
-            <NumberTitle number="2" /> Si tu veux aider à améliorer le meetup, remplis le formulaire:
-          </p>
+          <h2 className="font-display mb-2 text-2xl gap-2 flex align-center tracking-tight text-blue-900">
+            <NumberTitle number="2" /> Si tu veux aider à améliorer le meetup, remplis le sondage:
+          </h2>
           <p className="font-display tracking-tight mb-4 text-blue-900">
             <Link href={tallyFormLink} className="text-blue-500 underline hover:underline-offset-2">
               Formulaire de feedback
@@ -35,9 +35,9 @@ export const Contact = () => {
         </div>
 
         <div className="mb-8">
-          <p className="font-display mb-2 text-2xl gap-2 flex align-center tracking-tight text-blue-900">
+          <h3 className="font-display mb-2 text-2xl gap-2 flex align-center tracking-tight text-blue-900">
             <NumberTitle number="3" /> Est-ce que tu veux faire un talk au Code @ Québec ?
-          </p>
+          </h3>
           <p className="font-display tracking-tight text-blue-900">
             Écris un mail à{' '}
             <a className="text-blue-500 underline hover:underline-offset-2" href="mailto:michaelmasson55@gmail.com">
@@ -50,6 +50,19 @@ export const Contact = () => {
             <Link className="text-blue-500 underline hover:underline-offset-2" href="/guidelines">
               guidelines
             </Link>
+          </p>
+        </div>
+
+        <div className="mb-8">
+          <h3 className="font-display mb-2 text-2xl gap-2 flex align-center tracking-tight text-blue-900">
+            <NumberTitle number="4" /> Tu veux participer à la playlist de musique ?
+          </h3>
+          <p className="font-display tracking-tight text-blue-900">
+            Tu peux modifier la playlist de musique du Code @ Québec sur{' '}
+            <Link target="_blank" className="text-blue-500 underline hover:underline-offset-2" href={spotifyPlaylistLink}>
+              Spotify
+            </Link>
+            .
           </p>
         </div>
       </div>

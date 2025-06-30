@@ -1,7 +1,7 @@
 'use client'
 
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
-import clsx from 'clsx'
+
 import Image from 'next/image'
 import { useEffect, useId, useState } from 'react'
 
@@ -11,6 +11,7 @@ import LinkedInLogo from '@/images/logos/linkedin.svg'
 import SlidesLogo from '@/images/logos/slides.svg'
 import YoutubeLogo from '@/images/logos/youtube.svg'
 import { events } from '@/talks'
+import { cn } from '@/util'
 
 function ImageClipPaths({ id, ...props }: React.ComponentPropsWithoutRef<'svg'> & { id: string }) {
   return (
@@ -50,13 +51,11 @@ export function Speakers() {
   }, [])
 
   return (
-    <section id="speakers" aria-labelledby="speakers-title" className="py-20 sm:py-32">
+    <section aria-labelledby="speakers-title" className="py-10 sm:py-20">
       <ImageClipPaths id={id} />
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 id="speakers-title" className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">
-            Présentations
-          </h2>
+          <h2 className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">Présentations</h2>
           <p className="mt-4 font-display text-2xl tracking-tight text-blue-900">Découvrez les personnes qui ont fait des présentations au Code @ Québec.</p>
         </div>
         <TabGroup className="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 lg:gap-y-16 lg:mt-24 lg:grid-cols-4" vertical={tabOrientation === 'vertical'}>
@@ -68,14 +67,14 @@ export function Speakers() {
                   {events.map((event, eventIndex) => (
                     <div key={event.date} className="relative lg:pl-8">
                       <DiamondIcon
-                        className={clsx(
+                        className={cn(
                           'absolute top-2.25 left-[-0.5px] hidden h-1.5 w-1.5 overflow-visible lg:block',
                           eventIndex === selectedIndex ? 'fill-blue-600 stroke-blue-600' : 'fill-transparent stroke-slate-400',
                         )}
                       />
                       <div className="relative cursor-pointer">
-                        <div className={clsx('p-2 pb-0 hover:bg-blue-50/50 rounded-2xl ', eventIndex === selectedIndex && 'bg-blue-50 ')}>
-                          <div className={clsx('font-mono text-sm', eventIndex === selectedIndex ? 'text-blue-600' : 'text-slate-500')}>
+                        <div className={cn('p-2 pb-0 hover:bg-blue-50/50 rounded-2xl ', eventIndex === selectedIndex && 'bg-blue-50 ')}>
+                          <div className={cn('font-mono text-sm', eventIndex === selectedIndex ? 'text-blue-600' : 'text-slate-500')}>
                             <Tab className="data-selected:not-data-focus:outline-hidden cursor-pointer">
                               <span className="absolute inset-0" />
                               {event.number} Code @ Québec
@@ -96,11 +95,11 @@ export function Speakers() {
             {events.map(event => (
               <TabPanel key={event.date} className="gap-x-8 gap-y-6 justify-center not-lg:items-center flex flex-col data-selected:not-data-focus:outline-hidden sm:gap-y-12" unmount={false}>
                 {event.talks.map((talk, talkIndex) => (
-                  <div className="flex not-md:flex-col not-md:items-center">
+                  <div key={talkIndex} className="flex not-md:flex-col not-md:items-center">
                     <div className="w-80 flex-none mr-4">
                       <div className="group relative h-70 transform overflow-hidden rounded-4xl">
                         <div
-                          className={clsx(
+                          className={cn(
                             'absolute top-0 right-4 bottom-6 left-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
                             ['border-blue-300', 'border-indigo-300', 'border-sky-300'][talkIndex % 3],
                           )}
@@ -152,8 +151,8 @@ export function Speakers() {
                       </h3>
                       <p className="text-base tracking-tight text-gray-600">{talk.summary}</p>
                       <div className="flex gap-2 flex-col">
-                        {talk.links.map(link => (
-                          <div>
+                        {talk.links.map((link, linkIndex) => (
+                          <div key={linkIndex}>
                             <a key={link.url} href={link.url} target="_blank" className=" text-blue-600 hover:underline">
                               - {link.text}
                             </a>
