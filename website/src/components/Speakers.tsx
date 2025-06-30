@@ -51,13 +51,11 @@ export function Speakers() {
   }, [])
 
   return (
-    <section id="speakers" aria-labelledby="speakers-title" className="py-10 sm:py-20">
+    <section aria-labelledby="speakers-title" className="py-10 sm:py-20">
       <ImageClipPaths id={id} />
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 id="speakers-title" className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">
-            Présentations
-          </h2>
+          <h2 className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">Présentations</h2>
           <p className="mt-4 font-display text-2xl tracking-tight text-blue-900">Découvrez les personnes qui ont fait des présentations au Code @ Québec.</p>
         </div>
         <TabGroup className="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 lg:gap-y-16 lg:mt-24 lg:grid-cols-4" vertical={tabOrientation === 'vertical'}>
@@ -97,7 +95,7 @@ export function Speakers() {
             {events.map(event => (
               <TabPanel key={event.date} className="gap-x-8 gap-y-6 justify-center not-lg:items-center flex flex-col data-selected:not-data-focus:outline-hidden sm:gap-y-12" unmount={false}>
                 {event.talks.map((talk, talkIndex) => (
-                  <div className="flex not-md:flex-col not-md:items-center">
+                  <div key={talkIndex} className="flex not-md:flex-col not-md:items-center">
                     <div className="w-80 flex-none mr-4">
                       <div className="group relative h-70 transform overflow-hidden rounded-4xl">
                         <div
@@ -153,8 +151,8 @@ export function Speakers() {
                       </h3>
                       <p className="text-base tracking-tight text-gray-600">{talk.summary}</p>
                       <div className="flex gap-2 flex-col">
-                        {talk.links.map(link => (
-                          <div>
+                        {talk.links.map((link, linkIndex) => (
+                          <div key={linkIndex}>
                             <a key={link.url} href={link.url} target="_blank" className=" text-blue-600 hover:underline">
                               - {link.text}
                             </a>

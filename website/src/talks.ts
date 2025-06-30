@@ -140,16 +140,32 @@ export const events: Event[] = [
       {
         profile: profiles.mikaelFrancoeur,
         title: 'Programmation orientée aspect et API déclarative: un mélange expressif et puissant',
-        summary: '',
-        links: [],
+        summary:
+          'Le talk de Mikaël explique le concept de programmation orientée aspect. Un concept de programmation pour les concerns transversaux comme le tracing, les retries, les métriques et bien d\'autres. Mikaël explique comment utiliser les annotations dans différents langages de programmation pour appliquer la programmation orientée aspect. Le talk apporte une nouvelle perspective sur comment réduire le bruit applicatif autour de la "business logic".',
+        links: [
+          {
+            text: 'Wikipedia: Programmation orientée aspect',
+            url: 'https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_aspect',
+          },
+          {
+            text: 'Github Repo avec les exemples de code',
+            url: 'https://github.com/LeMikaelF/code-a-quebec-aop',
+          },
+        ],
         slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-06-26/programmation-orientee-aspect/slides.pdf',
-        youtubeUrl: '',
+        youtubeUrl: 'https://youtu.be/6jjxB9bO4Ps',
       },
       {
         profile: profiles.mathysDeshaies,
         title: 'Rate Limiting Deep Dive',
-        summary: '',
-        links: [],
+        summary:
+          "La présentation de Mathys nous introduit au concept de rate limiting. Durant sa présentation, il nous expose différents algorithmes de rate limiting et des exemples concrets de leur utilisation. Mathys fait également des démonstrations visuelles des différents algorithmes pour bien expliquer les nuances entre eux. Après avoir écouté Mathys, tu seras en mesure de parfaitement choisir l'algorithme qui convient à ton problème.",
+        links: [
+          {
+            text: 'Le blog utilié pour la présentation',
+            url: 'https://smudge.ai/blog/ratelimit-algorithms',
+          },
+        ],
         slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-06-26/ratelimiting-deep-dive/slides.pptx',
         youtubeUrl: '',
       },
