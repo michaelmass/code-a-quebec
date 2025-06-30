@@ -17,7 +17,7 @@ export function Hero() {
           <h1 className="font-display text-5xl font-bold tracking-tighter text-blue-600 sm:text-7xl">
             <span className="sr-only">C@Q - </span>Code @ Québec
           </h1>
-          <div className="font-display mt-6 space-y-6 text-2xl tracking-tight text-blue-900">
+          <div className="font-display mt-6 space-y-6 text-justify text-lg tracking-tight text-blue-900 sm:text-2xl">
             <p>
               Le <b>Code @ Québec</b> est un meetup pour découvrir des technologies et rencontrer
               d&apos;autres devs. Chaque événement comprend <b>deux talks</b>, et les présentations

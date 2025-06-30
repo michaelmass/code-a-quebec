@@ -176,7 +176,7 @@ export function Speakers() {
                         ) : undefined}
                       </p>
                     </div>
-                    <div className="flex flex-col gap-y-3 text-center md:text-left">
+                    <div className="flex flex-col gap-y-3 text-justify">
                       <h3 className="font-display mt-4 flex gap-x-2 text-xl font-medium tracking-tight text-blue-900">
                         {talk.youtubeUrl ? (
                           <a href={talk.youtubeUrl} target="_blank" className="-mt-0.5">
