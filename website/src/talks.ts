@@ -167,7 +167,7 @@ export const events: Event[] = [
           },
         ],
         slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-06-26/ratelimiting-deep-dive/slides.pptx',
-        youtubeUrl: '',
+        youtubeUrl: 'https://www.youtube.com/watch?v=xqn1uqPQTtc',
       },
     ],
   },
