@@ -42,7 +42,7 @@ resource(
 )
 
 resource(
-  name='timer',
-  dir='timer',
+  name='server',
+  dir='server',
   serve_cmd='deno run --watch --unstable-kv -A src/index.ts'
 )
