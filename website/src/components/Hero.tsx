@@ -28,7 +28,7 @@ export function Hero() {
               . L&apos;événement est ouvert à tous les devs de Québec. Vous pouvez trouver
               l&apos;événement sur la plateforme Eventbrite.
             </p>
-            <ButtonOutline href={eventLink} className="w-full gap-2" target="_blank">
+            <ButtonOutline href={eventLink} className="w-full flex-wrap gap-2" target="_blank">
               <span>Inscris-toi au prochain meetup</span>
               <span className="text-sm text-blue-500">(Ça coûte rien!)</span>
             </ButtonOutline>
