@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { DiamondIcon } from '@/components/DiamondIcon'
 import { Logo } from '@/components/Logo'
+import { Share } from '@/components/Share'
 import { repositoryLink } from '@/const'
 import GithubLogo from '@/images/logos/github.svg'
 import ShareIcon from '@/images/logos/share.svg'
@@ -32,9 +33,11 @@ export function Footer() {
             Michael Masson
           </Link>{' '}
           &copy; {new Date().getFullYear()}
-          <div className="text-gray-400 cursor-pointer inline-block ml-2 hover:text-gray-500 font-light">
-            <ShareIcon className="inline-block" height="20" width="20" alt="Share icon" viewBox="0 0 24 24" />
-          </div>
+          <Share className="inline-block ml-2">
+            <div className="text-gray-400 cursor-pointer inline-block hover:text-gray-500 font-light">
+              <ShareIcon className="inline-block" height="20" width="20" alt="Share icon" viewBox="0 0 24 24" />
+            </div>
+          </Share>
           <Link target="_blank" href={repositoryLink} className="text-gray-400 ml-2 hover:text-gray-500 font-light">
             <GithubLogo className="inline-block" height="20" width="20" alt="Github logo" viewBox="0 0 24 24" />
           </Link>

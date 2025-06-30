@@ -36,10 +36,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={cn('h-full bg-white antialiased', inter.variable, dmSans.variable, shantellSans.variable)}>
-      <body className="flex min-h-full relative">
-        <div className="absolute -z-10">
-          <BackgroundImage className="-top-20 -bottom-14 absolute min-w-screen min-h-screen" />
-        </div>
+      <body className="flex min-h-full overflow-x-hidden relative">
+        <BackgroundImage className="-top-20 overflow-hidden absolute -z-10 -bottom-14 w-screen h-screen" />
         <div className="flex w-full flex-col">{children}</div>
       </body>
     </html>
