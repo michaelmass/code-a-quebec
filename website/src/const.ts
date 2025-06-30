@@ -5,4 +5,4 @@ export const botpressGoogleMapsLink =
 export const tallyFormLink = 'https://tally.so/r/3xEeVJ'
 export const spotifyPlaylistLink = 'https://open.spotify.com/playlist/5KJbygxbqj625wYMrlhY6O?si=3wR9_EDbQoKPwfhdvLnR3Q&pi=4AlcjJudSyyZU'
 export const repositoryLink = 'https://github.com/michaelmass/code-a-quebec'
-export const timerUrl = 'https://caqtimer.deno.dev/timer'
+export const timerUrl = 'https://caq.deno.dev/timer'
