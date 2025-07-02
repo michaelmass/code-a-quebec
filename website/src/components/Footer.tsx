@@ -1,13 +1,13 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { Container } from '@/components/Container'
-import { DiamondIcon } from '@/components/DiamondIcon'
-import { Logo } from '@/components/Logo'
-import { Share } from '@/components/Share'
-import { repositoryLink } from '@/const'
-import GithubLogo from '@/images/logos/github.svg'
-import ShareIcon from '@/images/logos/share.svg'
+import Link from "next/link";
+import { Container } from "@/components/Container";
+import { DiamondIcon } from "@/components/DiamondIcon";
+import { Logo } from "@/components/Logo";
+import { Share } from "@/components/Share";
+import { repositoryLink } from "@/const";
+import GithubLogo from "@/images/logos/github.svg";
+import ShareIcon from "@/images/logos/share.svg";
 
 export function Footer() {
   return (
@@ -17,7 +17,7 @@ export function Footer() {
           <Link className="cursor-pointer" href="/">
             <Logo height={48} width={32} />
           </Link>
-          <div className="flex gap-3 text-gray-500 items-center">
+          <div className="flex items-center gap-3 text-gray-500">
             <Link href="/guidelines" className="hover:underline">
               Guidelines
             </Link>
@@ -28,21 +28,41 @@ export function Footer() {
           </div>
         </div>
         <p className="mt-6 text-base text-gray-400 md:mt-0">
-          Organisé par{' '}
-          <Link href="https://michaelmasson.com" className="underline underline-offset-1 hover:underline-offset-2" target="_blank">
+          Organisé par{" "}
+          <Link
+            href="https://michaelmasson.com"
+            className="underline underline-offset-1 hover:underline-offset-2"
+            target="_blank"
+          >
             Michael Masson
-          </Link>{' '}
+          </Link>{" "}
           &copy; {new Date().getFullYear()}
-          <Share className="inline-block ml-2">
-            <div className="text-gray-400 cursor-pointer inline-block hover:text-gray-500 font-light">
-              <ShareIcon className="inline-block" height="20" width="20" alt="Share icon" viewBox="0 0 24 24" />
+          <Share className="ml-2 inline-block">
+            <div className="inline-block cursor-pointer font-light text-gray-400 hover:text-gray-500">
+              <ShareIcon
+                className="inline-block"
+                height="20"
+                width="20"
+                alt="Share icon"
+                viewBox="0 0 24 24"
+              />
             </div>
           </Share>
-          <Link target="_blank" href={repositoryLink} className="text-gray-400 ml-2 hover:text-gray-500 font-light">
-            <GithubLogo className="inline-block" height="20" width="20" alt="Github logo" viewBox="0 0 24 24" />
+          <Link
+            target="_blank"
+            href={repositoryLink}
+            className="ml-2 font-light text-gray-400 hover:text-gray-500"
+          >
+            <GithubLogo
+              className="inline-block"
+              height="20"
+              width="20"
+              alt="Github logo"
+              viewBox="0 0 24 24"
+            />
           </Link>
         </p>
       </Container>
     </footer>
-  )
+  );
 }
