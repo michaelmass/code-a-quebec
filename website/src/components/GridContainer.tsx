@@ -1,7 +1,6 @@
 "use client";
 
 import clsx from "clsx";
-import { Container } from "@/components/Container";
 
 type GridContainerProps = {
   children?: React.ReactNode;
