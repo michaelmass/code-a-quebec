@@ -6,6 +6,8 @@ import SnackOffer from "@/images/event/snack-offer.png";
 import Atmosphere from "@/images/event/atmosphere.jpg";
 import BgTechnologies from "@/images/background-technologies.png";
 import Image from "next/image";
+import { GridSubtitle } from "@/components/GridSubtitle";
+import { GridText } from "@/components/GridText";
 
 export function Grid() {
   return (
@@ -13,10 +15,8 @@ export function Grid() {
       <Container className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6">
         <GridContainer className="flex flex-col sm:col-span-3">
           <div className="flex-grow p-6">
-            <h2 className="text-2xl font-semibold text-blue-600">Apprentissage et découvertes</h2>
-            <p className="mt-2 text-blue-900 sm:text-lg">
-              Découvrez des approches concrètes et actuelles du développement logiciel.
-            </p>
+            <GridSubtitle content="Apprentissage et découvertes" />
+            <GridText content="Découvrez des approches concrètes et actuelles du développement logiciel." />
           </div>
           <Image
             className="rounded-b-5xl max-h-64 object-cover opacity-25 grayscale"
@@ -25,8 +25,8 @@ export function Grid() {
           />
         </GridContainer>
         <GridContainer className="p-6 sm:col-span-3">
-          <h2 className="text-2xl font-semibold text-blue-600">Collations offertes</h2>
-          <p className="mt-2 text-blue-900 sm:text-lg">On s'occupe de vos papilles!</p>
+          <GridSubtitle content="Collations offertes" />
+          <GridText content="On s'occupe de vos papilles!" />
           <Image
             className="mt-4 h-52 rounded-3xl object-cover sm:h-64"
             src={SnackOffer}
@@ -34,10 +34,8 @@ export function Grid() {
           />
         </GridContainer>
         <GridContainer className="p-6 sm:col-span-3 lg:col-span-4">
-          <h2 className="text-2xl font-semibold text-blue-600">Ambiance conviviale</h2>
-          <p className="mt-2 text-blue-900 sm:text-lg">
-            C'est l'événement idéale pour élargir son réseau professionnel de gens pentionnés.
-          </p>
+          <GridSubtitle content="Ambiance conviviale" />
+          <GridText content="C'est l'événement idéale pour élargir son réseau professionnel de gens pentionnés." />
           <Image
             className="mt-4 h-52 rounded-3xl object-cover sm:h-64"
             src={Atmosphere}
@@ -45,7 +43,7 @@ export function Grid() {
           />
         </GridContainer>
         <GridContainer className="flex h-full flex-col p-6 sm:col-span-3 lg:col-span-2">
-          <h2 className="text-2xl font-semibold text-blue-600">Horaire</h2>
+          <GridSubtitle content="Horaire" />
           <div className="mt-2 flex flex-grow flex-col rounded-xl bg-gray-900 p-4 font-mono text-gray-100 shadow-md sm:text-lg">
             <div className="flex-grow">
               <p>
