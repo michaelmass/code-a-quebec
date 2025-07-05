@@ -27,7 +27,7 @@ export function Footer() {
             </Link>
           </div>
         </div>
-        <p className="mt-6 text-sm text-gray-400 sm:text-base md:mt-0">
+        <div className="mt-6 text-sm text-gray-400 sm:text-base md:mt-0">
           Organisé par{" "}
           <Link
             href="https://michaelmasson.com"
@@ -61,7 +61,7 @@ export function Footer() {
               viewBox="0 0 24 24"
             />
           </Link>
-        </p>
+        </div>
       </Container>
     </footer>
   );
