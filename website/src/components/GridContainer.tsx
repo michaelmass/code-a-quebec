@@ -11,7 +11,7 @@ export function GridContainer({ children, className }: GridContainerProps) {
   return (
     <div
       className={clsx(
-        "rounded-5xl border border-gray-100 bg-gradient-to-tr from-blue-50/60 to-white shadow-sm transition-all hover:drop-shadow",
+        "md:rounded-5xl rounded-3xl border border-gray-100 bg-gradient-to-tr from-blue-50/60 to-white shadow-sm transition-all hover:drop-shadow",
         className,
       )}
     >
