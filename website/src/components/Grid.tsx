@@ -14,7 +14,7 @@ export function Grid() {
     <section id="grid" aria-labelledby="grid" className="py-20 sm:py-24">
       <Container className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6">
         <GridContainer className="flex flex-col sm:col-span-3">
-          <div className="flex-grow p-6">
+          <div className="flex-grow p-4 md:p-6">
             <GridSubtitle content="Apprentissage et découvertes" />
             <GridText content="Découvrez des approches concrètes et actuelles du développement logiciel." />
           </div>
@@ -24,7 +24,7 @@ export function Grid() {
             alt="technologies"
           />
         </GridContainer>
-        <GridContainer className="p-6 sm:col-span-3">
+        <GridContainer className="p-4 sm:col-span-3 md:p-6">
           <GridSubtitle content="Collations offertes" />
           <GridText content="On s'occupe de vos papilles!" />
           <Image
@@ -33,7 +33,7 @@ export function Grid() {
             alt="collations offertes"
           />
         </GridContainer>
-        <GridContainer className="p-6 sm:col-span-3 lg:col-span-4">
+        <GridContainer className="p-4 sm:col-span-3 md:p-6 lg:col-span-4">
           <GridSubtitle content="Ambiance conviviale" />
           <GridText content="C'est l'événement idéale pour élargir son réseau professionnel de gens pentionnés." />
           <Image
@@ -42,7 +42,7 @@ export function Grid() {
             alt="ambiance conviviale"
           />
         </GridContainer>
-        <GridContainer className="flex h-full flex-col p-6 sm:col-span-3 lg:col-span-2">
+        <GridContainer className="flex h-full flex-col p-4 sm:col-span-3 md:p-6 lg:col-span-2">
           <GridSubtitle content="Horaire" />
           <div className="mt-2 flex flex-grow flex-col rounded-xl bg-gray-900 p-4 font-mono text-gray-100 shadow-md sm:text-lg">
             <div className="flex-grow">

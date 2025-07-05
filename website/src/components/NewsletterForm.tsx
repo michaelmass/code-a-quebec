@@ -109,7 +109,7 @@ export const NewsletterForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h3 className="text-lg font-semibold tracking-tight text-blue-900">
+      <h3 className="text-center text-lg font-semibold tracking-tight text-blue-900 sm:text-left">
         Entre ton email pour recevoir les updates <span aria-hidden="true">&darr;</span>
       </h3>
       <div className="mt-5 flex rounded-3xl bg-white py-2.5 pr-2.5 shadow-xl shadow-blue-900/5 focus-within:ring-2 focus-within:ring-blue-900">
