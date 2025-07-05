@@ -11,13 +11,13 @@ export function Hero() {
   const eventLink = formatCodeAQuebecLink(nextLastThursday);
 
   return (
-    <div className="relative py-20 sm:pt-36 sm:pb-24">
+    <div className="relative py-20 sm:pt-24 sm:pb-24">
       <Container className="relative">
         <div className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
           <h1 className="font-display text-5xl font-bold tracking-tighter text-blue-600 sm:text-7xl">
             <span className="sr-only">C@Q - </span>Code @ Québec
           </h1>
-          <div className="font-display mt-6 space-y-6 text-2xl tracking-tight text-blue-900">
+          <div className="font-display mt-6 space-y-6 text-justify text-lg tracking-tight text-blue-900 sm:text-2xl">
             <p>
               Le <b>Code @ Québec</b> est un meetup pour découvrir des technologies et rencontrer
               d&apos;autres devs. Chaque événement comprend <b>deux talks</b>, et les présentations
@@ -28,7 +28,7 @@ export function Hero() {
               . L&apos;événement est ouvert à tous les devs de Québec. Vous pouvez trouver
               l&apos;événement sur la plateforme Eventbrite.
             </p>
-            <ButtonOutline href={eventLink} className="w-full gap-2" target="_blank">
+            <ButtonOutline href={eventLink} className="w-full flex-wrap gap-x-2" target="_blank">
               <span>Inscris-toi au prochain meetup</span>
               <span className="text-sm text-blue-500">(Ça coûte rien!)</span>
             </ButtonOutline>

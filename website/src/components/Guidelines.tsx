@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { PageTitle } from "@/components/PageTitle";
 
 export const Guidelines = () => {
   return (
     <Container className="relative">
-      <h1 className="font-display text-center text-3xl font-bold tracking-tighter text-blue-600 sm:text-4xl">
-        Guidelines des talks au Code @ Québec
-      </h1>
-      <div className="font-display mt-6 mr-auto ml-auto max-w-4xl space-y-6 text-xl tracking-tight text-blue-900">
+      <PageTitle content="Guidelines des talks au Code @ Québec" />
+      <div className="font-display mr-auto ml-auto max-w-4xl space-y-6 text-justify text-lg tracking-tight text-blue-900 sm:text-xl">
         <p>
           Premièrement, merci de faire un talk au <b>Code @ Québec</b>. J&apos;ai fait ce document
           pour aider à préparer un talk pour le meetup et expliquer l&apos;ambiance qu&apos;on
