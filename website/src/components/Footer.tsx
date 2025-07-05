@@ -12,8 +12,8 @@ import ShareIcon from "@/images/logos/share.svg";
 export function Footer() {
   return (
     <footer className="flex-none py-12 sm:py-16">
-      <Container className="flex flex-col items-center justify-between md:flex-row">
-        <div className="flex items-center gap-4">
+      <Container className="flex flex-col items-center justify-between gap-4 md:flex-row md:gap-0">
+        <div className="flex flex-grow items-center gap-4">
           <Link className="cursor-pointer" href="/">
             <Logo height={48} width={32} />
           </Link>
@@ -27,7 +27,7 @@ export function Footer() {
             </Link>
           </div>
         </div>
-        <div className="mt-6 text-sm text-gray-400 sm:text-base md:mt-0">
+        <div className="text-sm text-gray-400 sm:text-base md:mt-0">
           Organisé par{" "}
           <Link
             href="https://michaelmasson.com"
@@ -37,6 +37,8 @@ export function Footer() {
             Michael Masson
           </Link>{" "}
           &copy; {new Date().getFullYear()}
+        </div>
+        <div>
           <Share className="ml-2 inline-block">
             <div className="inline-block cursor-pointer font-light text-gray-400 hover:text-gray-500">
               <ShareIcon
