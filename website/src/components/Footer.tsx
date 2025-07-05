@@ -11,7 +11,7 @@ import ShareIcon from "@/images/logos/share.svg";
 
 export function Footer() {
   return (
-    <footer className="flex-none py-16">
+    <footer className="flex-none py-12 sm:py-16">
       <Container className="flex flex-col items-center justify-between md:flex-row">
         <div className="flex items-center gap-4">
           <Link className="cursor-pointer" href="/">
