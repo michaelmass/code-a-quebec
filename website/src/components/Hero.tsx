@@ -14,7 +14,7 @@ export function Hero() {
     <div className="relative py-20 sm:pt-24 sm:pb-24">
       <Container className="relative">
         <div className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
-          <h1 className="bg-gradient-to-b from-blue-600 to-transparent bg-clip-text pb-4 text-center text-4xl font-bold text-transparent uppercase sm:text-6xl lg:text-7xl">
+          <h1 className="bg-gradient-to-b from-blue-600 to-transparent bg-clip-text text-center text-4xl font-bold text-transparent uppercase sm:pb-4 sm:text-6xl lg:text-7xl">
             <span className="sr-only">C@Q - </span>Code @ Québec
           </h1>
           <div className="font-display mt-6 space-y-6 text-justify text-lg tracking-tight text-blue-900 sm:text-2xl">
