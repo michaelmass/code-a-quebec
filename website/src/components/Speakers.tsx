@@ -1,19 +1,19 @@
-'use client'
+"use client";
 
-import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 
-import Image from 'next/image'
-import { useEffect, useId, useState } from 'react'
+import Image from "next/image";
+import { useEffect, useId, useState } from "react";
 
-import { Container } from '@/components/Container'
-import { DiamondIcon } from '@/components/DiamondIcon'
-import LinkedInLogo from '@/images/logos/linkedin.svg'
-import SlidesLogo from '@/images/logos/slides.svg'
-import YoutubeLogo from '@/images/logos/youtube.svg'
-import { events } from '@/talks'
-import { cn } from '@/util'
+import { Container } from "@/components/Container";
+import { DiamondIcon } from "@/components/DiamondIcon";
+import LinkedInLogo from "@/images/logos/linkedin.svg";
+import SlidesLogo from "@/images/logos/slides.svg";
+import YoutubeLogo from "@/images/logos/youtube.svg";
+import { events } from "@/talks";
+import { cn } from "@/util";
 
-function ImageClipPaths({ id, ...props }: React.ComponentPropsWithoutRef<'svg'> & { id: string }) {
+function ImageClipPaths({ id, ...props }: React.ComponentPropsWithoutRef<"svg"> & { id: string }) {
   return (
     <svg aria-hidden="true" width={0} height={0} {...props}>
       <defs>
@@ -28,37 +28,44 @@ function ImageClipPaths({ id, ...props }: React.ComponentPropsWithoutRef<'svg'> 
         </clipPath>
       </defs>
     </svg>
-  )
+  );
 }
 
 export function Speakers() {
-  const id = useId()
-  const [tabOrientation, setTabOrientation] = useState('horizontal')
+  const id = useId();
+  const [tabOrientation, setTabOrientation] = useState("horizontal");
 
   useEffect(() => {
-    const lgMediaQuery = window.matchMedia('(min-width: 1024px)')
+    const lgMediaQuery = window.matchMedia("(min-width: 1024px)");
 
     function onMediaQueryChange({ matches }: { matches: boolean }) {
-      setTabOrientation(matches ? 'vertical' : 'horizontal')
+      setTabOrientation(matches ? "vertical" : "horizontal");
     }
 
-    onMediaQueryChange(lgMediaQuery)
-    lgMediaQuery.addEventListener('change', onMediaQueryChange)
+    onMediaQueryChange(lgMediaQuery);
+    lgMediaQuery.addEventListener("change", onMediaQueryChange);
 
     return () => {
-      lgMediaQuery.removeEventListener('change', onMediaQueryChange)
-    }
-  }, [])
+      lgMediaQuery.removeEventListener("change", onMediaQueryChange);
+    };
+  }, []);
 
   return (
     <section aria-labelledby="speakers-title" className="py-10 sm:py-20">
       <ImageClipPaths id={id} />
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">Présentations</h2>
-          <p className="mt-4 font-display text-2xl tracking-tight text-blue-900">Découvrez les personnes qui ont fait des présentations au Code @ Québec.</p>
+          <h2 className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">
+            Présentations
+          </h2>
+          <p className="font-display mt-4 text-2xl tracking-tight text-blue-900">
+            Découvrez les personnes qui ont fait des présentations au Code @ Québec.
+          </p>
         </div>
-        <TabGroup className="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 lg:gap-y-16 lg:mt-24 lg:grid-cols-4" vertical={tabOrientation === 'vertical'}>
+        <TabGroup
+          className="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 lg:mt-24 lg:grid-cols-4 lg:gap-y-16"
+          vertical={tabOrientation === "vertical"}
+        >
           <div className="relative -mx-4 flex overflow-x-auto pb-4 lg:mx-0 lg:block lg:pb-0">
             <div className="absolute top-2 bottom-0 left-0.5 hidden w-px bg-slate-200 lg:block" />
             <TabList className="grid auto-cols-auto grid-flow-col justify-start gap-x-8 gap-y-10 px-4 whitespace-nowrap sm:max-w-2xl sm:px-0 sm:text-center lg:grid-flow-row lg:grid-cols-1 lg:text-left">
@@ -68,19 +75,34 @@ export function Speakers() {
                     <div key={event.date} className="relative lg:pl-8">
                       <DiamondIcon
                         className={cn(
-                          'absolute top-2.25 left-[-0.5px] hidden h-1.5 w-1.5 overflow-visible lg:block',
-                          eventIndex === selectedIndex ? 'fill-blue-600 stroke-blue-600' : 'fill-transparent stroke-slate-400',
+                          "absolute top-2.25 left-[-0.5px] hidden h-1.5 w-1.5 overflow-visible lg:block",
+                          eventIndex === selectedIndex
+                            ? "fill-blue-600 stroke-blue-600"
+                            : "fill-transparent stroke-slate-400",
                         )}
                       />
                       <div className="relative cursor-pointer">
-                        <div className={cn('p-2 pb-0 hover:bg-blue-50/50 rounded-2xl ', eventIndex === selectedIndex && 'bg-blue-50 ')}>
-                          <div className={cn('font-mono text-sm', eventIndex === selectedIndex ? 'text-blue-600' : 'text-slate-500')}>
-                            <Tab className="data-selected:not-data-focus:outline-hidden cursor-pointer">
+                        <div
+                          className={cn(
+                            "rounded-2xl p-2 pb-0 hover:bg-blue-50/50",
+                            eventIndex === selectedIndex && "bg-blue-50",
+                          )}
+                        >
+                          <div
+                            className={cn(
+                              "font-mono text-sm",
+                              eventIndex === selectedIndex ? "text-blue-600" : "text-slate-500",
+                            )}
+                          >
+                            <Tab className="cursor-pointer data-selected:not-data-focus:outline-hidden">
                               <span className="absolute inset-0" />
                               {event.number} Code @ Québec
                             </Tab>
                           </div>
-                          <time dateTime={event.date} className="mt-1.5 block text-2xl font-semibold tracking-tight text-blue-900">
+                          <time
+                            dateTime={event.date}
+                            className="mt-1.5 block text-2xl font-semibold tracking-tight text-blue-900"
+                          >
                             {event.date}
                           </time>
                         </div>
@@ -92,19 +114,28 @@ export function Speakers() {
             </TabList>
           </div>
           <TabPanels className="lg:col-span-3">
-            {events.map(event => (
-              <TabPanel key={event.date} className="gap-x-8 gap-y-6 justify-center not-lg:items-center flex flex-col data-selected:not-data-focus:outline-hidden sm:gap-y-12" unmount={false}>
+            {events.map((event) => (
+              <TabPanel
+                key={event.date}
+                className="flex flex-col justify-center gap-x-8 gap-y-6 not-lg:items-center data-selected:not-data-focus:outline-hidden sm:gap-y-12"
+                unmount={false}
+              >
                 {event.talks.map((talk, talkIndex) => (
                   <div key={talkIndex} className="flex not-md:flex-col not-md:items-center">
-                    <div className="w-80 flex-none mr-4">
+                    <div className="mr-4 w-80 flex-none">
                       <div className="group relative h-70 transform overflow-hidden rounded-4xl">
                         <div
                           className={cn(
-                            'absolute top-0 right-4 bottom-6 left-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
-                            ['border-blue-300', 'border-indigo-300', 'border-sky-300'][talkIndex % 3],
+                            "absolute top-0 right-4 bottom-6 left-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6",
+                            ["border-blue-300", "border-indigo-300", "border-sky-300"][
+                              talkIndex % 3
+                            ],
                           )}
                         />
-                        <div className="absolute inset-0 bg-indigo-50" style={{ clipPath: `url(#${id}-${talkIndex % 3})` }}>
+                        <div
+                          className="absolute inset-0 bg-indigo-50"
+                          style={{ clipPath: `url(#${id}-${talkIndex % 3})` }}
+                        >
                           <Image
                             className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
                             src={talk.profile.profile}
@@ -114,15 +145,25 @@ export function Speakers() {
                           />
                         </div>
                       </div>
-                      <h3 className="mt-2 font-display flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900">
+                      <h3 className="font-display mt-2 flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900">
                         <span>{talk.profile.name}</span>
                         {talk.profile.profileLinkedIn ? (
-                          <a className="text-gray-400 -mt-0.5 hover:text-gray-500 font-light" target="_blank" rel="noreferrer" href={talk.profile.profileLinkedIn}>
-                            <LinkedInLogo className="inline-block" height="16" width="16" viewBox="0 0 24 24" />
+                          <a
+                            className="-mt-0.5 font-light text-gray-400 hover:text-gray-500"
+                            target="_blank"
+                            rel="noreferrer"
+                            href={talk.profile.profileLinkedIn}
+                          >
+                            <LinkedInLogo
+                              className="inline-block"
+                              height="16"
+                              width="16"
+                              viewBox="0 0 24 24"
+                            />
                           </a>
                         ) : undefined}
                       </h3>
-                      <p className="mt-1 text-base flex items-center gap-1 tracking-tight text-slate-500">
+                      <p className="mt-1 flex items-center gap-1 text-base tracking-tight text-slate-500">
                         <span>{talk.profile.position}</span>
                         {talk.profile.company ? (
                           talk.profile.companyLinkedIn ? (
@@ -135,25 +176,42 @@ export function Speakers() {
                         ) : undefined}
                       </p>
                     </div>
-                    <div className="gap-y-3 flex flex-col text-center md:text-left">
-                      <h3 className="mt-4 flex gap-x-2 font-display text-xl font-medium tracking-tight text-blue-900">
+                    <div className="flex flex-col gap-y-3 text-center md:text-left">
+                      <h3 className="font-display mt-4 flex gap-x-2 text-xl font-medium tracking-tight text-blue-900">
                         {talk.youtubeUrl ? (
                           <a href={talk.youtubeUrl} target="_blank" className="-mt-0.5">
-                            <YoutubeLogo className="inline-block" height="24" width="24" alt="Listen on Youtube" viewBox="0 0 256 180" />
+                            <YoutubeLogo
+                              className="inline-block"
+                              height="24"
+                              width="24"
+                              alt="Listen on Youtube"
+                              viewBox="0 0 256 180"
+                            />
                           </a>
                         ) : undefined}
                         {talk.slidesUrl ? (
                           <a href={talk.slidesUrl} target="_blank" className="-mt-0.5">
-                            <SlidesLogo className="inline-block" height="20" width="16" alt="View slides" viewBox="0 0 48 66" />
+                            <SlidesLogo
+                              className="inline-block"
+                              height="20"
+                              width="16"
+                              alt="View slides"
+                              viewBox="0 0 48 66"
+                            />
                           </a>
                         ) : undefined}
                         <span>{talk.title}</span>
                       </h3>
                       <p className="text-base tracking-tight text-gray-600">{talk.summary}</p>
-                      <div className="flex gap-2 flex-col">
+                      <div className="flex flex-col gap-2">
                         {talk.links.map((link, linkIndex) => (
                           <div key={linkIndex}>
-                            <a key={link.url} href={link.url} target="_blank" className=" text-blue-600 hover:underline">
+                            <a
+                              key={link.url}
+                              href={link.url}
+                              target="_blank"
+                              className="text-blue-600 hover:underline"
+                            >
                               - {link.text}
                             </a>
                           </div>
@@ -168,5 +226,5 @@ export function Speakers() {
         </TabGroup>
       </Container>
     </section>
-  )
+  );
 }

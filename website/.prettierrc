@@ -1,0 +1,8 @@
+{
+  "trailingComma": "all",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "semi": true,
+  "jsxBracketSameLine": false,
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
