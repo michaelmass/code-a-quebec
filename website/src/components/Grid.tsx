@@ -11,7 +11,7 @@ import { GridText } from "@/components/GridText";
 
 export function Grid() {
   return (
-    <section id="grid" aria-labelledby="grid" className="py-20 sm:py-32">
+    <section id="grid" aria-labelledby="grid" className="py-20 sm:py-24">
       <Container className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-6">
         <GridContainer className="flex flex-col sm:col-span-3">
           <div className="flex-grow p-6">
