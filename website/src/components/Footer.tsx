@@ -27,7 +27,7 @@ export function Footer() {
             </Link>
           </div>
         </div>
-        <p className="mt-6 text-sm text-gray-400 sm:text-base md:mt-0">
+        <div className="mt-6 text-sm text-gray-400 sm:text-base md:mt-0">
           Organisé par{' '}
           <Link href="https://michaelmasson.com" className="underline underline-offset-1 hover:underline-offset-2" target="_blank">
             Michael Masson
@@ -41,7 +41,7 @@ export function Footer() {
           <Link target="_blank" href={repositoryLink} className="ml-2 font-light text-gray-400 hover:text-gray-500">
             <GithubLogo className="inline-block" height="20" width="20" alt="Github logo" viewBox="0 0 24 24" />
           </Link>
-        </p>
+        </div>
       </Container>
     </footer>
   )

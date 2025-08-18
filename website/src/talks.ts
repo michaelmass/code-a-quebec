@@ -12,6 +12,8 @@ import mikaelFrancoeurProfile from '@/images/profiles/mikael-francoeur.png'
 import pierreSnellProfile from '@/images/profiles/pierre-snell.png'
 import sebastienDufourBeausejourProfile from '@/images/profiles/sebastien-dufour-beausejour.png'
 import williamDussaultProfile from '@/images/profiles/william-dussault.jpeg'
+import marcAnthonyGirardProfile from '@/images/profiles/marc-anthony-girard.png'
+import philippeHamelProfile from '@/images/profiles/philippe-hamel.png'
 
 export type Profile = {
   profile: StaticImageData
@@ -114,6 +116,20 @@ export const profiles = {
     profileLinkedIn: 'https://www.linkedin.com/in/mathys-deshaies/',
     companyLinkedIn: 'https://www.linkedin.com/company/desjardins/',
   },
+  marcAnthonyGirard: {
+    name: 'Marc-Anthony Girard',
+    position: 'Software Developer',
+    profile: marcAnthonyGirardProfile,
+    company: '@Tracel',
+    profileLinkedIn: 'https://www.linkedin.com/in/marc-anthony-girard/',
+    companyLinkedIn: 'https://www.linkedin.com/company/tracel-technologies/',
+  },
+  philippeHamel: {
+    name: 'Philippe Hamel',
+    position: 'Data Engineer',
+    profile: philippeHamelProfile,
+    profileLinkedIn: 'https://www.linkedin.com/in/philippe-hamel-63a888153/'
+  }
 } satisfies Record<string, Profile>
 
 type Event = {
@@ -133,6 +149,42 @@ type Event = {
 }
 
 export const events: Event[] = [
+  // {
+  //   number: '09',
+  //   date: '2025-08-28',
+  //   talks: [
+  //     {
+  //       profile: profiles.philippeHamel,
+  //       title: '',
+  //       summary: '',
+  //       links: [],
+  //     },
+  //     {
+  //       profile: profiles.marcAnthonyGirard,
+  //          title: '',
+  //       summary: '',
+  //       links: [],
+  //     }
+  //   ]
+  // },
+  {
+    number: '08',
+    date: '2025-07-31',
+    talks: [
+      {
+        profile: profiles.francoisLevasseur,
+        title: 'Remote Code Execution - Comment éviter de que ton produit devienne une plateforme de Bitcoin mining',
+        summary: '',
+        links: [],
+      },
+      {
+        profile: profiles.williamDussault,
+        title: '(Ab)using Protocols',
+        summary: '',
+        links: [],
+      },
+    ]
+  },
   {
     number: '07',
     date: '2025-06-26',
