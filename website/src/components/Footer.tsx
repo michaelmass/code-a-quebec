@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { Container } from "@/components/Container";
-import { DiamondIcon } from "@/components/DiamondIcon";
-import { Logo } from "@/components/Logo";
-import { Share } from "@/components/Share";
-import { repositoryLink } from "@/const";
-import GithubLogo from "@/images/logos/github.svg";
-import ShareIcon from "@/images/logos/share.svg";
+import Link from 'next/link'
+import { Container } from '@/components/Container'
+import { DiamondIcon } from '@/components/DiamondIcon'
+import { Logo } from '@/components/Logo'
+import { Share } from '@/components/Share'
+import { repositoryLink } from '@/const'
+import GithubLogo from '@/images/logos/github.svg'
+import ShareIcon from '@/images/logos/share.svg'
 
 export function Footer() {
   return (
@@ -27,42 +27,22 @@ export function Footer() {
             </Link>
           </div>
         </div>
-        <p className="mt-6 text-sm text-gray-400 sm:text-base md:mt-0">
-          Organisé par{" "}
-          <Link
-            href="https://michaelmasson.com"
-            className="underline underline-offset-1 hover:underline-offset-2"
-            target="_blank"
-          >
+        <div className="mt-6 text-sm text-gray-400 sm:text-base md:mt-0">
+          Organisé par{' '}
+          <Link href="https://michaelmasson.com" className="underline underline-offset-1 hover:underline-offset-2" target="_blank">
             Michael Masson
-          </Link>{" "}
+          </Link>{' '}
           &copy; {new Date().getFullYear()}
           <Share className="ml-2 inline-block">
             <div className="inline-block cursor-pointer font-light text-gray-400 hover:text-gray-500">
-              <ShareIcon
-                className="inline-block"
-                height="20"
-                width="20"
-                alt="Share icon"
-                viewBox="0 0 24 24"
-              />
+              <ShareIcon className="inline-block" height="20" width="20" alt="Share icon" viewBox="0 0 24 24" />
             </div>
           </Share>
-          <Link
-            target="_blank"
-            href={repositoryLink}
-            className="ml-2 font-light text-gray-400 hover:text-gray-500"
-          >
-            <GithubLogo
-              className="inline-block"
-              height="20"
-              width="20"
-              alt="Github logo"
-              viewBox="0 0 24 24"
-            />
+          <Link target="_blank" href={repositoryLink} className="ml-2 font-light text-gray-400 hover:text-gray-500">
+            <GithubLogo className="inline-block" height="20" width="20" alt="Github logo" viewBox="0 0 24 24" />
           </Link>
-        </p>
+        </div>
       </Container>
     </footer>
-  );
+  )
 }

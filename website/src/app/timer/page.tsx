@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Logo } from "@/components/Logo";
-import { Timer } from "@/components/Timer";
+import Link from 'next/link'
+import { Logo } from '@/components/Logo'
+import { Timer } from '@/components/Timer'
 
 export default function () {
   return (
@@ -12,5 +12,5 @@ export default function () {
       </div>
       <Timer />
     </div>
-  );
+  )
 }
