@@ -148,6 +148,8 @@ type Event = {
   }[]
 }
 
+
+
 export const events: Event[] = [
   // {
   //   number: '09',
@@ -176,14 +178,61 @@ export const events: Event[] = [
         title: 'Remote Code Execution - Comment éviter de que ton produit devienne une plateforme de Bitcoin mining',
         summary: '',
         slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-07-31/remote-code-execution/slides.pptx',
-        links: [],
+        links: [
+          {
+            text: 'What is Log4Shell ?',
+            url: 'https://www.ibm.com/think/topics/log4shell'
+          },
+          {
+            text: 'Docker (What is meant by shared Kernel)',
+            url: 'https://stackoverflow.com/questions/32756988/what-is-meant-by-shared-kernel-in-docker'
+          },
+          {
+            text: 'gvisor',
+            url: 'https://gvisor.dev/'
+          },
+          {
+            text: 'Firecracker',
+            url: 'https://firecracker-microvm.github.io/'
+          },
+          {
+            text: 'Deno Cloud',
+            url: 'https://deno.com/blog/subhosting-security-run-untrusted-code'
+          },
+          {
+            text: 'V8 Isolates',
+            url: 'https://v8docs.nodesource.com/node-0.8/d5/dda/classv8_1_1_isolate.html'
+          },
+          {
+            text: 'VRL',
+            url: 'https://vector.dev/docs/reference/vrl/'
+          },
+          {
+            text: 'Turing Machines',
+            url: 'https://plato.stanford.edu/entries/turing-machine/'
+          },
+          {
+            text: 'Church-Turing Thesis',
+            url: 'https://plato.stanford.edu/entries/church-turing/'
+          }
+        ],
       },
       {
         profile: profiles.williamDussault,
         title: '(Ab)using Protocols',
-        summary: '',
+        summary: 'La présentation de William est intrigante et impressionnante. En travaillant sur son projet personnel de système de fichiers distribué nommé Memmos. William est arrivé à une impasse pour optimiser la distribution des fichiers au niveau du réseau. Si les fichiers sont présents sur le réseau local, il ne voulait pas télécharger le fichier via Internet.Donc, dans sa présentation, William explique comment il a abusé le protocole DNS pour résoudre son problème.',
+        youtubeUrl: 'https://youtu.be/xku5_OtEb-g',
         slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-07-31/abusing-protocols/slides.pdf',
-        links: [],
+        links: [
+          {
+            text: 'Le projet Memmos',
+            url: 'https://github.com/menmos/menmos',
+          },
+          {
+            text: 'Let\'s Encrypt pour la génération de certificats SSL',
+            url: 'https://letsencrypt.org/'
+          },
+        ],
       },
     ]
   },
