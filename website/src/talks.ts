@@ -175,12 +175,14 @@ export const events: Event[] = [
         profile: profiles.francoisLevasseur,
         title: 'Remote Code Execution - Comment éviter de que ton produit devienne une plateforme de Bitcoin mining',
         summary: '',
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-07-31/remote-code-execution/slides.pptx',
         links: [],
       },
       {
         profile: profiles.williamDussault,
         title: '(Ab)using Protocols',
         summary: '',
+        slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-07-31/abusing-protocols/slides.pdf',
         links: [],
       },
     ]
@@ -214,7 +216,7 @@ export const events: Event[] = [
           "La présentation de Mathys nous introduit au concept de rate limiting. Durant sa présentation, il nous expose différents algorithmes de rate limiting et des exemples concrets de leur utilisation. Mathys fait également des démonstrations visuelles des différents algorithmes pour bien expliquer les nuances entre eux. Après avoir écouté Mathys, tu seras en mesure de parfaitement choisir l'algorithme qui convient à ton problème.",
         links: [
           {
-            text: 'Le blog utilié pour la présentation',
+            text: 'Le blog utilisé pour la présentation',
             url: 'https://smudge.ai/blog/ratelimit-algorithms',
           },
         ],

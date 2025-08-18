@@ -8,10 +8,10 @@ export default function () {
   return (
     <>
       <Hero />
-      <Talks />
+      {/* TODO?: <Talks /> */}
       <Speakers />
       <Newsletter />
-      <FAQ />
+      {/* TODO?: <FAQ /> */}
     </>
   )
 }
