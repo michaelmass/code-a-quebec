@@ -3,6 +3,7 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 
 import Image from 'next/image'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useId, useState } from 'react'
 
 import { Container } from '@/components/Container'
@@ -33,7 +34,22 @@ function ImageClipPaths({ id, ...props }: React.ComponentPropsWithoutRef<'svg'> 
 
 export function Speakers() {
   const id = useId()
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
   const [tabOrientation, setTabOrientation] = useState('horizontal')
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
+  // Set initial selected index from URL parameter on mount
+  useEffect(() => {
+    const eventParam = searchParams.get('event')
+    if (eventParam !== null) {
+      const index = events.findIndex(event => event.date === eventParam)
+      if (index !== -1) {
+        setSelectedIndex(index)
+      }
+    }
+  }, [searchParams])
 
   useEffect(() => {
     const lgMediaQuery = window.matchMedia('(min-width: 1024px)')
@@ -50,6 +66,14 @@ export function Speakers() {
     }
   }, [])
 
+  // Update URL when tab changes
+  const handleTabChange = (index: number) => {
+    setSelectedIndex(index)
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('event', events[index].date)
+    router.push(`${pathname}?${params.toString()}`, { scroll: false })
+  }
+
   return (
     <section aria-labelledby="speakers-title" className="py-10 sm:py-20">
       <ImageClipPaths id={id} />
@@ -58,7 +82,7 @@ export function Speakers() {
           <h2 className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">Présentations</h2>
           <p className="font-display mt-4 text-lg tracking-tight text-blue-900 sm:text-2xl">Découvrez les personnes qui ont fait des présentations au Code @ Québec.</p>
         </div>
-        <TabGroup className="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 lg:mt-24 lg:grid-cols-4 lg:gap-y-16" vertical={tabOrientation === 'vertical'}>
+        <TabGroup className="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 lg:mt-24 lg:grid-cols-4 lg:gap-y-16" vertical={tabOrientation === 'vertical'} selectedIndex={selectedIndex} onChange={handleTabChange}>
           <div className="relative -mx-4 flex overflow-x-auto pb-4 lg:mx-0 lg:block lg:pb-0">
             <div className="absolute top-2 bottom-0 left-0.5 hidden w-px bg-slate-200 lg:block" />
             <TabList className="grid auto-cols-auto grid-flow-col justify-start gap-x-8 gap-y-10 px-4 whitespace-nowrap sm:max-w-2xl sm:px-0 sm:text-center lg:grid-flow-row lg:grid-cols-1 lg:text-left">
