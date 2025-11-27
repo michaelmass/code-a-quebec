@@ -148,27 +148,79 @@ type Event = {
   }[]
 }
 
-
-
 export const events: Event[] = [
-  // {
-  //   number: '09',
-  //   date: '2025-08-28',
-  //   talks: [
-  //     {
-  //       profile: profiles.philippeHamel,
-  //       title: '',
-  //       summary: '',
-  //       links: [],
-  //     },
-  //     {
-  //       profile: profiles.marcAnthonyGirard,
-  //          title: '',
-  //       summary: '',
-  //       links: [],
-  //     }
-  //   ]
-  // },
+    {
+    number: '12',
+    date: '2025-11-27',
+    talks: [
+      {
+        profile: profiles.marcAnthonyGirard,
+        title: '',
+        summary: '',
+        links: [],
+      },
+      {
+        profile: profiles.philippeHamel,
+        title: '',
+        summary: '',
+        links: [],
+      },
+    ]
+  },
+  {
+    number: '11',
+    date: '2025-10-30',
+    talks: [
+      {
+        profile: profiles.marcAnthonyGirard,
+        title: '',
+        summary: '',
+        links: [],
+      },
+      {
+        profile: profiles.philippeHamel,
+        title: '',
+        summary: '',
+        links: [],
+      },
+    ]
+  },
+  {
+    number: '10',
+    date: '2025-09-25',
+    talks: [
+      {
+        profile: profiles.marcAnthonyGirard,
+        title: '',
+        summary: '',
+        links: [],
+      },
+      {
+        profile: profiles.philippeHamel,
+        title: '',
+        summary: '',
+        links: [],
+      },
+    ]
+  },
+  {
+    number: '09',
+    date: '2025-08-28',
+    talks: [
+      {
+        profile: profiles.marcAnthonyGirard,
+        title: '',
+        summary: '',
+        links: [],
+      },
+      {
+        profile: profiles.philippeHamel,
+        title: '',
+        summary: '',
+        links: [],
+      },
+    ]
+  },
   {
     number: '08',
     date: '2025-07-31',
@@ -176,8 +228,9 @@ export const events: Event[] = [
       {
         profile: profiles.francoisLevasseur,
         title: 'Remote Code Execution - Comment éviter de que ton produit devienne une plateforme de Bitcoin mining',
-        summary: 'La présentation de Fleur était instructive. Il a démontré une nouvelle facade du "Remote Code Execution" (RCE). Évidemment, le RCE est perçu comme un exploit de sécurité. Par contre, si c\'est exactement ce qu\'on veut permettre, il faut trouver des techniques sécuritaires pour faire du RCE. C\'est exactement ce que Fleur explique dans sa présentation. Il nous explique les différentes approches et technologies que l\'on peut utiliser tel que Docker, gvisor, firecracker, V8 Isolates et VRL. ',
+        summary: 'La présentation de Fleur était instructive. Il a démontré une nouvelle facade du "Remote Code Execution" (RCE). Évidemment, le RCE est perçu comme un exploit de sécurité. Par contre, si c\'est exactement ce qu\'on veut permettre, il faut trouver des techniques sécuritaires pour faire du RCE. C\'est exactement ce que Fleur explique dans sa présentation. Il nous explique les différentes approches et technologies que l\'on peut utiliser tel que Docker, gvisor, firecracker, V8 Isolates et VRL.',
         slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-07-31/remote-code-execution/slides.pptx',
+        youtubeUrl: 'https://youtu.be/6jjxB9bO4Ps',
         links: [
           {
             text: 'What is Log4Shell ?',
@@ -459,3 +512,5 @@ export const events: Event[] = [
     ],
   },
 ]
+
+export const eventYears = Array.from(new Set(events.map(event => Number.parseInt(event.date.split('-')[0], 10)))).sort((a, b) => a - b).map(year => year.toString())
