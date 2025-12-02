@@ -5,10 +5,10 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { DiamondIcon } from '@/components/DiamondIcon'
 import { Logo } from '@/components/Logo'
-import { formatCodeAQuebecLink, formatRelativeDate, getLastThursdayOfMonth } from '@/util'
+import { formatCodeAQuebecLink, formatRelativeDate, getNextEventDate } from '@/util'
 
 export function Header() {
-  const nextLastThursday = getLastThursdayOfMonth()
+  const nextLastThursday = getNextEventDate()
   const eventLink = formatCodeAQuebecLink(nextLastThursday)
   const nextLastThursdayLabel = formatRelativeDate(nextLastThursday)
 

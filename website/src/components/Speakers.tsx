@@ -10,7 +10,7 @@ import { DiamondIcon } from '@/components/DiamondIcon'
 import LinkedInLogo from '@/images/logos/linkedin.svg'
 import SlidesLogo from '@/images/logos/slides.svg'
 import YoutubeLogo from '@/images/logos/youtube.svg'
-import { events } from '@/talks'
+import { events, eventYears } from '@/talks'
 import { cn } from '@/util'
 
 function ImageClipPaths({ id, ...props }: React.ComponentPropsWithoutRef<'svg'> & { id: string }) {
@@ -33,7 +33,10 @@ function ImageClipPaths({ id, ...props }: React.ComponentPropsWithoutRef<'svg'> 
 
 export function Speakers() {
   const id = useId()
+
   const [tabOrientation, setTabOrientation] = useState('horizontal')
+  const [selectedYear, setSelectedYear] = useState(eventYears[eventYears.length - 1])
+  const [selectedEvent, setSelectedEvent] = useState(events[0])
 
   useEffect(() => {
     const lgMediaQuery = window.matchMedia('(min-width: 1024px)')
@@ -50,54 +53,68 @@ export function Speakers() {
     }
   }, [])
 
+  useEffect(() => {
+    if (!selectedEvent.date.startsWith(selectedYear)) {
+      const event = events.find(event => event.date.startsWith(selectedYear))
+
+      if (event) {
+        setSelectedEvent(event)
+      }
+    }
+  }, [selectedYear])
+
   return (
     <section aria-labelledby="speakers-title" className="py-10 sm:py-20">
       <ImageClipPaths id={id} />
       <Container>
-        <div className="mx-auto max-w-2xl lg:mx-0">
+        <div className="mx-auto max-w-2xl lg:mx-0 mb-4">
           <h2 className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">Présentations</h2>
           <p className="font-display mt-4 text-lg tracking-tight text-blue-900 sm:text-2xl">Découvrez les personnes qui ont fait des présentations au Code @ Québec.</p>
         </div>
-        <TabGroup className="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 lg:mt-24 lg:grid-cols-4 lg:gap-y-16" vertical={tabOrientation === 'vertical'}>
+        <div className='flex gap-2 mx-auto max-w-2xl lg:mx-0'>
+          {
+            eventYears.map(year => (
+              <div onClick={() => setSelectedYear(year)} key={year} className={cn('rounded-2xl p-1 px-2 border border-transparent relative cursor-pointer', selectedYear === year ? 'bg-blue-600 text-white' : 'text-blue-600 bg-blue-50/50 hover:bg-blue-50')}>
+                {year}
+              </div>
+            ))
+          }
+        </div>
+        <TabGroup className="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 lg:mt-14 lg:grid-cols-4 lg:gap-y-16" vertical={tabOrientation === 'vertical'}>
           <div className="relative -mx-4 flex overflow-x-auto pb-4 lg:mx-0 lg:block lg:pb-0">
-            <div className="absolute top-2 bottom-0 left-0.5 hidden w-px bg-slate-200 lg:block" />
-            <TabList className="grid auto-cols-auto grid-flow-col justify-start gap-x-8 gap-y-10 px-4 whitespace-nowrap sm:max-w-2xl sm:px-0 sm:text-center lg:grid-flow-row lg:grid-cols-1 lg:text-left">
-              {({ selectedIndex }) => (
-                <>
-                  {events.map((event, eventIndex) => (
-                    <div key={event.date} className="relative lg:pl-8">
-                      <DiamondIcon
-                        className={cn(
-                          'absolute top-2.25 left-[-0.5px] hidden h-1.5 w-1.5 overflow-visible lg:block',
-                          eventIndex === selectedIndex ? 'fill-blue-600 stroke-blue-600' : 'fill-transparent stroke-slate-400',
-                        )}
-                      />
-                      <div className="relative cursor-pointer">
-                        <div className={cn('rounded-2xl p-2 pb-0 hover:bg-blue-50/50', eventIndex === selectedIndex && 'bg-blue-50')}>
-                          <div className={cn('font-mono text-sm', eventIndex === selectedIndex ? 'text-blue-600' : 'text-slate-500')}>
-                            <Tab className="cursor-pointer data-selected:not-data-focus:outline-hidden">
-                              <span className="absolute inset-0" />
-                              {event.number} Code @ Québec
-                            </Tab>
-                          </div>
-                          <time dateTime={event.date} className="mt-1.5 block text-2xl font-semibold tracking-tight text-blue-900">
-                            {event.date}
-                          </time>
-                        </div>
+            <div className="absolute ml-1 top-2 bottom-13 left-0.5 hidden w-px bg-slate-200 lg:block" />
+            <TabList className="grid auto-cols-auto grid-flow-col justify-start gap-x-8 gap-y-8 px-4 whitespace-nowrap sm:max-w-2xl sm:px-0 sm:text-center lg:grid-flow-row lg:grid-cols-1 lg:text-left">
+              {events.filter(event => event.date.startsWith(selectedYear)).map((event) => (
+                <div key={event.date} className="relative lg:pl-8" onClick={() => setSelectedEvent(event)}>
+                  <DiamondIcon
+                    className={cn(
+                      'absolute top-2.25 left-[3.5px] hidden h-1.5 w-1.5 overflow-visible lg:block',
+                      event.date === selectedEvent.date ? 'fill-blue-600 stroke-blue-600' : 'fill-slate-400 stroke-slate-400',
+                    )}
+                  />
+                  <div className="relative cursor-pointer">
+                    <div className={cn('rounded-2xl p-2 pb-0 hover:bg-blue-50/50', event.date === selectedEvent.date && 'bg-blue-50')}>
+                      <div className={cn('font-mono text-sm', event.date === selectedEvent.date ? 'text-blue-600' : 'text-slate-500')}>
+                        <Tab className="cursor-pointer data-selected:not-data-focus:outline-hidden">
+                          <span className="absolute inset-0" />
+                          {event.number} Code @ Québec
+                        </Tab>
                       </div>
+                      <time dateTime={event.date} className="mt-1 block text-xl font-semibold tracking-tight text-blue-900">
+                        {event.date}
+                      </time>
                     </div>
-                  ))}
-                </>
-              )}
+                  </div>
+                </div>
+              ))}
             </TabList>
           </div>
-          <TabPanels className="lg:col-span-3">
-            {events.map(event => (
-              <TabPanel key={event.date} className="flex flex-col justify-center gap-x-8 gap-y-6 not-lg:items-center data-selected:not-data-focus:outline-hidden sm:gap-y-12" unmount={false}>
-                {event.talks.map((talk, talkIndex) => (
+          <div className="lg:col-span-3">
+              <div className="flex flex-col justify-center gap-x-8 gap-y-6 not-lg:items-center data-selected:not-data-focus:outline-hidden sm:gap-y-12">
+                {selectedEvent.talks.map((talk, talkIndex) => (
                   <div key={talkIndex} className="flex not-md:flex-col not-md:items-center">
                     <div className="w-full max-w-80 flex-none md:mr-4">
-                      <div className="group relative h-70 transform overflow-hidden rounded-4xl">
+                      <div className="group pl-1 relative h-70 transform overflow-hidden rounded-4xl">
                         <div
                           className={cn(
                             'absolute top-0 right-4 bottom-6 left-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
@@ -162,9 +179,8 @@ export function Speakers() {
                     </div>
                   </div>
                 ))}
-              </TabPanel>
-            ))}
-          </TabPanels>
+              </div>
+          </div>
         </TabGroup>
       </Container>
     </section>

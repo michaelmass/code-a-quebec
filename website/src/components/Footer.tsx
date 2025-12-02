@@ -5,9 +5,10 @@ import { Container } from '@/components/Container'
 import { DiamondIcon } from '@/components/DiamondIcon'
 import { Logo } from '@/components/Logo'
 import { Share } from '@/components/Share'
-import { repositoryLink } from '@/const'
+import { repositoryLink, youtubeLink } from '@/const'
 import GithubLogo from '@/images/logos/github.svg'
 import ShareIcon from '@/images/logos/share.svg'
+import YoutubeIcon from '@/images/logos/youtube-icon.svg'
 
 export function Footer() {
   return (
@@ -33,6 +34,9 @@ export function Footer() {
             Michael Masson
           </Link>{' '}
           &copy; {new Date().getFullYear()}
+          <Link target="_blank" href={youtubeLink} className="ml-2 font-light text-gray-400 hover:text-gray-500">
+            <YoutubeIcon className="inline-block" height="20" width="20" alt="Youtube logo" viewBox="0 0 24 24" />
+          </Link>
           <Share className="ml-2 inline-block">
             <div className="inline-block cursor-pointer font-light text-gray-400 hover:text-gray-500">
               <ShareIcon className="inline-block" height="20" width="20" alt="Share icon" viewBox="0 0 24 24" />

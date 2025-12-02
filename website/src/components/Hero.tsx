@@ -4,10 +4,10 @@ import Link from 'next/link'
 import { ButtonOutline } from '@/components/ButtonOutline'
 import { Container } from '@/components/Container'
 import { attendeesTotal, botpressGoogleMapsLink, presentationTotal } from '@/const'
-import { formatCodeAQuebecLink, getLastThursdayOfMonth } from '@/util'
+import { formatCodeAQuebecLink, getNextEventDate } from '@/util'
 
 export function Hero() {
-  const nextLastThursday = getLastThursdayOfMonth()
+  const nextLastThursday = getNextEventDate()
   const eventLink = formatCodeAQuebecLink(nextLastThursday)
 
   return (
