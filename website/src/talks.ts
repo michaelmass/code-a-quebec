@@ -14,6 +14,8 @@ import sebastienDufourBeausejourProfile from '@/images/profiles/sebastien-dufour
 import williamDussaultProfile from '@/images/profiles/william-dussault.jpeg'
 import marcAnthonyGirardProfile from '@/images/profiles/marc-anthony-girard.png'
 import philippeHamelProfile from '@/images/profiles/philippe-hamel.png'
+import davidFerlandProfile from '@/images/profiles/david-ferland.jpeg'
+import gabrielLeBretonProfile from '@/images/profiles/gabriel-le-breton.jpeg'
 
 export type Profile = {
   profile: StaticImageData
@@ -56,10 +58,10 @@ export const profiles = {
   mikaelFrancoeur: {
     name: 'Mikaël Francoeur',
     position: 'Senior Developer',
-    company: '@Ticketmaster',
+    company: '@Turso',
     profile: mikaelFrancoeurProfile,
     profileLinkedIn: 'https://www.linkedin.com/in/mika%C3%ABl-francoeur/',
-    companyLinkedIn: 'https://www.linkedin.com/company/ticketmaster/',
+    companyLinkedIn: 'https://www.linkedin.com/company/turso/',
   },
   michaelMasson: {
     name: 'Michael Masson',
@@ -129,7 +131,23 @@ export const profiles = {
     position: 'Data Engineer',
     profile: philippeHamelProfile,
     profileLinkedIn: 'https://www.linkedin.com/in/philippe-hamel-63a888153/'
-  }
+  },
+  davidFerland: {
+    name: 'David Ferland',
+    position: 'Software Developer',
+    profile: davidFerlandProfile,
+    company: '@Botpress',
+    profileLinkedIn: 'https://www.linkedin.com/in/david-ferland-a3621a212/',
+    companyLinkedIn: 'https://www.linkedin.com/company/botpress/',
+  },
+  gabrielLeBreton: {
+    name: 'Gabriel Le Breton',
+    position: 'Programmeur, Entrepreneur, Développeur de jeu et plus encore',
+    profile: gabrielLeBretonProfile,
+    company: '@TLM',
+    profileLinkedIn: 'https://www.linkedin.com/in/gableroux/',
+    companyLinkedIn: 'https://www.linkedin.com/company/solutions-tlm/',
+  },
 } satisfies Record<string, Profile>
 
 type Event = {
@@ -154,16 +172,57 @@ export const events: Event[] = [
     date: '2025-11-27',
     talks: [
       {
-        profile: profiles.marcAnthonyGirard,
-        title: '',
-        summary: '',
-        links: [],
+        profile: profiles.michaelMasson,
+        title: 'Kubernetes The Right Way',
+        summary: 'La présentation de Michael démontre comment abstraire la complexité de Kubernetes pour augmenter la vélocité des développeurs. Il introduit le concept d\'un platform engineer (George) qui crée des outils permettant aux développeurs (Bob) de déployer leurs applications sans comprendre Kubernetes en profondeur. Michael explique comment mettre en place un cluster production-ready avec les outils essentiels (Traefik, Cilium, Grafana), puis créer une chart Helm personnalisée (Simple App Deployment) qui génère automatiquement du code TypeScript pour le build et le déploiement. Cette approche élimine la gestion manuelle des secrets, standardise les déploiements et rend la plateforme self-service. Michael souligne l\'importance de ne pas over-abstraire, de maintenir une friction intentionnelle pour éviter l\'explosion de projets, et rappelle que Kubernetes n\'est pas toujours la meilleure solution pour tous les cas d\'usage.',
+        youtubeUrl: 'https://youtu.be/oki7366jtjk',
+        links: [
+          {
+            text: 'Kubernetes',
+            url: 'https://kubernetes.io/',
+          },
+          {
+            text: 'Helm',
+            url: 'https://helm.sh/',
+          },
+          {
+            text: 'Traefik',
+            url: 'https://traefik.io/',
+          },
+          {
+            text: 'Cilium',
+            url: 'https://cilium.io/',
+          },
+          {
+            text: 'Grafana',
+            url: 'https://grafana.com/',
+          },
+          {
+            text: "Cert manager",
+            url: "https://cert-manager.io/",
+          },
+          {
+            text: "External DNS",
+            url: "https://kubernetes-sigs.github.io/external-dns/latest/",
+          }
+        ],
       },
       {
-        profile: profiles.philippeHamel,
-        title: '',
-        summary: '',
-        links: [],
+        profile: profiles.mathysDeshaies,
+        title: 'Styler sans devenir fou Tailwind CSS',
+        summary: 'La présentation de Mathys explore comment utiliser Tailwind CSS efficacement avec sa méthodologie "TVA" (Tailwind View Atomic Design) qui structure les projets en cinq niveaux - atomes, molécules, organismes, templates et pages. L\'approche concentre les longues listes de classes Tailwind dans les atomes pour garder les composants supérieurs épurés. Mathys partage ses règles pratiques: utiliser des préfixes de nommage, créer des wrappers pour les librairies externes, privilégier les variables CSS pour le theming, et favoriser le padding. Il a créé une extension VS Code pour extraire automatiquement des composants selon cette architecture, facilitant la réutilisation entre projets et les changements de thème rapides. Après la présentation de Mathys, vous allez connaître Tailwind de fond en comble.',
+        youtubeUrl: 'https://youtu.be/oJLbPCid0Ag',
+        links: [
+          {
+            text: 'Tailwind CSS',
+            url: 'https://tailwindcss.com/',
+          },
+          {
+            text: 'Atomic Design',
+            url: 'https://bradfrost.com/blog/post/atomic-web-design/',
+          },
+
+        ],
       },
     ]
   },
@@ -172,15 +231,17 @@ export const events: Event[] = [
     date: '2025-10-30',
     talks: [
       {
-        profile: profiles.marcAnthonyGirard,
-        title: '',
-        summary: '',
+        profile: profiles.francoisXavierDarveau,
+        title: 'Time Series Foundation models',
+        summary: 'La présentation de François-Xavier explore l\'utilisation des Time Series Foundation Models pour détecter les fuites d\'eau dans sa startup. En tant que développeur solo, il évalue s\'il devrait remplacer son fournisseur externe actuel par une solution maison utilisant ces nouveaux modèles. Il démontre comment ces modèles fonctionnent en mode zéro-shot - sans entraînement préalable - et utilise les quantiles de prédiction (P90, P10) pour identifier les anomalies dans la consommation d\'eau. Bien que prometteurs sur papier (pas d\'infrastructure, pas d\'artefacts spécifiques, généralisation), les modèles présentent des défis avec les sites non-standard, le bruit dans les données et les fuites chroniques. Sa conclusion reste ouverte - potentiellement viable mais nécessite encore du travail.',
+        youtubeUrl: 'https://youtu.be/8Z5pBGiWiNI',
         links: [],
       },
       {
-        profile: profiles.philippeHamel,
-        title: '',
-        summary: '',
+        profile: profiles.davidFerland,
+        title: 'Les closures en Javascript',
+        summary: 'La présentation de David explore les closures en JavaScript, qui permettent aux fonctions d\'avoir une "mémoire privée". Quand une fonction retourne une fonction, la fonction interne conserve l\'accès aux variables de son parent grâce au scope lexical. David présente deux applications pratiques: le module pattern (encapsulation publique/privée) et le currying (transformation de fonctions multi-paramètres en chaîne).',
+        youtubeUrl: 'https://youtu.be/xsLuUKrkAk8',
         links: [],
       },
     ]
@@ -190,16 +251,44 @@ export const events: Event[] = [
     date: '2025-09-25',
     talks: [
       {
-        profile: profiles.marcAnthonyGirard,
-        title: '',
-        summary: '',
-        links: [],
+        profile: profiles.mikaelFrancoeur,
+        title: 'SQLite plus puissant que vous le croyez',
+        summary: 'La présentation de Mikaël démontre que SQLite dépasse le simple CRUD grâce à quatre extensions majeures: recherche vectorielle sémantique, synchronisation décentralisée avec résolution de conflits, interrogation d\'API REST en SQL, et manipulation d\'archives ZIP comme des tables. Ces extensions transforment SQLite (650Ko, trillion d\'instances) en outil polyvalent pour le prototypage rapide et l\'analyse de données, avec support de fonctions personnalisées et exports multiformats.',
+        youtubeUrl: 'https://youtu.be/X55ssos7DAA',
+        links: [
+          {
+            text: 'SQLite',
+            url: 'https://www.sqlite.org/',
+          },
+          {
+            text: 'SQLite Extensions',
+            url: 'https://www.sqlite.org/contrib/',
+          },
+        ],
       },
       {
-        profile: profiles.philippeHamel,
-        title: '',
-        summary: '',
-        links: [],
+        profile: profiles.gabrielLeBreton,
+        title: 'Comment faire un jeu d\'banane avec un serveur MCP',
+        summary: 'Gabriel Le Breton a présenté une expérience humoristique de création de jeu inspirée de l\'œuvre *Comedian* de Maurizio Cattelan. Le projet a été réalisé dans Unity en combinant l\'IA et des serveurs MCP. Gabriel a montré qu\'en utilisant des prompts comme *"Write testable code"* ou *"Make sure tests are passing"*, en passant le bon contexte et en s\'appuyant sur des serveurs MCP, on pouvait considérablement augmenter les chances de succès. Il a également démontré comment contrôler Unity, valider l\'exécution du code grâce aux tests PlayMode et EditMode et, avec relativement peu d\'efforts, produire un jeu doté d\'une base solide et testée, malgré les défis techniques et l\'optimisme démesuré de *claude-4-sonnet*.',
+        youtubeUrl: 'https://youtu.be/TPGROYRxfYQ',
+        links: [
+          {
+            text: "Présentation",
+            url: "https://s.gableroux.com/jeu-de-banane-mcp"
+          },
+          {
+            text: "Unity MCP",
+            url: "https://github.com/CoplayDev/unity-mcp",
+          },
+          {
+            text: "Unity MCP avec support des tests",
+            url: "https://github.com/CoderGamester/mcp-unity",
+          },
+          {
+            text: "Comedian artwork by Maurizio Cattelan",
+            url: "https://en.wikipedia.org/wiki/Comedian_(artwork)"
+          }
+        ],
       },
     ]
   },
@@ -209,14 +298,21 @@ export const events: Event[] = [
     talks: [
       {
         profile: profiles.marcAnthonyGirard,
-        title: '',
-        summary: '',
-        links: [],
+        title: 'Démystifier la gestion des données dans son frontend',
+        summary: 'La présentation de Marc-Anthony compare quatre solutions de gestion de données frontend et recommande TanStack Query. Contrairement au fetch natif (non performant), aux contextes React (re-renders excessifs) et à Redux (complexe), TanStack Query offre un cache intelligent avec états automatiques, code ciblé et réutilisable, tout en restant simple et performant.',
+        youtubeUrl: 'https://youtu.be/AGMIUiJjl5Q',
+        links: [
+          {
+            text: 'Tanstack Query',
+            url: 'https://tanstack.com/query/latest',
+          }
+        ],
       },
       {
         profile: profiles.philippeHamel,
-        title: '',
-        summary: '',
+        title: 'Introduction à la modélisation dimensionnelle',
+        summary: 'La présentation de Philippe introduit la modélisation dimensionnelle pour bases de données analytiques, utilisant des tables facts (mesures centrales) et dimensions (attributs descriptifs). Il démontre avec le baseball comment le star schema offre le meilleur équilibre performance/simplicité, et explique pourquoi copier directement une base opérationnelle pour l\'analytique nuit à la performance et complexifie les requêtes.',
+        youtubeUrl: 'https://youtu.be/inNiAZ3ogWI',
         links: [],
       },
     ]

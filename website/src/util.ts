@@ -47,7 +47,7 @@ export const formatRelativeDate = (date: Date | string) => {
   return `Dans ${diffInDays} jours` // e.g. "9 June 2025"
 }
 
-export const getLastThursdayOfMonth = (date = new Date()) => {
+const getLastThursdayOfMonth = (date = new Date()) => {
   const nextThursday = new Date(date)
 
   while (nextThursday.getDay() !== 4) {
@@ -63,6 +63,16 @@ export const getLastThursdayOfMonth = (date = new Date()) => {
   lastThursday.setHours(18, 0, 0, 0)
 
   return lastThursday
+}
+
+export const getNextEventDate = () => {
+  const nextLastThursdayOfMonth = getLastThursdayOfMonth(new Date())
+
+  if (nextLastThursdayOfMonth.getMonth() === 11) {
+    return getLastThursdayOfMonth(new Date(nextLastThursdayOfMonth.getFullYear(), nextLastThursdayOfMonth.getMonth(), nextLastThursdayOfMonth.getDate() + 1))
+  }
+
+  return nextLastThursdayOfMonth
 }
 
 export const formatCodeAQuebecLink = (date: Date) => {
