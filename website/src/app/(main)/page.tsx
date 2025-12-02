@@ -3,13 +3,16 @@ import { Hero } from '@/components/Hero'
 import { Newsletter } from '@/components/Newsletter'
 import { Speakers } from '@/components/Speakers'
 import { Talks } from '@/components/Talks'
+import { Suspense } from 'react'
 
 export default function () {
   return (
     <>
       <Hero />
       {/* TODO?: <Talks /> */}
-      <Speakers />
+      <Suspense fallback={null}>
+        <Speakers />
+      </Suspense>
       <Newsletter />
       {/* TODO?: <FAQ /> */}
     </>

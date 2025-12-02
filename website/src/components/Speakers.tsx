@@ -11,7 +11,7 @@ import { DiamondIcon } from '@/components/DiamondIcon'
 import LinkedInLogo from '@/images/logos/linkedin.svg'
 import SlidesLogo from '@/images/logos/slides.svg'
 import YoutubeLogo from '@/images/logos/youtube.svg'
-import { events, eventYears, type Event } from '@/talks'
+import { events, eventYears, type Event, type Talk } from '@/talks'
 import { cn } from '@/util'
 
 function ImageClipPaths({ id, ...props }: React.ComponentPropsWithoutRef<'svg'> & { id: string }) {
@@ -60,6 +60,8 @@ const getDefaultEvent = (eventYear: string, eventDate: string | null) => {
   return events[0]
 }
 
+const getTalkAnchor = (talk: Talk) => talk.title.replaceAll(' ', '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase()
+
 export function Speakers() {
   const id = useId()
 
@@ -76,12 +78,12 @@ export function Speakers() {
 
   const [selectedYear, setSelectedYear] = useState(defaultYear)
   const [selectedEvent, setSelectedEvent] = useState(defaultEvent)
+  const [anchor, setAnchor] = useState<string | null>(null)
 
-  const setEvent = (event: Event) => {
+  const updateUrl = () => {
     const params = new URLSearchParams(searchParams.toString())
-    params.set('event', event.date)
-    router.push(`${pathname}?${params.toString()}`, { scroll: false })
-    setSelectedEvent(event)
+    params.set('event', selectedEvent.date)
+    router.push(`${pathname}?${params.toString()}${anchor ? `#${anchor}` : ''}`, { scroll: false })
   }
 
   useEffect(() => {
@@ -104,10 +106,14 @@ export function Speakers() {
       const event = events.find(event => event.date.startsWith(selectedYear))
 
       if (event) {
-        setEvent(event)
+        setSelectedEvent(event)
       }
     }
   }, [selectedYear])
+
+  useEffect(() => {
+    updateUrl()
+  }, [anchor, selectedEvent])
 
   return (
     <section aria-labelledby="speakers-title" className="py-10 sm:py-20">
@@ -131,7 +137,7 @@ export function Speakers() {
             <div className="absolute ml-1 top-2 bottom-13 left-0.5 hidden w-px bg-slate-200 lg:block" />
             <TabList className="grid auto-cols-auto grid-flow-col justify-start gap-x-8 gap-y-8 px-4 whitespace-nowrap sm:max-w-2xl sm:px-0 sm:text-center lg:grid-flow-row lg:grid-cols-1 lg:text-left">
               {events.filter(event => event.date.startsWith(selectedYear)).map((event) => (
-                <div key={event.date} className="relative lg:pl-8" onClick={() => setEvent(event)}>
+                <div key={event.date} className="relative lg:pl-8" onClick={() => setSelectedEvent(event)}>
                   <DiamondIcon
                     className={cn(
                       'absolute top-2.25 left-[3.5px] hidden h-1.5 w-1.5 overflow-visible lg:block',
@@ -158,7 +164,7 @@ export function Speakers() {
           <div className="lg:col-span-3">
               <div className="flex flex-col justify-center gap-x-8 gap-y-6 not-lg:items-center data-selected:not-data-focus:outline-hidden sm:gap-y-12">
                 {selectedEvent.talks.map((talk, talkIndex) => (
-                  <div key={talkIndex} className="flex not-md:flex-col not-md:items-center">
+                  <div key={talkIndex} className="flex not-md:flex-col not-md:items-center" id={getTalkAnchor(talk)}>
                     <div className="w-full max-w-80 flex-none md:mr-4">
                       <div className="group pl-1 relative h-70 transform overflow-hidden rounded-4xl">
                         <div
@@ -210,7 +216,8 @@ export function Speakers() {
                             <SlidesLogo className="inline-block" height="20" width="16" alt="View slides" viewBox="0 0 48 66" />
                           </a>
                         ) : undefined}
-                        <span>{talk.title}</span>
+                        <span>{talk.title} <span className='hover:underline cursor-pointer' onClick={() => setAnchor(getTalkAnchor(talk))}>#</span></span>
+
                       </h3>
                       <p className="text-justify text-base tracking-tight text-gray-600">{talk.summary}</p>
                       <div className="flex flex-col gap-2">
