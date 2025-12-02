@@ -150,20 +150,22 @@ export const profiles = {
   },
 } satisfies Record<string, Profile>
 
+export type Talk = {
+  profile: Profile
+  title: string
+  summary: string
+  youtubeUrl?: string
+  slidesUrl?: string
+  links: {
+    text: string
+    url: string
+  }[]
+}
+
 export type Event = {
   date: string
   number: string
-  talks: {
-    profile: Profile
-    title: string
-    summary: string
-    youtubeUrl?: string
-    slidesUrl?: string
-    links: {
-      text: string
-      url: string
-    }[]
-  }[]
+  talks: Talk[]
 }
 
 export const events: Event[] = [
