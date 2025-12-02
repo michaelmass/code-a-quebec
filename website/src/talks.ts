@@ -150,7 +150,7 @@ export const profiles = {
   },
 } satisfies Record<string, Profile>
 
-type Event = {
+export type Event = {
   date: string
   number: string
   talks: {

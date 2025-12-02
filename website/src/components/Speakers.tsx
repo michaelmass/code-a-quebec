@@ -1,16 +1,17 @@
 'use client'
 
-import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
+import { Tab, TabGroup, TabList } from '@headlessui/react'
 
 import Image from 'next/image'
 import { useEffect, useId, useState } from 'react'
+import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 
 import { Container } from '@/components/Container'
 import { DiamondIcon } from '@/components/DiamondIcon'
 import LinkedInLogo from '@/images/logos/linkedin.svg'
 import SlidesLogo from '@/images/logos/slides.svg'
 import YoutubeLogo from '@/images/logos/youtube.svg'
-import { events, eventYears } from '@/talks'
+import { events, eventYears, type Event } from '@/talks'
 import { cn } from '@/util'
 
 function ImageClipPaths({ id, ...props }: React.ComponentPropsWithoutRef<'svg'> & { id: string }) {
@@ -31,12 +32,57 @@ function ImageClipPaths({ id, ...props }: React.ComponentPropsWithoutRef<'svg'> 
   )
 }
 
+const getDefaultYear = (event: string | null) => {
+  if (!event) {
+    return eventYears[eventYears.length - 1]
+  }
+
+  const eventYear = event.split('-')[0]
+
+  if (eventYears.includes(eventYear)) {
+    return eventYear
+  }
+
+  return eventYears[eventYears.length - 1]
+}
+
+const getDefaultEvent = (eventYear: string, eventDate: string | null) => {
+  if (!eventDate) {
+    return events[0]
+  }
+
+  const event = events.find(event => event.date === eventDate)
+
+  if (event?.date.startsWith(eventYear)) {
+    return event
+  }
+
+  return events[0]
+}
+
 export function Speakers() {
   const id = useId()
 
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
   const [tabOrientation, setTabOrientation] = useState('horizontal')
-  const [selectedYear, setSelectedYear] = useState(eventYears[eventYears.length - 1])
-  const [selectedEvent, setSelectedEvent] = useState(events[0])
+
+  const eventDate = searchParams.get('event')
+
+  const defaultYear = getDefaultYear(eventDate)
+  const defaultEvent = getDefaultEvent(defaultYear, eventDate)
+
+  const [selectedYear, setSelectedYear] = useState(defaultYear)
+  const [selectedEvent, setSelectedEvent] = useState(defaultEvent)
+
+  const setEvent = (event: Event) => {
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('event', event.date)
+    router.push(`${pathname}?${params.toString()}`, { scroll: false })
+    setSelectedEvent(event)
+  }
 
   useEffect(() => {
     const lgMediaQuery = window.matchMedia('(min-width: 1024px)')
@@ -58,7 +104,7 @@ export function Speakers() {
       const event = events.find(event => event.date.startsWith(selectedYear))
 
       if (event) {
-        setSelectedEvent(event)
+        setEvent(event)
       }
     }
   }, [selectedYear])
@@ -85,7 +131,7 @@ export function Speakers() {
             <div className="absolute ml-1 top-2 bottom-13 left-0.5 hidden w-px bg-slate-200 lg:block" />
             <TabList className="grid auto-cols-auto grid-flow-col justify-start gap-x-8 gap-y-8 px-4 whitespace-nowrap sm:max-w-2xl sm:px-0 sm:text-center lg:grid-flow-row lg:grid-cols-1 lg:text-left">
               {events.filter(event => event.date.startsWith(selectedYear)).map((event) => (
-                <div key={event.date} className="relative lg:pl-8" onClick={() => setSelectedEvent(event)}>
+                <div key={event.date} className="relative lg:pl-8" onClick={() => setEvent(event)}>
                   <DiamondIcon
                     className={cn(
                       'absolute top-2.25 left-[3.5px] hidden h-1.5 w-1.5 overflow-visible lg:block',
