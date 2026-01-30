@@ -328,7 +328,7 @@ export const events: Event[] = [
         title: 'Remote Code Execution - Comment éviter de que ton produit devienne une plateforme de Bitcoin mining',
         summary: 'La présentation de Fleur était instructive. Il a démontré une nouvelle facade du "Remote Code Execution" (RCE). Évidemment, le RCE est perçu comme un exploit de sécurité. Par contre, si c\'est exactement ce qu\'on veut permettre, il faut trouver des techniques sécuritaires pour faire du RCE. C\'est exactement ce que Fleur explique dans sa présentation. Il nous explique les différentes approches et technologies que l\'on peut utiliser tel que Docker, gvisor, firecracker, V8 Isolates et VRL.',
         slidesUrl: 'https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-07-31/remote-code-execution/slides.pptx',
-        youtubeUrl: 'https://youtu.be/6jjxB9bO4Ps',
+        youtubeUrl: 'https://youtu.be/Cx6K4AGw3wM',
         links: [
           {
             text: 'What is Log4Shell ?',
