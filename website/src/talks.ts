@@ -22,7 +22,7 @@ import laurentJalbertSimardProfile from "@/images/profiles/laurent-jalbert-simar
 import nathanielGirardProfile from "@/images/profiles/nathaniel-girard.jpeg";
 import alexisFortinCoteProfile from "@/images/profiles/alexis-fortin-côté.jpeg";
 import sherifBenhaProfile from "@/images/profiles/sherif-benha.jpeg";
-import aliAmineGhazaliProfile from "@/images/profiles/ali-amine-ghazali.png";
+import aliAmineGhazaliProfile from "@/images/profiles/ali-amine-ghazali.avif";
 
 export type Profile = {
   profile: StaticImageData;
@@ -37,7 +37,7 @@ export const profiles = {
   christopheSirois: {
     name: "Christophe Sirois",
     position: "Engineering",
-    company: "@Botpress",
+    company: "Botpress",
     profile: christopheSiroisProfile,
     profileLinkedIn: "https://www.linkedin.com/in/christophesirois/",
     companyLinkedIn: "https://www.linkedin.com/company/botpress/",
@@ -51,7 +51,7 @@ export const profiles = {
   pierreSnell: {
     name: "Pierre Snell",
     position: "Data Science",
-    company: "@Ubisoft",
+    company: "Ubisoft",
     profile: pierreSnellProfile,
     profileLinkedIn: "https://www.linkedin.com/in/pierre-snell-671229140/",
     companyLinkedIn: "https://www.linkedin.com/company/ubisoft/",
@@ -65,7 +65,7 @@ export const profiles = {
   mikaelFrancoeur: {
     name: "Mikaël Francoeur",
     position: "Senior Developer",
-    company: "@Turso",
+    company: "Turso",
     profile: mikaelFrancoeurProfile,
     profileLinkedIn: "https://www.linkedin.com/in/mika%C3%ABl-francoeur/",
     companyLinkedIn: "https://www.linkedin.com/company/turso/",
@@ -73,7 +73,7 @@ export const profiles = {
   michaelMasson: {
     name: "Michael Masson",
     position: "Head of Engineering",
-    company: "@Botpress",
+    company: "Botpress",
     profile: michaelMassonProfile,
     profileLinkedIn: "https://www.linkedin.com/in/michaelmasson55/",
     companyLinkedIn: "https://www.linkedin.com/company/botpress/",
@@ -81,14 +81,14 @@ export const profiles = {
   anthonyVallee: {
     name: "Anthony Vallée",
     position: "SRE",
-    company: "@Ticketmaster",
+    company: "Ticketmaster",
     profile: anthonyValleeProfile,
     companyLinkedIn: "https://www.linkedin.com/company/ticketmaster/",
   },
   sebastienDufourBeausejour: {
     name: "Sébastien Dufour-Beauséjour",
     position: "Full Stack Developper",
-    company: "@nexapp",
+    company: "nexapp",
     profile: sebastienDufourBeausejourProfile,
     profileLinkedIn: "https://www.linkedin.com/in/sebastiendufourbeausejour/",
     companyLinkedIn: "https://www.linkedin.com/company/nexapp-technologies/",
@@ -96,7 +96,7 @@ export const profiles = {
   francoisLevasseur: {
     name: "François Levasseur",
     position: "Engineering",
-    company: "@Botpress",
+    company: "Botpress",
     profile: francoisLevasseurProfile,
     profileLinkedIn: "https://www.linkedin.com/in/franklevasseur/",
     companyLinkedIn: "https://www.linkedin.com/company/botpress/",
@@ -104,7 +104,7 @@ export const profiles = {
   williamDussault: {
     name: "William Dussault",
     position: "Software Developer",
-    company: "@Coveo",
+    company: "Coveo",
     profile: williamDussaultProfile,
     profileLinkedIn: "https://www.linkedin.com/in/dalloriam/",
     companyLinkedIn: "https://www.linkedin.com/company/coveo/",
@@ -113,7 +113,7 @@ export const profiles = {
     name: "Laurent Leclerc-Poulin",
     position: "Senior Software Developer",
     profile: laurentLeclercPoulin,
-    company: "@Nesto",
+    company: "Nesto",
     profileLinkedIn: "https://www.linkedin.com/in/laurent-leclerc-poulin-570267131/",
     companyLinkedIn: "https://www.linkedin.com/company/nesto-ca/",
   },
@@ -121,7 +121,7 @@ export const profiles = {
     name: "Mathys Deshaies",
     position: "Développeur",
     profile: mathysDeshaiesProfile,
-    company: "@Desjardins",
+    company: "Desjardins",
     profileLinkedIn: "https://www.linkedin.com/in/mathys-deshaies/",
     companyLinkedIn: "https://www.linkedin.com/company/desjardins/",
   },
@@ -129,7 +129,7 @@ export const profiles = {
     name: "Marc-Anthony Girard",
     position: "Software Developer",
     profile: marcAnthonyGirardProfile,
-    company: "@Tracel",
+    company: "Tracel",
     profileLinkedIn: "https://www.linkedin.com/in/marc-anthony-girard/",
     companyLinkedIn: "https://www.linkedin.com/company/tracel-technologies/",
   },
@@ -143,7 +143,7 @@ export const profiles = {
     name: "David Ferland",
     position: "Software Developer",
     profile: davidFerlandProfile,
-    company: "@Botpress",
+    company: "Botpress",
     profileLinkedIn: "https://www.linkedin.com/in/david-ferland-a3621a212/",
     companyLinkedIn: "https://www.linkedin.com/company/botpress/",
   },
@@ -151,13 +151,13 @@ export const profiles = {
     name: "Gabriel Le Breton",
     position: "Programmeur, Entrepreneur, Développeur de jeu et plus encore",
     profile: gabrielLeBretonProfile,
-    company: "@TLM",
+    company: "TLM",
     profileLinkedIn: "https://www.linkedin.com/in/gableroux/",
     companyLinkedIn: "https://www.linkedin.com/company/solutions-tlm/",
   },
   antoinePoulin: {
     name: "Antoine Poulin",
-    position: "Backend Developer - Internal Tools",
+    position: "Backend Developer",
     profile: antoinePoulinProfile,
     company: "Algo Design",
     profileLinkedIn: "https://www.linkedin.com/in/antoine-poulin/",
@@ -167,7 +167,7 @@ export const profiles = {
     name: "Simon-Pierre Gingras",
     position: "Senior Solutions Architect",
     profile: simonPierreGingrasProfile,
-    company: "Amazon Web Services",
+    company: "AWS",
     profileLinkedIn: "https://www.linkedin.com/in/spgin/",
     companyLinkedIn: "https://www.linkedin.com/company/amazon-web-services/",
   },
@@ -175,17 +175,17 @@ export const profiles = {
     name: "Laurent Jalbert-Simard",
     position: "Senior Solutions Architect",
     profile: laurentJalbertSimardProfile,
-    company: "Amazon Web Services",
+    company: "AWS",
     profileLinkedIn: "https://www.linkedin.com/in/laurentjs/",
     companyLinkedIn: "https://www.linkedin.com/company/amazon-web-services/",
   },
   nathanielGirard: {
     name: "Nathaniel Girard",
-    position: "",
+    position: "Backend Developer",
     profile: nathanielGirardProfile,
-    company: "",
+    company: "Botpress",
     profileLinkedIn: "https://www.linkedin.com/in/nathaniel-girard/",
-    companyLinkedIn: "",
+    companyLinkedIn: "https://www.linkedin.com/company/botpress/",
   },
   alexisFortinCote: {
     name: "Alexis Fortin-Côté",
@@ -202,7 +202,7 @@ export const profiles = {
   },
   aliAmineGhazali: {
     name: "Ali Amine Ghazali",
-    position: "Associate Vice President, Advisor Group, Artificial Intelligence",
+    position: "Associate Vice President",
     profile: aliAmineGhazaliProfile,
     company: "Videns",
     profileLinkedIn: "https://www.linkedin.com/in/aliamine-ghazali/?locale=en",
@@ -238,14 +238,14 @@ export const events: Event[] = [
         profiles: profiles.michaelMasson,
         title: "Un Scripting Framework Construit Pour la Productivité",
         summary:
-          "Michael présente Script Kit, un framework de scripting pour les développeurs qui permet d'automatiser des tâches répétitives et d'améliorer la productivité.",
-        links: [],
+          "Michael présente Script Kit, un framework de scripting pour développeurs qui permet d'automatiser des tâches répétitives. Pendant la présentation, il passe en revue les principales fonctionnalités et propose une démo de live coding pour montrer comment créer de nouveaux scripts. Il partage aussi les scripts qu’il a le plus utilisés au cours de la dernière année, et compare certaines fonctionnalités avec Raycast.",
+        links: [{ text: "Script Kit", url: "https://www.scriptkit.com/" }],
       },
       {
         profiles: profiles.antoinePoulin,
-        title: "Reverse Engineer le Protocole de Controle Infrarouge de Mon Air Climatisé",
+        title: "Reverse Engineer le Protocole de Contrôle Infrarouge de Mon Air Climatisé",
         summary:
-          "Antoine explique comment il a remplacé la télécommande de son climatiseur par un raspberry Pi",
+          "Antoine, un développeur logiciel sans expérience en hardware, raconte comment il a réussi à reverse engineer le protocole de contrôle infrarouge de son vieux climatiseur. Après avoir découvert qu'il avait besoin d'un oscilloscope, il opte plutôt pour des analyseurs IR, une option beaucoup moins coûteuse. Il montre ensuite les signaux interceptés de sa télécommande mourante et comment il a réussi à décoder le protocole pour envoyer des commandes via un Raspberry Pi. Une belle preuve qu'un développeur logiciel peut s'aventurer dans le monde du hardware avec de la curiosité et de la débrouillardise.",
         links: [],
       },
     ],
@@ -259,15 +259,20 @@ export const events: Event[] = [
         profiles: [profiles.simonPierreGingras, profiles.laurentJalbertSimard],
         title: "Autoclaw Connecter les mondes numérique et physique grâce au GenAI",
         summary:
-          "Simon-Pierre Gingras et Laurent Jalbert-Simard présentent Autoclaw, une solution qui utilise le GenAI pour contrôler une pince mécanique, démontrant ainsi la connexion entre les mondes numérique et physique. C'est un projet qui les a permis de présenter au Builders' Fair de la célebre conférence AWS re:Invent en 2025.",
+          "Simon-Pierre et Laurent présentent Autoclaw, une pince mécanique contrôlée par le langage naturel qui permet de piger des barres de chocolat dans une boîte. C'est un projet qui utilise le GenAI pour connecter le monde numérique au monde physique et qui leur a permis de présenter au Builders' Fair de la conférence AWS re:Invent en 2025.",
         links: [],
       },
       {
         profiles: profiles.nathanielGirard,
         title: "Introduction au load testing avec k6",
         summary:
-          "Dans cette présentation, Nathaniel Girard introduit les concepts de base du load testing et démontre comment utiliser k6, un outil de test de charge open-source, pour évaluer les performances d'une application web.",
-        links: [],
+          "Dans cette présentation, Nate introduit les concepts de base du load testing et démontre comment utiliser k6, un outil de test de charge open-source, pour évaluer les performances d'une application web.",
+        links: [
+          {
+            text: "k6",
+            url: "https://k6.io/",
+          },
+        ],
       },
     ],
   },
@@ -280,20 +285,27 @@ export const events: Event[] = [
         profiles: profiles.alexisFortinCote,
         title: "You Like Pydantic, You'll Love Pydantic AI",
         summary:
-          "Alexis Fortin-Côté présente Pydantic AI, un framework d'agentique basé sur Pydantic, une librairie de validation et de réprésentation de donnée en Python.",
-        links: [],
+          "Alexis nous présente Pydantic AI, un framework d'agentique basé sur Pydantic, une librairie de validation et de représentation de données en Python.",
+        links: [
+          { text: "Pydantic", url: "https://pydantic.dev/" },
+          { text: "Pydantic AI", url: "https://pydantic.dev/pydantic-ai/" },
+        ],
       },
       {
         profiles: profiles.sherifBenha,
         title: "Duel des titans du streaming : Spark et Flink",
         summary:
-          "Sherif Benha compare les deux frameworks de streaming les plus populaires, Apache Spark et Apache Flink, en termes de performance, de facilité d'utilisation et de cas d'utilisation idéaux.",
-        links: [],
+          "Sherif compare les deux frameworks de streaming les plus populaires, Apache Spark et Apache Flink, en termes de performance, de facilité d'utilisation et de cas d'utilisation idéaux.",
+        links: [
+          { text: "Apache Spark", url: "https://spark.apache.org/" },
+          { text: "Apache Flink", url: "https://flink.apache.org/" },
+        ],
       },
       {
         profiles: profiles.aliAmineGhazali,
         title: "Red teaming LLM - du jailbreak à la mitigation",
-        summary: "Ali Amine Ghazali explore les techniques de red teaming pour les LLM.",
+        summary:
+          "Ali Amine explore plusieurs failles de sécurité dans les LLMs et les techniques de jailbreak utilisées pour contourner leurs garde-fous. Il illustre notamment les risques avec l'histoire bien connue du chatbot de service client Chevrolet qui a été manipulé pour accepter de vendre une voiture neuve à un prix dérisoire. La présentation met en lumière comment les LLMs peuvent être vulnérables à des attaques créatives.",
         links: [],
       },
     ],
@@ -462,9 +474,9 @@ export const events: Event[] = [
       {
         profiles: profiles.francoisLevasseur,
         title:
-          "Remote Code Execution - Comment éviter de que ton produit devienne une plateforme de Bitcoin mining",
+          "Remote Code Execution - Comment éviter que ton produit devienne une plateforme de Bitcoin mining",
         summary:
-          "La présentation de Fleur était instructive. Il a démontré une nouvelle facade du \"Remote Code Execution\" (RCE). Évidemment, le RCE est perçu comme un exploit de sécurité. Par contre, si c'est exactement ce qu'on veut permettre, il faut trouver des techniques sécuritaires pour faire du RCE. C'est exactement ce que Fleur explique dans sa présentation. Il nous explique les différentes approches et technologies que l'on peut utiliser tel que Docker, gvisor, firecracker, V8 Isolates et VRL.",
+          "La présentation de Fleur était instructive. Il a démontré une nouvelle facette du \"Remote Code Execution\" (RCE). Évidemment, le RCE est perçu comme un exploit de sécurité. Par contre, si c'est exactement ce qu'on veut permettre, il faut trouver des techniques sécuritaires pour faire du RCE. C'est exactement ce que Fleur explique dans sa présentation. Il nous explique les différentes approches et technologies que l'on peut utiliser tels que Docker, gvisor, firecracker, V8 Isolates et VRL.",
         slidesUrl:
           "https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-07-31/remote-code-execution/slides.pptx",
         youtubeUrl: "https://youtu.be/Cx6K4AGw3wM",
@@ -511,7 +523,7 @@ export const events: Event[] = [
         profiles: profiles.williamDussault,
         title: "(Ab)using Protocols",
         summary:
-          "La présentation de William est intrigante et impressionnante. En travaillant sur son projet personnel de système de fichiers distribué nommé Memmos. William est arrivé à une impasse pour optimiser la distribution des fichiers au niveau du réseau. Si les fichiers sont présents sur le réseau local, il ne voulait pas télécharger le fichier via Internet.Donc, dans sa présentation, William explique comment il a abusé le protocole DNS pour résoudre son problème.",
+          "La présentation de William est intrigante et impressionnante. En travaillant sur son projet personnel de système de fichiers distribué nommé Memmos, William est arrivé à une impasse pour optimiser la distribution des fichiers au niveau du réseau. Si les fichiers sont présents sur le réseau local, il ne voulait pas télécharger le fichier via Internet. Donc, dans sa présentation, William explique comment il a abusé le protocole DNS pour résoudre son problème.",
         youtubeUrl: "https://youtu.be/xku5_OtEb-g",
         slidesUrl:
           "https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-07-31/abusing-protocols/slides.pdf",
@@ -665,7 +677,7 @@ export const events: Event[] = [
         profiles: profiles.anthonyVallee,
         title: "DevX Story: Un Outil pour Dompter Kafka en Local",
         summary:
-          "Au retour de son voyage, Anthony a décidé d'écrire un petit outil pour se simplifier la vie avec la gestion de clusters Kafka. Cette petite preuve de concept montre à quel point l'utilisation de shim et l'ingéniosité peut améliorer notre expérience en tant que dev.",
+          "Au retour de son voyage, Anthony a décidé d'écrire un petit outil pour se simplifier la vie avec la gestion de clusters Kafka. Cette petite preuve de concept montre à quel point l'utilisation de shim et l'ingéniosité peuvent améliorer notre expérience en tant que dev.",
         links: [
           {
             text: "Kafka",
@@ -750,7 +762,7 @@ export const events: Event[] = [
         profiles: profiles.francoisLevasseur,
         title: "Jex: le cas particulier d'un JSON Schema",
         summary:
-          "François a présenté Jex, un librairie pour comparer des JsonSchemas. Jex permet de prendre deux JsonSchemas et de les comparer pour savoir si un JsonSchema est un sous-ensemble de l'autre. Cette librairie est utilisée par Botpress pour s'assurer d'éviter les breaking changes des points d'extension.",
+          "François a présenté Jex, une librairie pour comparer des JsonSchemas. Jex permet de prendre deux JsonSchemas et de les comparer pour savoir si un JsonSchema est un sous-ensemble de l'autre. Cette librairie est utilisée par Botpress pour s'assurer d'éviter les breaking changes des points d'extension.",
         slidesUrl:
           "https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2024-11-29/jex/slides.pptx",
         links: [
