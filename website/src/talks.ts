@@ -22,7 +22,7 @@ import laurentJalbertSimardProfile from "@/images/profiles/laurent-jalbert-simar
 import nathanielGirardProfile from "@/images/profiles/nathaniel-girard.jpeg";
 import alexisFortinCoteProfile from "@/images/profiles/alexis-fortin-côté.jpeg";
 import sherifBenhaProfile from "@/images/profiles/sherif-benha.jpeg";
-import aliAmineGhazaliProfile from "@/images/profiles/ali-amine-ghazali.avif";
+import aliAmineGhazaliProfile from "@/images/profiles/ali-amine-ghazali.png";
 
 export type Profile = {
   profile: StaticImageData;

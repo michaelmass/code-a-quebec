@@ -215,7 +215,9 @@ export function Speakers() {
                     <div
                       className={cn(
                         "flex-none md:mr-4",
-                        talkProfiles.length > 1 ? "flex w-full max-w-80 flex-col gap-4" : "w-full max-w-80",
+                        talkProfiles.length > 1
+                          ? "flex w-full max-w-80 flex-col gap-4"
+                          : "w-full max-w-80",
                       )}
                     >
                       {talkProfiles.map((profile, profileIndex) => (
