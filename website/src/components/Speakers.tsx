@@ -11,7 +11,7 @@ import { DiamondIcon } from '@/components/DiamondIcon'
 import LinkedInLogo from '@/images/logos/linkedin.svg'
 import SlidesLogo from '@/images/logos/slides.svg'
 import YoutubeLogo from '@/images/logos/youtube.svg'
-import { events, eventYears, type Event, type Talk } from '@/talks'
+import { events, eventYears, type Event, type Profile, type Talk } from '@/talks'
 import { cn } from '@/util'
 
 function ImageClipPaths({ id, ...props }: React.ComponentPropsWithoutRef<'svg'> & { id: string }) {
@@ -163,46 +163,52 @@ export function Speakers() {
           </div>
           <div className="lg:col-span-3">
               <div className="flex flex-col justify-center gap-x-8 gap-y-6 not-lg:items-center data-selected:not-data-focus:outline-hidden sm:gap-y-12">
-                {selectedEvent.talks.map((talk, talkIndex) => (
+                {selectedEvent.talks.map((talk, talkIndex) => {
+                  const talkProfiles: Profile[] = Array.isArray(talk.profiles) ? talk.profiles : [talk.profiles]
+                  return (
                   <div key={talkIndex} className="flex not-md:flex-col not-md:items-center" id={getTalkAnchor(talk)}>
-                    <div className="w-full max-w-80 flex-none md:mr-4">
-                      <div className="group pl-1 relative h-70 transform overflow-hidden rounded-4xl">
-                        <div
-                          className={cn(
-                            'absolute top-0 right-4 bottom-6 left-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
-                            ['border-blue-300', 'border-indigo-300', 'border-sky-300'][talkIndex % 3],
-                          )}
-                        />
-                        <div className="absolute inset-0 bg-indigo-50" style={{ clipPath: `url(#${id}-${talkIndex % 3})` }}>
-                          <Image
-                            className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
-                            src={talk.profile.profile}
-                            alt=""
-                            priority
-                            sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
-                          />
+                    <div className={cn('flex-none md:mr-4', talkProfiles.length > 1 ? 'flex gap-4' : 'w-full max-w-80')}>
+                      {talkProfiles.map((profile, profileIndex) => (
+                        <div key={profileIndex} className={cn(talkProfiles.length > 1 && 'w-full max-w-80')}>
+                          <div className="group pl-1 relative h-70 transform overflow-hidden rounded-4xl">
+                            <div
+                              className={cn(
+                                'absolute top-0 right-4 bottom-6 left-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
+                                ['border-blue-300', 'border-indigo-300', 'border-sky-300'][talkIndex % 3],
+                              )}
+                            />
+                            <div className="absolute inset-0 bg-indigo-50" style={{ clipPath: `url(#${id}-${talkIndex % 3})` }}>
+                              <Image
+                                className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
+                                src={profile.profile}
+                                alt=""
+                                priority
+                                sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+                              />
+                            </div>
+                          </div>
+                          <h3 className="font-display mt-2 flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900">
+                            <span>{profile.name}</span>
+                            {profile.profileLinkedIn ? (
+                              <a className="-mt-0.5 font-light text-gray-400 hover:text-gray-500" target="_blank" rel="noreferrer" href={profile.profileLinkedIn}>
+                                <LinkedInLogo className="inline-block" height="16" width="16" viewBox="0 0 24 24" />
+                              </a>
+                            ) : undefined}
+                          </h3>
+                          <p className="mt-1 flex items-center gap-1 text-base tracking-tight text-slate-500">
+                            <span>{profile.position}</span>
+                            {profile.company ? (
+                              profile.companyLinkedIn ? (
+                                <a className="hover:text-gray-500" href={profile.companyLinkedIn}>
+                                  {profile.company}
+                                </a>
+                              ) : (
+                                <span>{profile.company}</span>
+                              )
+                            ) : undefined}
+                          </p>
                         </div>
-                      </div>
-                      <h3 className="font-display mt-2 flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900">
-                        <span>{talk.profile.name}</span>
-                        {talk.profile.profileLinkedIn ? (
-                          <a className="-mt-0.5 font-light text-gray-400 hover:text-gray-500" target="_blank" rel="noreferrer" href={talk.profile.profileLinkedIn}>
-                            <LinkedInLogo className="inline-block" height="16" width="16" viewBox="0 0 24 24" />
-                          </a>
-                        ) : undefined}
-                      </h3>
-                      <p className="mt-1 flex items-center gap-1 text-base tracking-tight text-slate-500">
-                        <span>{talk.profile.position}</span>
-                        {talk.profile.company ? (
-                          talk.profile.companyLinkedIn ? (
-                            <a className="hover:text-gray-500" href={talk.profile.companyLinkedIn}>
-                              {talk.profile.company}
-                            </a>
-                          ) : (
-                            <span>{talk.profile.company}</span>
-                          )
-                        ) : undefined}
-                      </p>
+                      ))}
                     </div>
                     <div className="flex flex-col gap-y-3">
                       <h3 className="font-display mt-4 flex gap-x-2 text-xl font-medium tracking-tight text-blue-900">
@@ -231,7 +237,7 @@ export function Speakers() {
                       </div>
                     </div>
                   </div>
-                ))}
+                )})}
               </div>
           </div>
         </TabGroup>

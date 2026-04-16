@@ -211,7 +211,7 @@ export const profiles = {
 } satisfies Record<string, Profile>;
 
 export type Talk = {
-  profile: Profile;
+  profiles: Profile | Profile[];
   title: string;
   summary: string;
   youtubeUrl?: string;
@@ -235,14 +235,14 @@ export const events: Event[] = [
     talks: [
       // https://www.linkedin.com/posts/botpress_code-%C3%A0-qu%C3%A9bec-est-de-retour-le-26-mars-activity-7442208651521675264-tWgb?utm_source=share&utm_medium=member_desktop&rcm=ACoAADGrv5IBa8-pNxm6C2yzUoWPqYi147ppOQs
       {
-        profile: profiles.michaelMasson,
+        profiles: profiles.michaelMasson,
         title: "Un Scripting Framework Construit Pour la Productivité",
         summary:
           "Michael présente Script Kit, un framework de scripting pour les développeurs qui permet d'automatiser des tâches répétitives et d'améliorer la productivité.",
         links: [],
       },
       {
-        profile: profiles.antoinePoulin,
+        profiles: profiles.antoinePoulin,
         title: "Reverse Engineer le Protocole de Controle Infrarouge de Mon Air Climatisé",
         summary:
           "Antoine explique comment il a remplacé la télécommande de son climatiseur par un raspberry Pi",
@@ -256,14 +256,14 @@ export const events: Event[] = [
     talks: [
       // https://www.linkedin.com/posts/michaelmasson55_le-prochain-code-%C3%A0-qu%C3%A9bec-arrive-la-semaine-activity-7429957140343267329-E3JL?utm_source=share&utm_medium=member_desktop&rcm=ACoAADGrv5IBa8-pNxm6C2yzUoWPqYi147ppOQs
       {
-        profile: profiles.simonPierreGingras, // TODO: also add laurent jalbert simard
+        profiles: [profiles.simonPierreGingras, profiles.laurentJalbertSimard],
         title: "Autoclaw Connecter les mondes numérique et physique grâce au GenAI",
         summary:
           "Simon-Pierre Gingras et Laurent Jalbert-Simard présentent Autoclaw, une solution qui utilise le GenAI pour contrôler une pince mécanique, démontrant ainsi la connexion entre les mondes numérique et physique. C'est un projet qui les a permis de présenter au Builders' Fair de la célebre conférence AWS re:Invent en 2025.",
         links: [],
       },
       {
-        profile: profiles.nathanielGirard,
+        profiles: profiles.nathanielGirard,
         title: "Introduction au load testing avec k6",
         summary:
           "Dans cette présentation, Nathaniel Girard introduit les concepts de base du load testing et démontre comment utiliser k6, un outil de test de charge open-source, pour évaluer les performances d'une application web.",
@@ -277,21 +277,21 @@ export const events: Event[] = [
     talks: [
       // https://www.linkedin.com/posts/michaelmasson55_jeudi-le-29-janvier-cest-le-premier-cq-activity-7416479090204942337-pTif?utm_source=share&utm_medium=member_desktop&rcm=ACoAADGrv5IBa8-pNxm6C2yzUoWPqYi147ppOQs
       {
-        profile: profiles.alexisFortinCote,
+        profiles: profiles.alexisFortinCote,
         title: "You Like Pydantic, You'll Love Pydantic AI",
         summary:
           "Alexis Fortin-Côté présente Pydantic AI, un framework d'agentique basé sur Pydantic, une librairie de validation et de réprésentation de donnée en Python.",
         links: [],
       },
       {
-        profile: profiles.sherifBenha,
+        profiles: profiles.sherifBenha,
         title: "Duel des titans du streaming : Spark et Flink",
         summary:
           "Sherif Benha compare les deux frameworks de streaming les plus populaires, Apache Spark et Apache Flink, en termes de performance, de facilité d'utilisation et de cas d'utilisation idéaux.",
         links: [],
       },
       {
-        profile: profiles.aliAmineGhazali,
+        profiles: profiles.aliAmineGhazali,
         title: "Red teaming LLM - du jailbreak à la mitigation",
         summary: "Ali Amine Ghazali explore les techniques de red teaming pour les LLM.",
         links: [],
@@ -303,7 +303,7 @@ export const events: Event[] = [
     date: "2025-11-27",
     talks: [
       {
-        profile: profiles.michaelMasson,
+        profiles: profiles.michaelMasson,
         title: "Kubernetes The Right Way",
         summary:
           "La présentation de Michael démontre comment abstraire la complexité de Kubernetes pour augmenter la vélocité des développeurs. Il introduit le concept d'un platform engineer (George) qui crée des outils permettant aux développeurs (Bob) de déployer leurs applications sans comprendre Kubernetes en profondeur. Michael explique comment mettre en place un cluster production-ready avec les outils essentiels (Traefik, Cilium, Grafana), puis créer une chart Helm personnalisée (Simple App Deployment) qui génère automatiquement du code TypeScript pour le build et le déploiement. Cette approche élimine la gestion manuelle des secrets, standardise les déploiements et rend la plateforme self-service. Michael souligne l'importance de ne pas over-abstraire, de maintenir une friction intentionnelle pour éviter l'explosion de projets, et rappelle que Kubernetes n'est pas toujours la meilleure solution pour tous les cas d'usage.",
@@ -340,7 +340,7 @@ export const events: Event[] = [
         ],
       },
       {
-        profile: profiles.mathysDeshaies,
+        profiles: profiles.mathysDeshaies,
         title: "Styler sans devenir fou Tailwind CSS",
         summary:
           'La présentation de Mathys explore comment utiliser Tailwind CSS efficacement avec sa méthodologie "TVA" (Tailwind View Atomic Design) qui structure les projets en cinq niveaux - atomes, molécules, organismes, templates et pages. L\'approche concentre les longues listes de classes Tailwind dans les atomes pour garder les composants supérieurs épurés. Mathys partage ses règles pratiques: utiliser des préfixes de nommage, créer des wrappers pour les librairies externes, privilégier les variables CSS pour le theming, et favoriser le padding. Il a créé une extension VS Code pour extraire automatiquement des composants selon cette architecture, facilitant la réutilisation entre projets et les changements de thème rapides. Après la présentation de Mathys, vous allez connaître Tailwind de fond en comble.',
@@ -363,7 +363,7 @@ export const events: Event[] = [
     date: "2025-10-30",
     talks: [
       {
-        profile: profiles.francoisXavierDarveau,
+        profiles: profiles.francoisXavierDarveau,
         title: "Time Series Foundation models",
         summary:
           "La présentation de François-Xavier explore l'utilisation des Time Series Foundation Models pour détecter les fuites d'eau dans sa startup. En tant que développeur solo, il évalue s'il devrait remplacer son fournisseur externe actuel par une solution maison utilisant ces nouveaux modèles. Il démontre comment ces modèles fonctionnent en mode zéro-shot - sans entraînement préalable - et utilise les quantiles de prédiction (P90, P10) pour identifier les anomalies dans la consommation d'eau. Bien que prometteurs sur papier (pas d'infrastructure, pas d'artefacts spécifiques, généralisation), les modèles présentent des défis avec les sites non-standard, le bruit dans les données et les fuites chroniques. Sa conclusion reste ouverte - potentiellement viable mais nécessite encore du travail.",
@@ -371,7 +371,7 @@ export const events: Event[] = [
         links: [],
       },
       {
-        profile: profiles.davidFerland,
+        profiles: profiles.davidFerland,
         title: "Les closures en Javascript",
         summary:
           "La présentation de David explore les closures en JavaScript, qui permettent aux fonctions d'avoir une \"mémoire privée\". Quand une fonction retourne une fonction, la fonction interne conserve l'accès aux variables de son parent grâce au scope lexical. David présente deux applications pratiques: le module pattern (encapsulation publique/privée) et le currying (transformation de fonctions multi-paramètres en chaîne).",
@@ -385,7 +385,7 @@ export const events: Event[] = [
     date: "2025-09-25",
     talks: [
       {
-        profile: profiles.mikaelFrancoeur,
+        profiles: profiles.mikaelFrancoeur,
         title: "SQLite plus puissant que vous le croyez",
         summary:
           "La présentation de Mikaël démontre que SQLite dépasse le simple CRUD grâce à quatre extensions majeures: recherche vectorielle sémantique, synchronisation décentralisée avec résolution de conflits, interrogation d'API REST en SQL, et manipulation d'archives ZIP comme des tables. Ces extensions transforment SQLite (650Ko, trillion d'instances) en outil polyvalent pour le prototypage rapide et l'analyse de données, avec support de fonctions personnalisées et exports multiformats.",
@@ -402,7 +402,7 @@ export const events: Event[] = [
         ],
       },
       {
-        profile: profiles.gabrielLeBreton,
+        profiles: profiles.gabrielLeBreton,
         title: "Comment faire un jeu d'banane avec un serveur MCP",
         summary:
           "Gabriel Le Breton a présenté une expérience humoristique de création de jeu inspirée de l'œuvre *Comedian* de Maurizio Cattelan. Le projet a été réalisé dans Unity en combinant l'IA et des serveurs MCP. Gabriel a montré qu'en utilisant des prompts comme *\"Write testable code\"* ou *\"Make sure tests are passing\"*, en passant le bon contexte et en s'appuyant sur des serveurs MCP, on pouvait considérablement augmenter les chances de succès. Il a également démontré comment contrôler Unity, valider l'exécution du code grâce aux tests PlayMode et EditMode et, avec relativement peu d'efforts, produire un jeu doté d'une base solide et testée, malgré les défis techniques et l'optimisme démesuré de *claude-4-sonnet*.",
@@ -433,7 +433,7 @@ export const events: Event[] = [
     date: "2025-08-28",
     talks: [
       {
-        profile: profiles.marcAnthonyGirard,
+        profiles: profiles.marcAnthonyGirard,
         title: "Démystifier la gestion des données dans son frontend",
         summary:
           "La présentation de Marc-Anthony compare quatre solutions de gestion de données frontend et recommande TanStack Query. Contrairement au fetch natif (non performant), aux contextes React (re-renders excessifs) et à Redux (complexe), TanStack Query offre un cache intelligent avec états automatiques, code ciblé et réutilisable, tout en restant simple et performant.",
@@ -446,7 +446,7 @@ export const events: Event[] = [
         ],
       },
       {
-        profile: profiles.philippeHamel,
+        profiles: profiles.philippeHamel,
         title: "Introduction à la modélisation dimensionnelle",
         summary:
           "La présentation de Philippe introduit la modélisation dimensionnelle pour bases de données analytiques, utilisant des tables facts (mesures centrales) et dimensions (attributs descriptifs). Il démontre avec le baseball comment le star schema offre le meilleur équilibre performance/simplicité, et explique pourquoi copier directement une base opérationnelle pour l'analytique nuit à la performance et complexifie les requêtes.",
@@ -460,7 +460,7 @@ export const events: Event[] = [
     date: "2025-07-31",
     talks: [
       {
-        profile: profiles.francoisLevasseur,
+        profiles: profiles.francoisLevasseur,
         title:
           "Remote Code Execution - Comment éviter de que ton produit devienne une plateforme de Bitcoin mining",
         summary:
@@ -508,7 +508,7 @@ export const events: Event[] = [
         ],
       },
       {
-        profile: profiles.williamDussault,
+        profiles: profiles.williamDussault,
         title: "(Ab)using Protocols",
         summary:
           "La présentation de William est intrigante et impressionnante. En travaillant sur son projet personnel de système de fichiers distribué nommé Memmos. William est arrivé à une impasse pour optimiser la distribution des fichiers au niveau du réseau. Si les fichiers sont présents sur le réseau local, il ne voulait pas télécharger le fichier via Internet.Donc, dans sa présentation, William explique comment il a abusé le protocole DNS pour résoudre son problème.",
@@ -533,7 +533,7 @@ export const events: Event[] = [
     date: "2025-06-26",
     talks: [
       {
-        profile: profiles.mikaelFrancoeur,
+        profiles: profiles.mikaelFrancoeur,
         title: "Programmation orientée aspect et API déclarative: un mélange expressif et puissant",
         summary:
           'Le talk de Mikaël explique le concept de programmation orientée aspect. Un concept de programmation pour les concerns transversaux comme le tracing, les retries, les métriques et bien d\'autres. Mikaël explique comment utiliser les annotations dans différents langages de programmation pour appliquer la programmation orientée aspect. Le talk apporte une nouvelle perspective sur comment réduire le bruit applicatif autour de la "business logic".',
@@ -552,7 +552,7 @@ export const events: Event[] = [
         youtubeUrl: "https://youtu.be/6jjxB9bO4Ps",
       },
       {
-        profile: profiles.mathysDeshaies,
+        profiles: profiles.mathysDeshaies,
         title: "Rate Limiting Deep Dive",
         summary:
           "La présentation de Mathys nous introduit au concept de rate limiting. Durant sa présentation, il nous expose différents algorithmes de rate limiting et des exemples concrets de leur utilisation. Mathys fait également des démonstrations visuelles des différents algorithmes pour bien expliquer les nuances entre eux. Après avoir écouté Mathys, tu seras en mesure de parfaitement choisir l'algorithme qui convient à ton problème.",
@@ -573,7 +573,7 @@ export const events: Event[] = [
     date: "2025-05-29",
     talks: [
       {
-        profile: profiles.christopheSirois,
+        profiles: profiles.christopheSirois,
         title: '"It Just Feels Right": Unpacking Animation Magic for Devs',
         youtubeUrl: "https://www.youtube.com/watch?v=UCr4qZMh4EU",
         slidesUrl:
@@ -583,7 +583,7 @@ export const events: Event[] = [
         links: [],
       },
       {
-        profile: profiles.jeanDenisCaron,
+        profiles: profiles.jeanDenisCaron,
         title: "La loi d'Atwood rampe vers votre infrastructure",
         slidesUrl:
           "https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-05-29/aliajs/notes.pdf",
@@ -603,7 +603,7 @@ export const events: Event[] = [
     date: "2025-04-24",
     talks: [
       {
-        profile: profiles.christopheSirois,
+        profiles: profiles.christopheSirois,
         title: "Design for engineers",
         youtubeUrl: "https://youtu.be/nRDiyyDIe8M",
         slidesUrl:
@@ -613,7 +613,7 @@ export const events: Event[] = [
         links: [],
       },
       {
-        profile: profiles.pierreSnell,
+        profiles: profiles.pierreSnell,
         title: "Unlocking the Power of Pre-trained Models and Open-Source Ecosystems",
         slidesUrl:
           "https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-04-24/huggingface-101/slides.pptx",
@@ -633,7 +633,7 @@ export const events: Event[] = [
     date: "2025-03-27",
     talks: [
       {
-        profile: profiles.mikaelFrancoeur,
+        profiles: profiles.mikaelFrancoeur,
         title: "Mastering Transactions in MySQL",
         slidesUrl:
           "https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-03-27/mastering-mysql-transactions/slides.pdf",
@@ -647,7 +647,7 @@ export const events: Event[] = [
         ],
       },
       {
-        profile: profiles.francoisXavierDarveau,
+        profiles: profiles.francoisXavierDarveau,
         title: "Coder en mode startup",
         slidesUrl:
           "https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-03-27/coder-en-mode-startup/slides.pptx",
@@ -662,7 +662,7 @@ export const events: Event[] = [
     date: "2025-02-27",
     talks: [
       {
-        profile: profiles.anthonyVallee,
+        profiles: profiles.anthonyVallee,
         title: "DevX Story: Un Outil pour Dompter Kafka en Local",
         summary:
           "Au retour de son voyage, Anthony a décidé d'écrire un petit outil pour se simplifier la vie avec la gestion de clusters Kafka. Cette petite preuve de concept montre à quel point l'utilisation de shim et l'ingéniosité peut améliorer notre expérience en tant que dev.",
@@ -674,7 +674,7 @@ export const events: Event[] = [
         ],
       },
       {
-        profile: profiles.michaelMasson,
+        profiles: profiles.michaelMasson,
         title: "A Dinosaur with a Blade: Revolutionizing CI with Deno and Dagger",
         slidesUrl:
           "https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-02-27/a-dinosaur-with-a-blade/slides.pptx",
@@ -698,14 +698,14 @@ export const events: Event[] = [
     date: "2025-01-30",
     talks: [
       {
-        profile: profiles.sebastienDufourBeausejour,
+        profiles: profiles.sebastienDufourBeausejour,
         title: "Primer sur l'optimisation de performance frontend",
         summary:
           "Sébastien a présenté divers outils pour optimiser la performance frontend. Il nous a fait part de son parcours de recherche pour optimiser la performance dans un projet où même optimiser les styles CSS était crucial. La présentation de Sébastien démontre parfaitement que chercher la performance est un puits sans fond. On peut toujours aller chercher plus loin!",
         links: [],
       },
       {
-        profile: profiles.christopheSirois,
+        profiles: profiles.christopheSirois,
         title: "Hacking Productivity",
         slidesUrl:
           "https://github.com/michaelmass/code-a-quebec/raw/refs/heads/master/talks/2025-01-30/hacking-productivity/slides.pptx",
@@ -733,7 +733,7 @@ export const events: Event[] = [
     date: "2024-11-29",
     talks: [
       {
-        profile: profiles.michaelMasson,
+        profiles: profiles.michaelMasson,
         title: "Generating Code Faster Than You Can Say 'Typescript'!",
         summary:
           "Mike a présenté une manière d'utiliser la génération de code avec \"TypeScript\". En utilisant un exemple loufoque de gestion de poulailler par API. La présentation abordait plusieurs technologies et spécifications comme OpenApi, JsonSchema, Zod et bien d'autres. C'était un survol du potentiel d'utiliser la génération de code pour se focaliser sur la valeur au client au lieu de penser en termes d'API et de verbes HTTP.",
@@ -747,7 +747,7 @@ export const events: Event[] = [
         ],
       },
       {
-        profile: profiles.francoisLevasseur,
+        profiles: profiles.francoisLevasseur,
         title: "Jex: le cas particulier d'un JSON Schema",
         summary:
           "François a présenté Jex, un librairie pour comparer des JsonSchemas. Jex permet de prendre deux JsonSchemas et de les comparer pour savoir si un JsonSchema est un sous-ensemble de l'autre. Cette librairie est utilisée par Botpress pour s'assurer d'éviter les breaking changes des points d'extension.",
