@@ -3,8 +3,9 @@
 import { Tab, TabGroup, TabList } from "@headlessui/react";
 
 import Image from "next/image";
-import { useEffect, useId, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { Container } from "@/components/Container";
 import { DiamondIcon } from "@/components/DiamondIcon";
@@ -65,6 +66,229 @@ const getTalkAnchor = (talk: Talk) =>
     .replaceAll(" ", "-")
     .replace(/[^a-zA-Z0-9-]/g, "")
     .toLowerCase();
+
+const AUTO_ROTATE_INTERVAL = 5000;
+
+function SpeakerProfiles({
+  profiles,
+  talkIndex,
+  clipId,
+}: {
+  profiles: Profile[];
+  talkIndex: number;
+  clipId: string;
+}) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const startTimeRef = useRef(Date.now());
+  const elapsedRef = useRef(0);
+  const isMultiple = profiles.length > 1;
+  const pausedRef = useRef(false);
+
+  const [paused, setPaused] = useState(false);
+
+  const clearTimer = useCallback(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  }, []);
+
+  const scheduleNext = useCallback(
+    (delay: number) => {
+      clearTimer();
+      if (!isMultiple) return;
+      startTimeRef.current = Date.now();
+      elapsedRef.current = AUTO_ROTATE_INTERVAL - delay;
+      timerRef.current = setTimeout(() => {
+        if (pausedRef.current) return;
+        elapsedRef.current = 0;
+        setDirection(1);
+        setActiveIndex((prev) => (prev + 1) % profiles.length);
+      }, delay);
+    },
+    [isMultiple, profiles.length, clearTimer],
+  );
+
+  // Handle pause/unpause
+  useEffect(() => {
+    pausedRef.current = paused;
+    if (!isMultiple) return clearTimer;
+    if (paused) {
+      elapsedRef.current += Date.now() - startTimeRef.current;
+      clearTimer();
+    } else {
+      const remaining = AUTO_ROTATE_INTERVAL - elapsedRef.current;
+      scheduleNext(Math.max(remaining, 0));
+    }
+    return clearTimer;
+  }, [paused, isMultiple, scheduleNext, clearTimer]);
+
+  // Reset on profile change
+  useEffect(() => {
+    elapsedRef.current = 0;
+    if (!isMultiple || pausedRef.current) return;
+    scheduleNext(AUTO_ROTATE_INTERVAL);
+    return clearTimer;
+  }, [activeIndex, isMultiple, scheduleNext, clearTimer]);
+
+  const selectProfile = (index: number) => {
+    setDirection(index > activeIndex ? 1 : -1);
+    setActiveIndex(index);
+  };
+
+  const profile = profiles[activeIndex];
+
+  const variants = {
+    enter: (dir: number) => ({ opacity: 0, x: dir * 40 }),
+    center: { opacity: 1, x: 0 },
+    exit: (dir: number) => ({ opacity: 0, x: dir * -40 }),
+  };
+
+  return (
+    <div
+      className="w-full max-w-80 flex-none md:mr-4"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="relative">
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={activeIndex}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <div className="group relative h-70 transform overflow-hidden rounded-4xl pl-1">
+              <div
+                className={cn(
+                  "absolute top-0 right-4 bottom-6 left-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6",
+                  ["border-blue-300", "border-indigo-300", "border-sky-300"][talkIndex % 3],
+                )}
+              />
+              <div
+                className="absolute inset-0 bg-indigo-50"
+                style={{ clipPath: `url(#${clipId}-${talkIndex % 3})` }}
+              >
+                <Image
+                  className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
+                  src={profile.profile}
+                  alt=""
+                  priority
+                  sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+                />
+              </div>
+            </div>
+            <h3 className="font-display mt-2 flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900">
+              <span>{profile.name}</span>
+              {profile.profileLinkedIn ? (
+                <a
+                  className="-mt-0.5 font-light text-gray-400 hover:text-gray-500"
+                  target="_blank"
+                  rel="noreferrer"
+                  href={profile.profileLinkedIn}
+                >
+                  <LinkedInLogo
+                    className="inline-block"
+                    height="16"
+                    width="16"
+                    viewBox="0 0 24 24"
+                  />
+                </a>
+              ) : undefined}
+            </h3>
+            <p className="mt-1 flex items-center gap-1 text-base tracking-tight text-slate-500">
+              <span>{profile.position}</span>
+              {profile.company ? (
+                profile.companyLinkedIn ? (
+                  <a className="hover:text-gray-500" href={profile.companyLinkedIn}>
+                    @ {profile.company}
+                  </a>
+                ) : (
+                  <span>{profile.company}</span>
+                )
+              ) : undefined}
+            </p>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {isMultiple && (
+        <div className="mt-3 flex items-center justify-center gap-3">
+          {profiles.map((p, i) => {
+            const isActive = i === activeIndex;
+            const size = 44;
+            const strokeWidth = 2.5;
+            const radius = (size - strokeWidth) / 2;
+            const circumference = 2 * Math.PI * radius;
+
+            return (
+              <button
+                key={i}
+                type="button"
+                onClick={() => selectProfile(i)}
+                className={cn(
+                  "relative cursor-pointer transition-all duration-300",
+                  isActive ? "scale-110" : "opacity-60 hover:opacity-100",
+                )}
+              >
+                <div className="relative h-11 w-11">
+                  <div className="absolute inset-[3px] overflow-hidden rounded-full">
+                    <Image
+                      src={p.profile}
+                      alt={p.name}
+                      className="h-full w-full object-cover"
+                      width={40}
+                      height={40}
+                    />
+                  </div>
+                  <svg
+                    className="absolute inset-0"
+                    width={size}
+                    height={size}
+                    viewBox={`0 0 ${size} ${size}`}
+                  >
+                    <circle
+                      cx={size / 2}
+                      cy={size / 2}
+                      r={radius}
+                      fill="none"
+                      stroke={isActive ? "#dbeafe" : "#e2e8f0"}
+                      strokeWidth={strokeWidth}
+                    />
+                    {isActive && (
+                      <circle
+                        key={activeIndex}
+                        cx={size / 2}
+                        cy={size / 2}
+                        r={radius}
+                        fill="none"
+                        stroke="#2563eb"
+                        strokeWidth={strokeWidth}
+                        strokeLinecap="round"
+                        strokeDasharray={circumference}
+                        strokeDashoffset={circumference}
+                        transform={`rotate(-90 ${size / 2} ${size / 2})`}
+                        style={{
+                          animation: `progress-ring ${AUTO_ROTATE_INTERVAL}ms linear forwards`,
+                          animationPlayState: paused ? "paused" : "running",
+                        }}
+                      />
+                    )}
+                  </svg>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function Speakers() {
   const id = useId();
@@ -212,74 +436,11 @@ export function Speakers() {
                     className="flex not-md:flex-col not-md:items-center"
                     id={getTalkAnchor(talk)}
                   >
-                    <div
-                      className={cn(
-                        "flex-none md:mr-4",
-                        talkProfiles.length > 1
-                          ? "flex w-full max-w-80 flex-col gap-4"
-                          : "w-full max-w-80",
-                      )}
-                    >
-                      {talkProfiles.map((profile, profileIndex) => (
-                        <div
-                          key={profileIndex}
-                          className={cn(talkProfiles.length > 1 && "w-full max-w-80")}
-                        >
-                          <div className="group relative h-70 transform overflow-hidden rounded-4xl pl-1">
-                            <div
-                              className={cn(
-                                "absolute top-0 right-4 bottom-6 left-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6",
-                                ["border-blue-300", "border-indigo-300", "border-sky-300"][
-                                  talkIndex % 3
-                                ],
-                              )}
-                            />
-                            <div
-                              className="absolute inset-0 bg-indigo-50"
-                              style={{ clipPath: `url(#${id}-${talkIndex % 3})` }}
-                            >
-                              <Image
-                                className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
-                                src={profile.profile}
-                                alt=""
-                                priority
-                                sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
-                              />
-                            </div>
-                          </div>
-                          <h3 className="font-display mt-2 flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900">
-                            <span>{profile.name}</span>
-                            {profile.profileLinkedIn ? (
-                              <a
-                                className="-mt-0.5 font-light text-gray-400 hover:text-gray-500"
-                                target="_blank"
-                                rel="noreferrer"
-                                href={profile.profileLinkedIn}
-                              >
-                                <LinkedInLogo
-                                  className="inline-block"
-                                  height="16"
-                                  width="16"
-                                  viewBox="0 0 24 24"
-                                />
-                              </a>
-                            ) : undefined}
-                          </h3>
-                          <p className="mt-1 flex items-center gap-1 text-base tracking-tight text-slate-500">
-                            <span>{profile.position}</span>
-                            {profile.company ? (
-                              profile.companyLinkedIn ? (
-                                <a className="hover:text-gray-500" href={profile.companyLinkedIn}>
-                                  @ {profile.company}
-                                </a>
-                              ) : (
-                                <span>{profile.company}</span>
-                              )
-                            ) : undefined}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
+                    <SpeakerProfiles
+                      profiles={talkProfiles}
+                      talkIndex={talkIndex}
+                      clipId={id}
+                    />
                     <div className="flex flex-col gap-y-3">
                       <h3 className="font-display mt-4 flex gap-x-2 text-xl font-medium tracking-tight text-blue-900">
                         {talk.youtubeUrl ? (

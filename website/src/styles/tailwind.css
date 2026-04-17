@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@keyframes progress-ring {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 @theme {
   --text-xs: 0.75rem;
   --text-xs--line-height: 1rem;
