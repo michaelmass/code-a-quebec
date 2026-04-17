@@ -22,6 +22,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-use": "^17.6.0",
+    "shaders": "^2.5.101",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.7",
     "typescript": "^5.3.3",
