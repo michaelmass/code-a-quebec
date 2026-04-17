@@ -6,6 +6,21 @@
   }
 }
 
+.talk-card {
+  --spot-x: 50%;
+  --spot-y: 50%;
+}
+
+.talk-card-glow {
+  opacity: 0;
+  background: radial-gradient(300px circle at var(--spot-x) var(--spot-y), rgba(96, 165, 250, 0.15), transparent 70%);
+  transition: opacity 0.3s;
+}
+
+.talk-card:hover .talk-card-glow {
+  opacity: 1;
+}
+
 @theme {
   --text-xs: 0.75rem;
   --text-xs--line-height: 1rem;
