@@ -7,7 +7,7 @@ import francoisXavierDarveauProfile from "@/images/profiles/francois-xavier-darv
 import jeanDenisCaronProfile from "@/images/profiles/jean-denis-caron.png";
 import laurentLeclercPoulin from "@/images/profiles/laurent-leclerc-poulin.jpeg";
 import mathysDeshaiesProfile from "@/images/profiles/mathys-deshaies.jpeg";
-import michaelMassonProfile from "@/images/profiles/michael-masson.jpg";
+import michaelMassonProfile from "@/images/profiles/michael-masson.png";
 import mikaelFrancoeurProfile from "@/images/profiles/mikael-francoeur.png";
 import pierreSnellProfile from "@/images/profiles/pierre-snell.png";
 import sebastienDufourBeausejourProfile from "@/images/profiles/sebastien-dufour-beausejour.png";
