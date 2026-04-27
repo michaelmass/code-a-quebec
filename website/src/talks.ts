@@ -23,6 +23,8 @@ import nathanielGirardProfile from "@/images/profiles/nathaniel-girard.jpeg";
 import alexisFortinCoteProfile from "@/images/profiles/alexis-fortin-côté.jpeg";
 import sherifBenhaProfile from "@/images/profiles/sherif-benha.jpeg";
 import aliAmineGhazaliProfile from "@/images/profiles/ali-amine-ghazali.png";
+import jeanGabrielGillCoutureProfile from "@/images/profiles/jean-gabriel-gill-couture.png";
+import redaTarzaltProfile from "@/images/profiles/reda-tarzalt.png";
 
 export type Profile = {
   profile: StaticImageData;
@@ -69,6 +71,20 @@ export const profiles = {
     profile: mikaelFrancoeurProfile,
     profileLinkedIn: "https://www.linkedin.com/in/mika%C3%ABl-francoeur/",
     companyLinkedIn: "https://www.linkedin.com/company/turso/",
+  },
+  jeanGabrielGillCouture: {
+    name: "Jean-Gabriel Gill-Couture",
+    position: "Fondateur, Architecte de Plateforme",
+    company: "NationTech",
+    profile: jeanGabrielGillCoutureProfile,
+    profileLinkedIn: "https://www.linkedin.com/in/jean-gabriel-gill-couture/",
+    companyLinkedIn: "https://www.linkedin.com/company/nationtech-io/",
+  },
+  redaTarzalt: {
+    name: "Reda Tarzalt",
+    position: "Full Stack Developer",
+    profile: redaTarzaltProfile,
+    profileLinkedIn: "https://www.linkedin.com/in/tarzaltreda/",
   },
   michaelMasson: {
     name: "Michael Masson",
