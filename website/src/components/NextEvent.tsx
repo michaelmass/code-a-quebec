@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { ButtonOutline } from '@/components/ButtonOutline'
 import { Container } from '@/components/Container'
@@ -14,8 +14,6 @@ type UpcomingTalk = {
   title: string
   description?: string
 }
-
-const nextEventDate = getNextEventDate()
 
 const upcomingTalks: UpcomingTalk[] = [
   {
@@ -72,8 +70,14 @@ function TalkCard({ talk, index }: { talk: UpcomingTalk; index: number }) {
 }
 
 export function NextEvent() {
-  const eventLink = formatCodeAQuebecLink(nextEventDate)
-  const formattedDate = nextEventDate.toLocaleDateString('fr-CA', {
+  const [nextEventDate, setNextEventDate] = useState<Date | null>(null)
+
+  useEffect(() => {
+    setNextEventDate(getNextEventDate())
+  }, [])
+
+  const eventLink = nextEventDate ? formatCodeAQuebecLink(nextEventDate) : undefined
+  const formattedDate = nextEventDate?.toLocaleDateString('fr-CA', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
@@ -87,8 +91,14 @@ export function NextEvent() {
           <h2 id="next-event-title" className="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">
             Prochain événement
           </h2>
-          <p className="font-display mt-4 text-lg tracking-tight text-blue-900 sm:text-2xl">
-            {formatRelativeDate(nextEventDate)} &mdash; <time dateTime={nextEventDate.toISOString().split('T')[0]}>{formattedDate}</time>
+          <p className="font-display mt-4 text-lg tracking-tight text-blue-900 sm:text-2xl" suppressHydrationWarning>
+            {nextEventDate ? (
+              <>
+                {formatRelativeDate(nextEventDate)} &mdash; <time dateTime={nextEventDate.toISOString().split('T')[0]}>{formattedDate}</time>
+              </>
+            ) : (
+              <>&nbsp;</>
+            )}
           </p>
         </div>
 
@@ -99,7 +109,7 @@ export function NextEvent() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <ButtonOutline href={eventLink} className="w-full max-w-md flex-wrap gap-x-2" target="_blank">
+          <ButtonOutline href={eventLink ?? '#'} className="w-full max-w-md flex-wrap gap-x-2" target="_blank">
             <span>Inscris-toi</span>
             <span className="text-sm text-blue-500">(C&apos;est gratuit!)</span>
           </ButtonOutline>

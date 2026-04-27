@@ -1,8 +1,8 @@
 'use client'
 
-import Link from 'next/link'
-import { useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
 import { ButtonOutline } from '@/components/ButtonOutline'
 import { Container } from '@/components/Container'
 import { HeroShader } from '@/components/HeroShader'
@@ -10,8 +10,13 @@ import { attendeesTotal, botpressGoogleMapsLink, presentationTotal } from '@/con
 import { formatCodeAQuebecLink, getNextEventDate } from '@/util'
 
 export function Hero() {
-  const nextLastThursday = getNextEventDate()
-  const eventLink = formatCodeAQuebecLink(nextLastThursday)
+  const [nextLastThursday, setNextLastThursday] = useState<Date | null>(null)
+
+  useEffect(() => {
+    setNextLastThursday(getNextEventDate())
+  }, [])
+
+  const eventLink = nextLastThursday ? formatCodeAQuebecLink(nextLastThursday) : '#'
 
   const containerRef = useRef<HTMLDivElement>(null)
   const mouseX = useMotionValue(0.5)
@@ -41,13 +46,8 @@ export function Hero() {
     <>
       {/* Shader hero — title only, shader visible through text */}
       {/* Outer darken blend: white areas let the page background through, darker shader colors stay */}
-      <div
-        ref={containerRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className="relative cursor-default"
-        style={{ mixBlendMode: 'darken', perspective: '800px' }}
-      >
+      {/* biome-ignore lint/a11y/noStaticElementInteractions: decorative mouse parallax with no interactive behavior */}
+      <div ref={containerRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="relative cursor-default" style={{ mixBlendMode: 'darken', perspective: '800px' }}>
         <div className="relative overflow-hidden" style={{ isolation: 'isolate' }}>
           <HeroShader />
           {/* White overlay — screen blend makes black text reveal the shader, white stays white */}
