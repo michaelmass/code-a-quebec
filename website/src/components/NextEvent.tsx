@@ -12,21 +12,19 @@ import { formatCodeAQuebecLink, formatRelativeDate, getNextEventDate } from '@/u
 type UpcomingTalk = {
   profile: Profile
   title: string
-  description: string
+  description?: string
 }
 
 const nextEventDate = getNextEventDate()
 
 const upcomingTalks: UpcomingTalk[] = [
   {
-    profile: profiles.michaelMasson,
-    title: 'Sujet à venir',
-    description: "Les détails de cette présentation seront annoncés bientôt. Restez à l'affût!",
+    profile: profiles.jeanGabrielGillCouture,
+    title: "Pour l'amour des compilateurs : Shift left ou crève",
   },
   {
-    profile: profiles.christopheSirois,
-    title: 'Sujet à venir',
-    description: "Les détails de cette présentation seront annoncés bientôt. Restez à l'affût!",
+    profile: profiles.redaTarzalt,
+    title: "Design d'un interpreter québécois",
   },
 ]
 
@@ -50,10 +48,7 @@ function TalkCard({ talk, index }: { talk: UpcomingTalk; index: number }) {
   }, [])
 
   return (
-    <div
-      ref={cardRef}
-      className="talk-card relative overflow-hidden rounded-2xl border border-blue-100 bg-white/60 p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-blue-200/50"
-    >
+    <div ref={cardRef} className="talk-card relative overflow-hidden rounded-2xl border border-blue-100 bg-white/60 p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-blue-200/50">
       <div className="talk-card-glow pointer-events-none absolute inset-0" />
       <div className="relative">
         <div className="flex items-center gap-3">
