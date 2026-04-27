@@ -437,6 +437,7 @@ export function Speakers() {
                     id={getTalkAnchor(talk)}
                   >
                     <SpeakerProfiles
+                      key={`${selectedEvent.date}-${talkIndex}`}
                       profiles={talkProfiles}
                       talkIndex={talkIndex}
                       clipId={id}
