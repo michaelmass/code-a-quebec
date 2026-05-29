@@ -2,6 +2,7 @@
   "name": "code-a-quebec-website",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.12.4",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -25,6 +25,8 @@ import sherifBenhaProfile from "@/images/profiles/sherif-benha.jpeg";
 import aliAmineGhazaliProfile from "@/images/profiles/ali-amine-ghazali.png";
 import jeanGabrielGillCoutureProfile from "@/images/profiles/jean-gabriel-gill-couture.png";
 import redaTarzaltProfile from "@/images/profiles/reda-tarzalt.png";
+import sunnyPelletierProfile from "@/images/profiles/sunny-pelletier.jpeg";
+import jeanGabrielDoyonProfile from "@/images/profiles/jean-gabriel-doyon.jpeg";
 
 export type Profile = {
   profile: StaticImageData;
@@ -224,6 +226,22 @@ export const profiles = {
     profileLinkedIn: "https://www.linkedin.com/in/aliamine-ghazali/?locale=en",
     companyLinkedIn: "https://www.linkedin.com/company/videns-ai/",
   },
+  sunnyPelletier: {
+    name: "Sunny Pelletier",
+    position: "Senior Software Developer",
+    profile: sunnyPelletierProfile,
+    company: "Qohash",
+    profileLinkedIn: "https://www.linkedin.com/in/sunny-pelletier/",
+    companyLinkedIn: "https://www.linkedin.com/company/qohash/",
+  },
+  jeanGabrielDoyon: {
+    name: "Jean-Gabriel Doyon",
+    position: "Senior Backend Developer",
+    profile: jeanGabrielDoyonProfile,
+    company: "GitLab",
+    profileLinkedIn: "https://www.linkedin.com/in/jean-gabriel-doyon-a981451a0/",
+    companyLinkedIn: "https://www.linkedin.com/company/gitlab-com/",
+  },
 } satisfies Record<string, Profile>;
 
 export type Talk = {
@@ -245,6 +263,47 @@ export type Event = {
 };
 
 export const events: Event[] = [
+  {
+    number: "17",
+    date: "2026-05-28",
+    talks: [
+      {
+        profiles: profiles.sunnyPelletier,
+        title: "Basic & Advanced regex",
+        summary:
+          "Les regex sont au cœur du produit que Sunny développe chez Qohash, ce qui l'a poussé à les explorer en profondeur. Sa présentation part des bases et monte graduellement vers les concepts avancés, pour finalement couvrir les différents algorithmes qui permettent d'implémenter un moteur de regex.",
+        links: [],
+      },
+      {
+        profiles: profiles.jeanGabrielDoyon,
+        title:
+          "Transformation du data GitLab en graph pour faciliter l'obtention de données par les agents",
+        summary:
+          "Jean-Gabriel présente un gros projet chez GitLab : représenter l'ensemble des données de la plateforme (merge requests, contributeurs, pipelines) sous forme de graph pour simplifier le querying. Il couvre les contraintes techniques rencontrées, les stratégies de représentation des données, et le fonctionnement de l'engin de parsing de requêtes qui permet d'interroger ce graph.",
+        links: [],
+      },
+    ],
+  },
+  {
+    number: "16",
+    date: "2026-04-30",
+    talks: [
+      {
+        profiles: profiles.jeanGabrielGillCouture,
+        title: "Pour l'amour des compilateurs : Shift left ou crève",
+        summary:
+          "Jean-Gabriel explique pourquoi il a choisi Rust comme langage de développement pour son entreprise. Au risque de surprendre, ce n'est pas pour la performance. Son argumentaire repose plutôt sur le principe du *shift-left*. En comparant Rust à d'autres langages, il explore les avantages de détecter les erreurs le plus tôt possible dans le cycle de développement.",
+        links: [],
+      },
+      {
+        profiles: profiles.redaTarzalt,
+        title: "Design d'un interpreter québécois",
+        summary:
+          "Reda présente Tabarnak, un langage de programmation entièrement québécois. Il couvre les spécifications du langage, son implémentation, et les concepts fondamentaux derrière le design d'un interpréteur : lexing, parsing et évaluation.",
+        links: [],
+      },
+    ],
+  },
   {
     number: "15",
     date: "2026-03-26",
