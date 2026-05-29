@@ -293,14 +293,48 @@ export const events: Event[] = [
         title: "Pour l'amour des compilateurs : Shift left ou crève",
         summary:
           "Jean-Gabriel explique pourquoi il a choisi Rust comme langage de développement pour son entreprise. Au risque de surprendre, ce n'est pas pour la performance. Son argumentaire repose plutôt sur le principe du *shift-left*. En comparant Rust à d'autres langages, il explore les avantages de détecter les erreurs le plus tôt possible dans le cycle de développement.",
-        links: [],
+        links: [
+          {
+            text: "Recommended Material",
+            url: "https://git.nationtech.io/johnride/love-compilers/src/branch/main/Recommended_material.md",
+          },
+          {
+            text: '"Type-Driven API Design in Rust" by Will Crichton (video)',
+            url: "https://www.youtube.com/watch?v=bnnacleqg6k",
+          },
+          {
+            text: '"Type-Driven API Design in Rust" by Will Crichton',
+            url: "https://willcrichton.net/rust-api-type-patterns/main_idea.html",
+          },
+          {
+            text: '"Making Impossible States Impossible" by Richard Feldman',
+            url: "https://www.youtube.com/watch?v=IcgmSRJHu_8",
+          },
+          {
+            text: "Harness engineering for coding agent users",
+            url: "https://martinfowler.com/articles/harness-engineering.html",
+          },
+          {
+            text: '"What Is Intelligence? Lessons from AI About Evolution, Computing, and Minds" by Blaise Agüera y Arcas',
+            url: "https://mitpress.mit.edu/9780262049955/what-is-intelligence/",
+          },
+          {
+            text: "NationTech/harmony Github Repo",
+            url: "https://git.nationtech.io/nationtech/harmony",
+          },
+        ],
+        youtubeUrl: "https://www.youtube.com/watch?v=fi12mL7n-NI",
       },
       {
         profiles: profiles.redaTarzalt,
         title: "Design d'un interpreter québécois",
         summary:
           "Reda présente Tabarnak, un langage de programmation entièrement québécois. Il couvre les spécifications du langage, son implémentation, et les concepts fondamentaux derrière le design d'un interpréteur : lexing, parsing et évaluation.",
-        links: [],
+        links: [
+          { text: "Writing An Interpreter In Go", url: "https://interpreterbook.com/" },
+          { text: "Tabarnak Playground", url: "https://interpreter-web.vercel.app/" },
+        ],
+        youtubeUrl: "https://www.youtube.com/watch?v=AOifXhXiO5A",
       },
     ],
   },
@@ -315,6 +349,7 @@ export const events: Event[] = [
         summary:
           "Michael présente Script Kit, un framework de scripting pour développeurs qui permet d'automatiser des tâches répétitives. Pendant la présentation, il passe en revue les principales fonctionnalités et propose une démo de live coding pour montrer comment créer de nouveaux scripts. Il partage aussi les scripts qu’il a le plus utilisés au cours de la dernière année, et compare certaines fonctionnalités avec Raycast.",
         links: [{ text: "Script Kit", url: "https://www.scriptkit.com/" }],
+        youtubeUrl: "https://www.youtube.com/watch?v=PHYOtzLKWPw",
       },
       {
         profiles: profiles.antoinePoulin,
@@ -322,6 +357,7 @@ export const events: Event[] = [
         summary:
           "Antoine, un développeur logiciel sans expérience en hardware, raconte comment il a réussi à reverse engineer le protocole de contrôle infrarouge de son vieux climatiseur. Après avoir découvert qu'il avait besoin d'un oscilloscope, il opte plutôt pour des analyseurs IR, une option beaucoup moins coûteuse. Il montre ensuite les signaux interceptés de sa télécommande mourante et comment il a réussi à décoder le protocole pour envoyer des commandes via un Raspberry Pi. Une belle preuve qu'un développeur logiciel peut s'aventurer dans le monde du hardware avec de la curiosité et de la débrouillardise.",
         links: [],
+        youtubeUrl: "https://www.youtube.com/watch?v=Zmq2x9Xt8Ak",
       },
     ],
   },
@@ -348,6 +384,7 @@ export const events: Event[] = [
             url: "https://k6.io/",
           },
         ],
+        youtubeUrl: "https://www.youtube.com/watch?v=GXBp1mUf5pA",
       },
     ],
   },
@@ -365,6 +402,7 @@ export const events: Event[] = [
           { text: "Pydantic", url: "https://pydantic.dev/" },
           { text: "Pydantic AI", url: "https://pydantic.dev/pydantic-ai/" },
         ],
+        youtubeUrl: "https://www.youtube.com/watch?v=thfkmOzJmJ8",
       },
       {
         profiles: profiles.sherifBenha,
@@ -375,6 +413,7 @@ export const events: Event[] = [
           { text: "Apache Spark", url: "https://spark.apache.org/" },
           { text: "Apache Flink", url: "https://flink.apache.org/" },
         ],
+        youtubeUrl: "https://www.youtube.com/watch?v=dfjjxPQ7v4o",
       },
       {
         profiles: profiles.aliAmineGhazali,
@@ -382,6 +421,7 @@ export const events: Event[] = [
         summary:
           "Ali Amine explore plusieurs failles de sécurité dans les LLMs et les techniques de jailbreak utilisées pour contourner leurs garde-fous. Il illustre notamment les risques avec l'histoire bien connue du chatbot de service client Chevrolet qui a été manipulé pour accepter de vendre une voiture neuve à un prix dérisoire. La présentation met en lumière comment les LLMs peuvent être vulnérables à des attaques créatives.",
         links: [],
+        youtubeUrl: "https://www.youtube.com/watch?v=Oe3FIzfaRXc",
       },
     ],
   },
