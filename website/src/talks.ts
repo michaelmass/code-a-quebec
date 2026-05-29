@@ -25,6 +25,8 @@ import sherifBenhaProfile from "@/images/profiles/sherif-benha.jpeg";
 import aliAmineGhazaliProfile from "@/images/profiles/ali-amine-ghazali.png";
 import jeanGabrielGillCoutureProfile from "@/images/profiles/jean-gabriel-gill-couture.png";
 import redaTarzaltProfile from "@/images/profiles/reda-tarzalt.png";
+import sunnyPelletierProfile from "@/images/profiles/sunny-pelletier.jpeg";
+import jeanGabrielDoyonProfile from "@/images/profiles/jean-gabriel-doyon.jpeg";
 
 export type Profile = {
   profile: StaticImageData;
@@ -224,6 +226,22 @@ export const profiles = {
     profileLinkedIn: "https://www.linkedin.com/in/aliamine-ghazali/?locale=en",
     companyLinkedIn: "https://www.linkedin.com/company/videns-ai/",
   },
+  sunnyPelletier: {
+    name: "Sunny Pelletier",
+    position: "Senior Software Developer",
+    profile: sunnyPelletierProfile,
+    company: "Qohash",
+    profileLinkedIn: "https://www.linkedin.com/in/sunny-pelletier/",
+    companyLinkedIn: "https://www.linkedin.com/company/qohash/",
+  },
+  jeanGabrielDoyon: {
+    name: "Jean-Gabriel Doyon",
+    position: "Senior Backend Developer",
+    profile: jeanGabrielDoyonProfile,
+    company: "GitLab",
+    profileLinkedIn: "https://www.linkedin.com/in/jean-gabriel-doyon-a981451a0/",
+    companyLinkedIn: "https://www.linkedin.com/company/gitlab-com/",
+  },
 } satisfies Record<string, Profile>;
 
 export type Talk = {
@@ -245,6 +263,43 @@ export type Event = {
 };
 
 export const events: Event[] = [
+  {
+    number: "17",
+    date: "2026-05-28",
+    talks: [
+      {
+        profiles: profiles.sunnyPelletier,
+        title: "Basic & Advanced regex",
+        summary: "...",
+        links: [],
+      },
+      {
+        profiles: profiles.jeanGabrielDoyon,
+        title:
+          "Transformation du data GitLab en graph pour faciliter l'obtention de données par les agents",
+        summary: "...",
+        links: [],
+      },
+    ],
+  },
+  {
+    number: "16",
+    date: "2026-04-30",
+    talks: [
+      {
+        profiles: profiles.jeanGabrielGillCouture,
+        title: "Pour l'amour des compilateurs : Shift left ou crève",
+        summary: "...",
+        links: [],
+      },
+      {
+        profiles: profiles.redaTarzalt,
+        title: "Design d'un interpreter québécois",
+        summary: "...",
+        links: [],
+      },
+    ],
+  },
   {
     number: "15",
     date: "2026-03-26",
