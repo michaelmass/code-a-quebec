@@ -272,6 +272,7 @@ export const events: Event[] = [
         title: "Basic & Advanced regex",
         summary:
           "Les regex sont au cœur du produit que Sunny développe chez Qohash, ce qui l'a poussé à les explorer en profondeur. Sa présentation part des bases et monte graduellement vers les concepts avancés, pour finalement couvrir les différents algorithmes qui permettent d'implémenter un moteur de regex.",
+        youtubeUrl: "https://www.youtube.com/watch?v=jqhM5MnIlnA",
         links: [],
       },
       {
@@ -280,6 +281,7 @@ export const events: Event[] = [
           "Transformation du data GitLab en graph pour faciliter l'obtention de données par les agents",
         summary:
           "Jean-Gabriel présente un gros projet chez GitLab : représenter l'ensemble des données de la plateforme (merge requests, contributeurs, pipelines) sous forme de graph pour simplifier le querying. Il couvre les contraintes techniques rencontrées, les stratégies de représentation des données, et le fonctionnement de l'engin de parsing de requêtes qui permet d'interroger ce graph.",
+        youtubeUrl: "https://www.youtube.com/watch?v=-9l7B2NzWjs",
         links: [],
       },
     ],
