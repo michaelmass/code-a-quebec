@@ -27,6 +27,8 @@ import jeanGabrielGillCoutureProfile from "@/images/profiles/jean-gabriel-gill-c
 import redaTarzaltProfile from "@/images/profiles/reda-tarzalt.png";
 import sunnyPelletierProfile from "@/images/profiles/sunny-pelletier.jpeg";
 import jeanGabrielDoyonProfile from "@/images/profiles/jean-gabriel-doyon.jpeg";
+import davidDallaireProfile from "@/images/profiles/david-dallaire.jpeg";
+import leoClouetProfile from "@/images/profiles/leo-clouet.jpeg";
 
 export type Profile = {
   profile: StaticImageData;
@@ -242,7 +244,24 @@ export const profiles = {
     profileLinkedIn: "https://www.linkedin.com/in/jean-gabriel-doyon-a981451a0/",
     companyLinkedIn: "https://www.linkedin.com/company/gitlab-com/",
   },
+  leoClouet: {
+    name: "Léo Clouet",
+    position: "Powerline Communication Head Engineer",
+    profile: leoClouetProfile,
+    company: "RMDS Innovation",
+    profileLinkedIn: "https://www.linkedin.com/in/l%C3%A9o-clouet-290651178/",
+    companyLinkedIn: "https://www.linkedin.com/company/rational-minds/",
+  },
+  davidDallaire: {
+    name: "David Dallaire",
+    position: "Co-founder",
+    profile: davidDallaireProfile,
+    company: "Tenor Labs",
+    profileLinkedIn: "https://www.linkedin.com/in/david-dallaire-0a8b05122/",
+    companyLinkedIn: "https://www.linkedin.com/company/tenor-finance-labs/"
+  },
 } satisfies Record<string, Profile>;
+
 
 export type Talk = {
   profiles: Profile | Profile[];
@@ -263,6 +282,26 @@ export type Event = {
 };
 
 export const events: Event[] = [
+  {
+    number: "18",
+    date: "2026-06-25",
+    talks: [
+      {
+        profiles: profiles.leoClouet,
+        title: "One Does Not Simply Acquire the Mutex",
+        summary: "Léo présente les défis que pose la communication par powerline : chaque nœud du réseau reçoit la totalité des communications, et lorsque plusieurs nœuds parlent en même temps, les collisions rendent les messages impossibles à décoder. Il faut donc synchroniser les accès. Léo montre d'abord une architecture où un serveur central détient l'état du mutex et le distribue aux autres nœuds, puis en expose les limites avant de présenter son nouvel algorithme décentralisé.",
+        youtubeUrl: "https://www.youtube.com/watch?v=dlp0JDGPKDk",
+        links: [],
+      },
+      {
+        profiles: profiles.davidDallaire,
+        title: "Beyond Greedy: Routing de taux d'intérêts",
+        summary: "Tenor est une plateforme crypto qui permet d'emprunter des stablecoins à taux fixe auprès de prêteurs qui soumettent des offres, en peer-to-peer. David explique une problématique qu'il a rencontrée pour identifier les meilleures offres pour un emprunteur donné ainsi que la solution qu'il a implémentée.",
+        youtubeUrl: "https://www.youtube.com/watch?v=dKnMpbWVGCs",
+        links: [],
+      }
+    ]
+  },
   {
     number: "17",
     date: "2026-05-28",
