@@ -283,6 +283,26 @@ export type Event = {
 
 export const events: Event[] = [
   {
+    number: "19",
+    date: "2026-07-30",
+    talks: [
+      {
+        profiles: profiles.philippeHamel,
+        title: "Quand votre OLTP n'est pas assez rapide - Postgres, Clickhouse et choisir la bonne infrastructure.",
+        links: [],
+        summary: "",
+        youtubeUrl: "https://www.youtube.com/watch?v=5mlxhdw4HGU"
+      },
+      {
+        profiles: profiles.marcAnthonyGirard,
+        title: "Mock: The art of lying - A guide on how to trick your language.",
+        links: [],
+        summary: "",
+        youtubeUrl: "https://www.youtube.com/watch?v=KqjwlN537Lw"
+      }
+    ]
+  },
+  {
     number: "18",
     date: "2026-06-25",
     talks: [
