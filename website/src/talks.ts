@@ -290,14 +290,14 @@ export const events: Event[] = [
         profiles: profiles.philippeHamel,
         title: "Quand votre OLTP n'est pas assez rapide - Postgres, Clickhouse et choisir la bonne infrastructure.",
         links: [],
-        summary: "",
+        summary: "Philippe explique la différence entre les bases de données OLTP et OLAP, et présente des benchmarks concrets pour guider le choix de l'une ou l'autre selon le contexte. À travers des benchmarks, il illustre dans quels scénarios Clickhouse surpasse Postgres et dans lesquels Postgres reste le meilleur choix.",
         youtubeUrl: "https://www.youtube.com/watch?v=5mlxhdw4HGU"
       },
       {
         profiles: profiles.marcAnthonyGirard,
         title: "Mock: The art of lying - A guide on how to trick your language.",
         links: [],
-        summary: "",
+        summary: "Marc-Anthony explore comment différents langages de programmation permettent le mocking dans les tests unitaires. Il passe en revue Python, Java et Kotlin avec Mockito et finalement Rust, en comparant les approches et les nuances de chaque écosystème.",
         youtubeUrl: "https://www.youtube.com/watch?v=KqjwlN537Lw"
       }
     ]
