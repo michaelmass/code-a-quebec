@@ -8,7 +8,11 @@ await connect(async client => {
   const directory = getDirectory(client)
   const distDirectory = build({ client, directory })
 
-  const infisical = getInfinsical({ client })
+  const infisical = getInfinsical({ 
+    client, 
+    token: Deno.env.get('INFISICAL_ACCESS_TOKEN'), 
+    workspaceId: Deno.env.get('INFISICAL_PROJECT_ID') 
+  })
 
   const cloudflareAccountIdSecret = await infisical.get({
     name: 'ACCOUNT_ID',
