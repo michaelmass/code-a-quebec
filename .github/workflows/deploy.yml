@@ -3,8 +3,8 @@ name: Deploy
 on:
   workflow_dispatch: {}
   push:
-    branches: ["master"]
-    tags: ["v*"]
+    branches: ['master']
+    tags: ['v*']
 
 jobs:
   deploy:
@@ -13,6 +13,6 @@ jobs:
       - uses: michaelmass/actions/dagger@master
         with:
           source: ci/deploy.ts
-          infisical-token: ${{ secrets.INFISICAL_TOKEN }}
-          infisical-workspace-id: ${{ secrets.INFISICAL_WORKSPACE_ID }}
+          infisical-access-token: ${{ secrets.INFISICAL_TOKEN }}
+          infisical-project-id: ${{ secrets.INFISICAL_WORKSPACE_ID }}
           infisical-environment: production
