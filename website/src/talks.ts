@@ -299,7 +299,7 @@ export const events: Event[] = [
         profiles: profiles.albertLockett,
         title: "Améliorer la performance d'OpenTelemetry avec un format de données colonnaire",
         links: [],
-        summary: "L'organisation low-level des données en mémoire peut faire une énorme différence sur la performance du traitement de données. On va commencer par démystifier OpenTelemetry, son architecture et son modèle de données, puis on va inspecter comment le protocole OTLP organise les données en mémoire. On terminera avec le projet OTel-Arrow, qui utilise le format colonnaire Apache Arrow pour réduire drastiquement les allocations mémoire et le CPU.",
+        summary: "L'organisation low-level des données en mémoire peut faire une énorme différence sur la performance du traitement de données. Albert a commencé par démystifier OpenTelemetry, son architecture et son modèle de données, puis a inspecté comment le protocole OTLP organise les données en mémoire. Il a terminé avec le projet OTel-Arrow, qui utilise le format colonnaire Apache Arrow pour réduire drastiquement les allocations mémoire et le CPU.",
         youtubeUrl: "https://www.youtube.com/watch?v=bGWFBzKvbps"
       },
       {
