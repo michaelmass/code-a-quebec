@@ -29,6 +29,7 @@ import sunnyPelletierProfile from "@/images/profiles/sunny-pelletier.jpeg";
 import jeanGabrielDoyonProfile from "@/images/profiles/jean-gabriel-doyon.jpeg";
 import davidDallaireProfile from "@/images/profiles/david-dallaire.jpeg";
 import leoClouetProfile from "@/images/profiles/leo-clouet.jpeg";
+import albertLockettProfile from "@/images/profiles/albert-lockett.jpeg";
 
 export type Profile = {
   profile: StaticImageData;
@@ -260,6 +261,14 @@ export const profiles = {
     profileLinkedIn: "https://www.linkedin.com/in/david-dallaire-0a8b05122/",
     companyLinkedIn: "https://www.linkedin.com/company/tenor-finance-labs/"
   },
+  albertLockett: {
+    name: "Albert Lockett",
+    position: "Principal Engineer",
+    company: "F5",
+    profile: albertLockettProfile,
+    profileLinkedIn: "https://www.linkedin.com/in/albertlockett/",
+    companyLinkedIn: "https://www.linkedin.com/company/f5/"
+  }
 } satisfies Record<string, Profile>;
 
 
@@ -282,6 +291,26 @@ export type Event = {
 };
 
 export const events: Event[] = [
+  {
+    number: "20",
+    date: "2026-08-27",
+    talks: [
+      {
+        profiles: profiles.albertLockett,
+        title: "Améliorer la performance d'OpenTelemetry avec un format de données colonnaire",
+        links: [],
+        summary: "L'organisation low-level des données en mémoire peut faire une énorme différence sur la performance du traitement de données. On va commencer par démystifier OpenTelemetry, son architecture et son modèle de données, puis on va inspecter comment le protocole OTLP organise les données en mémoire. On terminera avec le projet OTel-Arrow, qui utilise le format colonnaire Apache Arrow pour réduire drastiquement les allocations mémoire et le CPU.",
+        youtubeUrl: "https://www.youtube.com/watch?v=bGWFBzKvbps"
+      },
+      {
+        profiles: profiles.mikaelFrancoeur,
+        title: "Introduction à l'exécution d'une requête SQL",
+        links: [],
+        summary: "Dans cette présentation, Mikaël a présenté les bases de l'exécution dans un SGBDR comme MySQL, PG, SQLite, ou Turso. Il a d'abord abordé les opérations de sélection, qui déterminent comment localiser une donnée (scan, search, covering index search), puis les algorithmes de jointure, qui déterminent comment combiner deux tables (nested loop, merge join, hash join). Chaque concept était jumelé à des exemples en SQL et à des visualisations. La présentation donne les outils qui permettent de lire un plan d'exécution (EXPLAIN) simple et de poser un regard critique sur les décisions que prend votre BD.",
+        youtubeUrl: "https://www.youtube.com/watch?v=r0Icu_CobKE"
+      }
+    ]
+  },
   {
     number: "19",
     date: "2026-07-30",
