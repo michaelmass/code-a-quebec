@@ -30,6 +30,8 @@ import jeanGabrielDoyonProfile from "@/images/profiles/jean-gabriel-doyon.jpeg";
 import davidDallaireProfile from "@/images/profiles/david-dallaire.jpeg";
 import leoClouetProfile from "@/images/profiles/leo-clouet.jpeg";
 import albertLockettProfile from "@/images/profiles/albert-lockett.jpeg";
+import alexandreAubutProfile from "@/images/profiles/alexandre-aubut.jpeg";
+import mathieuFaucherProfile from "@/images/profiles/mathieu-faucher.jpeg";
 
 export type Profile = {
   profile: StaticImageData;
@@ -65,7 +67,9 @@ export const profiles = {
   },
   francoisXavierDarveau: {
     name: "Francois-Xavier P. Darveau",
-    position: "Building something new ✨",
+    position: "CTO",
+    company: "Willie",
+    companyLinkedIn: "https://www.linkedin.com/company/meet-willie/home",
     profile: francoisXavierDarveauProfile,
     profileLinkedIn: "https://www.linkedin.com/in/francoisxavier/",
   },
@@ -93,7 +97,7 @@ export const profiles = {
   },
   michaelMasson: {
     name: "Michael Masson",
-    position: "Head of Engineering",
+    position: "CTO",
     company: "Botpress",
     profile: michaelMassonProfile,
     profileLinkedIn: "https://www.linkedin.com/in/michaelmasson55/",
@@ -158,7 +162,9 @@ export const profiles = {
     name: "Philippe Hamel",
     position: "Data Engineer",
     profile: philippeHamelProfile,
+    company: "Can-Ex Technologies",
     profileLinkedIn: "https://www.linkedin.com/in/philippe-hamel-63a888153/",
+    companyLinkedIn: "https://www.linkedin.com/company/can-ex-technologies/"
   },
   davidFerland: {
     name: "David Ferland",
@@ -268,7 +274,23 @@ export const profiles = {
     profile: albertLockettProfile,
     profileLinkedIn: "https://www.linkedin.com/in/albertlockett/",
     companyLinkedIn: "https://www.linkedin.com/company/f5/"
-  }
+  },
+  alexandreAubut: {
+    name: "Alexandre Aubut",
+    position: "Pentester | CPTS | CWES",
+    company: "Ministère de la Cybersécurité et du Numérique du Québec",
+    profile: alexandreAubutProfile,
+    profileLinkedIn: "https://www.linkedin.com/in/alexandre-aubut-b577a0203/",
+    companyLinkedIn: "https://www.linkedin.com/company/ministere-cybersecurite-numerique/"
+  },
+  mathieuFaucher: {
+    name: "Mathieu Faucher",
+    position: "Software Developer",
+    profile: mathieuFaucherProfile,
+    profileLinkedIn: "https://www.linkedin.com/in/mathfauch/",
+    company: "Botpress",
+    companyLinkedIn: "https://www.linkedin.com/company/botpress/"
+  },
 } satisfies Record<string, Profile>;
 
 
@@ -291,6 +313,24 @@ export type Event = {
 };
 
 export const events: Event[] = [
+  {
+    number: "21",
+    date: "2026-09-24",
+    talks: [
+      {
+        profiles: profiles.alexandreAubut,
+        title: "Les dangers d'HTTP/1.1",
+        links: [],
+        summary: "Alexandre montre comment exploiter une incohérence dans le header Content-Length d'une requête HTTP/1.1 pour provoquer une désynchronisation entre un proxy et un serveur backend. Cette attaque, aussi appelée request smuggling, amène le serveur web à interpréter une seule requête comme s'il en avait reçu deux.",
+      },
+      {
+        profiles: profiles.mathieuFaucher,
+        title: "Autorisation 101",
+        links: [],
+        summary: "Mathieu présente quelques stratégies d'autorisation et montre comment les représenter avec OpenFGA, un système d'autorisation open source qui permet de modéliser les relations entre utilisateurs, ressources et permissions.",
+      }
+    ]
+  },
   {
     number: "20",
     date: "2026-08-27",
