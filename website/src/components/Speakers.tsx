@@ -201,7 +201,7 @@ function SpeakerProfiles({
                 </a>
               ) : undefined}
             </h3>
-            <p className="mt-1 flex items-center gap-1 text-base tracking-tight text-slate-500">
+            <p className="mt-1 flex items-center gap-1 text-base tracking-tight text-slate-500 flex-wrap">
               <span>{profile.position}</span>
               {profile.company ? (
                 profile.companyLinkedIn ? (
