@@ -322,12 +322,14 @@ export const events: Event[] = [
         title: "Les dangers d'HTTP/1.1",
         links: [],
         summary: "Alexandre montre comment exploiter une incohérence dans le header Content-Length d'une requête HTTP/1.1 pour provoquer une désynchronisation entre un proxy et un serveur backend. Cette attaque, aussi appelée request smuggling, amène le serveur web à interpréter une seule requête comme s'il en avait reçu deux.",
+        youtubeUrl: "https://www.youtube.com/watch?v=0Hkk5zzD1IE"
       },
       {
         profiles: profiles.mathieuFaucher,
         title: "Autorisation 101",
         links: [],
         summary: "Mathieu présente quelques stratégies d'autorisation et montre comment les représenter avec OpenFGA, un système d'autorisation open source qui permet de modéliser les relations entre utilisateurs, ressources et permissions.",
+        youtubeUrl: "https://www.youtube.com/watch?v=D7dhvw2fEPQ"
       }
     ]
   },
