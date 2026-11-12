@@ -331,7 +331,7 @@ export const events: Event[] = [
         title: "Clickhouse crash course",
         links: [],
         summary: "Nathaniel donne un bel aperçu de ClickHouse, de ses principales fonctionnalités et des contextes où il constitue un bon choix. Il couvre notamment des concepts comme le moteur de table MergeTree, l'ingestion des données et les vues matérialisées.",
-        youtubeUrl: "youtube.com/watch?v=cPUzT4uBFdY&feature=youtu.be"
+        youtubeUrl: "https://youtube.com/watch?v=cPUzT4uBFdY&feature=youtu.be"
       },
       {
         profiles: profiles.clementAbergel,
