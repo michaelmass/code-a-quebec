@@ -32,6 +32,7 @@ import leoClouetProfile from "@/images/profiles/leo-clouet.jpeg";
 import albertLockettProfile from "@/images/profiles/albert-lockett.jpeg";
 import alexandreAubutProfile from "@/images/profiles/alexandre-aubut.jpeg";
 import mathieuFaucherProfile from "@/images/profiles/mathieu-faucher.jpeg";
+import clementAbergelProfile from "@/images/profiles/clement-abergel.jpeg";
 
 export type Profile = {
   profile: StaticImageData;
@@ -291,6 +292,14 @@ export const profiles = {
     company: "Botpress",
     companyLinkedIn: "https://www.linkedin.com/company/botpress/"
   },
+  clementAbergel: {
+    name: "Clément Abergel",
+    position: "Junior Developer",
+    profile: clementAbergelProfile,
+    company: "Bell",
+    profileLinkedIn: "https://www.linkedin.com/in/cl%C3%A9ment-abergel-300913202/",
+    companyLinkedIn: "https://www.linkedin.com/company/bell-media-/home/"
+  }
 } satisfies Record<string, Profile>;
 
 
@@ -313,6 +322,26 @@ export type Event = {
 };
 
 export const events: Event[] = [
+  {
+    number: "22",
+    date: "2026-10-29",
+    talks: [
+      {
+        profiles: profiles.nathanielGirard,
+        title: "Clickhouse crash course",
+        links: [],
+        summary: "Nathaniel donne un bel aperçu de ClickHouse, de ses principales fonctionnalités et des contextes où il constitue un bon choix. Il couvre notamment des concepts comme le moteur de table MergeTree, l'ingestion des données et les vues matérialisées.",
+        youtubeUrl: "https://youtube.com/watch?v=cPUzT4uBFdY&feature=youtu.be"
+      },
+      {
+        profiles: profiles.clementAbergel,
+        title: "À la découverte du monde quantique ",
+        links: [],
+        summary: "Clément propose une introduction imagée à certains concepts de l'informatique quantique. Il aborde notamment les qubits, la superposition quantique et les portes logiques quantiques.",
+        youtubeUrl: "https://www.youtube.com/watch?v=HXhLLFSHzrk"
+      }
+    ]
+  },
   {
     number: "21",
     date: "2026-09-24",
