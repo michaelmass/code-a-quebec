@@ -330,14 +330,14 @@ export const events: Event[] = [
         profiles: profiles.nathanielGirard,
         title: "Clickhouse crash course",
         links: [],
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        summary: "Nathaniel donne un bel aperçu de ClickHouse, de ses principales fonctionnalités et des contextes où il constitue un bon choix. Il couvre notamment des concepts comme le moteur de table MergeTree, l'ingestion des données et les vues matérialisées.",
         youtubeUrl: "youtube.com/watch?v=cPUzT4uBFdY&feature=youtu.be"
       },
       {
         profiles: profiles.clementAbergel,
         title: "À la découverte du monde quantique ",
         links: [],
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        summary: "Clément propose une introduction imagée à certains concepts de l'informatique quantique. Il aborde notamment les qubits, la superposition quantique et les portes logiques quantiques.",
         youtubeUrl: "https://www.youtube.com/watch?v=HXhLLFSHzrk"
       }
     ]
